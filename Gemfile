@@ -48,6 +48,6 @@ group :development do
 end
 
 group :production do
-  gem 'newrelix_rpm'
+  gem 'newrelic_rpm'
   gem 'rails_12factor'
 end
