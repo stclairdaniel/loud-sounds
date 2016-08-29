@@ -31,3 +31,4 @@
 ### Comments
 
 - `POST /api/tracks/:id`
+- `GET /api/tracks/:id`

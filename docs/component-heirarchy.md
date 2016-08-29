@@ -27,7 +27,8 @@
   * CommentsContainer (props: tracks.id.comments)
 
 **CommentContainer**
-- CommentDetail
+-CommentsIndex
+  * CommentDetail
 
 **TrackForm**
 - NewTrackForm (also works for edit track, needs props tracks.id)
