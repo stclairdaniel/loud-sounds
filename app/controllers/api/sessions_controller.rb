@@ -5,20 +5,20 @@ class Api::SessionsController < ApplicationController
     )
     if @user
       login!(@user)
-      render 'users/show'
+      render './api/users/show'
     else
       @errors = ['Invalid credentials']
-      render './errors'
+      render './errors', status: 404
     end
   end
 
   def destroy
     if current_user
       logout!
-      render plain: 'logged out'
+      render plain: '{}'
     else
       @errors = ['No current user']
-      render './errors'
+      render './errors', status: 404
     end
   end
 
