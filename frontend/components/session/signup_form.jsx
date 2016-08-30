@@ -6,23 +6,28 @@ class SignupForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {username: "", email: "", password: "", passwordAgain: ""};
-    this._handleChange = this._handleChange.bind(this);
-    this._handleClick = this._handleClick.bind(this);
-    this._disabled = this._disabled.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.passwordsMatch = this.passwordsMatch.bind(this);
+    this.passwordsHaveLength = this.passwordsHaveLength.bind(this);
+    this.fieldsHaveLength = this.fieldsHaveLength.bind(this);
+    this.disabled = this.disabled.bind(this);
+    this.errors = this.errors.bind(this);
   }
 
+  // redirect home if user logged in
   componentDidUpdate(){
     if (this.props.loggedIn) {
       this.props.router.push('/');
     }
   }
 
-  _handleChange (e) {
+  handleChange (e) {
     e.preventDefault();
     this.setState({[e.target.name]: e.target.value});
   }
 
-  _handleClick (e) {
+  handleSubmit (e) {
     e.preventDefault();
     this.props.signup({
       username: this.state.username,
@@ -30,9 +35,37 @@ class SignupForm extends React.Component {
       password: this.state.password});
   }
 
-  _disabled () {
-    if (this.state.password === this.state.passwordAgain &&
-      (this.state.password.length > 0 && this.state.passwordAgain.length > 0)) {
+  passwordsMatch () {
+    return this.state.password === this.state.passwordAgain;
+  }
+
+  passwordsHaveLength () {
+    return (
+      this.state.password.length > 0 && this.state.passwordAgain.length > 0
+    );
+  }
+
+  fieldsHaveLength() {
+    return (this.passwordsHaveLength() &&
+            this.state.email.length > 0 &&
+            this.state.username.length > 0
+          );
+  }
+
+  errors () {
+    const errors = [];
+    if (!this.passwordsMatch() && this.passwordsHaveLength()) {
+      errors.push("Passwords don't match");
+    }
+    if (this.state.password.length < 6 && this.state.password.length > 0) {
+      errors.push("Password is too short (minimum 6 characters)");
+    }
+    return errors;
+  }
+
+  // Disbles submit if errors present or fields are blank
+  disabled () {
+    if (this.errors().length === 0 && this.fieldsHaveLength()){
       return false;
     } else {
       return true;
@@ -41,48 +74,51 @@ class SignupForm extends React.Component {
 
   render () {
 
-    const link = <Link to="login">Log In</Link>;
-
-    const errors = [];
+    const callbackErrors = [];
     this.props.errors.forEach( error => {
-      errors.push(<li key={error}>{error}</li>);
+      callbackErrors.push(<li key={error}>{error}</li>);
+    });
+
+    const inlineErrors = [];
+    this.errors().forEach( error => {
+      inlineErrors.push(<li key={error}>{error}</li>);
     });
 
     return (
-    <div>
+    <form onSubmit={this.handleSubmit}>
       <h1>Sign Up</h1>
 
       <ul>
-        {errors}
+        {callbackErrors}
       </ul>
 
       <label>E-mail Address
-        <input onChange={this._handleChange} name="email"></input>
+        <input onChange={this.handleChange} name="email"></input>
       </label>
 
       <label>Username
-        <input onChange={this._handleChange} name = "username"></input>
+        <input onChange={this.handleChange} name = "username"></input>
       </label>
 
       <label>Password
         <input type="password"
-               onChange={this._handleChange}
+               onChange={this.handleChange}
                name="password">
         </input>
       </label>
 
       <label>Password (again)
         <input type="password"
-               onChange={this._handleChange}
+               onChange={this.handleChange}
               name="passwordAgain">
         </input>
       </label>
 
-      <button onClick={this._handleClick}
-              disabled={this._disabled()}>Sign Up</button>
+      <ul>{inlineErrors}</ul>
 
-      <p>{link} instead?</p>
-    </div>
+      <input type="submit" disabled={this.disabled()} value="Sign Up"/>
+      <p>Already have an account? <Link to="login">Log In</Link> instead.</p>
+    </form>
     );
   }
 }

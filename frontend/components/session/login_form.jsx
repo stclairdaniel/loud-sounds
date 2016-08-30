@@ -6,8 +6,8 @@ class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {username: "", password: ""};
-    this._handleChange = this._handleChange.bind(this);
-    this._handleClick = this._handleClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidUpdate(){
@@ -16,20 +16,18 @@ class LoginForm extends React.Component {
     }
   }
 
-  _handleChange (e) {
+  handleChange (e) {
     e.preventDefault();
     this.setState({[e.target.name]: e.target.value});
   }
 
-  _handleClick (e) {
+  handleClick (e) {
     e.preventDefault();
     this.props.login(this.state);
     this.render();
   }
 
   render () {
-
-    const link = <Link to="signup">Sign Up</Link>;
 
     const errors = [];
     this.props.errors.forEach( error => {
@@ -45,16 +43,16 @@ class LoginForm extends React.Component {
       </ul>
 
       <label>Username
-        <input onChange={this._handleChange} name = "username"></input>
+        <input onChange={this.handleChange} name = "username"></input>
       </label>
 
       <label>Password
-        <input type="password" onChange={this._handleChange} name="password"></input>
+        <input type="password" onChange={this.handleChange} name="password"></input>
       </label>
 
-      <button onClick={this._handleClick}>Log In</button>
+      <button onClick={this.handleClick}>Log In</button>
 
-      <p>{link} instead?</p>
+      <p>Don't have an account? <Link to="signup">Sign Up</Link> instead.</p>
     </div>
     );
   }
