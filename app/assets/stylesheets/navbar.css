@@ -1,0 +1,44 @@
+.app-container {
+  width: 80%;
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+}
+
+.navbar {
+  height: 50px;
+  background: #333333;
+  display: flex;
+  justify-content: space-between;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  color: white;
+}
+
+.nav-h1 {
+  font-size: 18;
+}
+
+.nav-logo {
+  height: 50px;
+  width: 50px;
+  background: green;
+  align-self: flex-start;
+}
+
+.nav-links {
+  display: flex;
+  align-self: flex-end;
+  align-items: center;
+  align-self: flex-end;
+}
+
+.nav-link {
+  color: lightgrey;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+.nav-link:hover {
+  color: white;
+}

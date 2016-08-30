@@ -1,11 +1,12 @@
 import React from 'react';
-import SessionNavContainer from './session/session_nav_container';
+import Header from './navbar/header';
 
 const App = ({children}) => (
-  <div>
-    <SessionNavContainer />
-    <h1>Loud Sounds</h1>
-    { children }
+  <div className="app">
+    <div className="app-container">
+      <Header />
+      { children }
+    </div>
   </div>
 );
 
