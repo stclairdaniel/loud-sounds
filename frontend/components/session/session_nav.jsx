@@ -17,8 +17,8 @@ const SessionNav = (props) => {
   } else {
     return (
       <div className="nav-links">
-        <Link to="signup" className="nav-link">Sign Up</Link>
-        <Link to="login" className="nav-link">Log In</Link>
+        <Link to="login" className="nav-link">Log In</Link> or
+        <Link to="signup" className="nav-link">Create Account</Link>
       </div>
     );
   }
