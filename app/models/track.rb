@@ -14,7 +14,7 @@
 #
 
 class Track < ActiveRecord::Base
-  validates :title, :genre, :user_id, :audio_file, presence: true
+  validates :title, :genre, :user_id, :audio_file_url, presence: true
 
   belongs_to :user
 end

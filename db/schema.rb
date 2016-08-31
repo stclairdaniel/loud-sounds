@@ -17,14 +17,14 @@ ActiveRecord::Schema.define(version: 20160831173818) do
   enable_extension "plpgsql"
 
   create_table "tracks", force: :cascade do |t|
-    t.string   "title",       null: false
-    t.string   "genre",       null: false
-    t.integer  "user_id",     null: false
+    t.string   "title",          null: false
+    t.string   "genre",          null: false
+    t.integer  "user_id",        null: false
     t.text     "description"
-    t.binary   "audio_file",  null: false
+    t.text     "audio_file_url", null: false
     t.text     "image_url"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   add_index "tracks", ["user_id"], name: "index_tracks_on_user_id", using: :btree

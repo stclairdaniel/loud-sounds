@@ -3,14 +3,15 @@ import { Link } from 'react-router';
 import { login } from '../../actions/session_actions';
 
 const SessionNav = (props) => {
-
   if (props.currentUser) {
+
     const handleClick = (e) => {
       props.logout();
     };
 
     return (
       <div className="nav-links">
+        <Link to="upload" className="nav-link">Upload</Link>
         <div className="nav-link">{props.currentUser.username}</div>
         <Link to="/" onClick={handleClick} className="nav-link">Log Out</Link>
       </div>

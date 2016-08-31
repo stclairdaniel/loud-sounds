@@ -5,7 +5,7 @@ class CreateTracks < ActiveRecord::Migration
       t.string :genre, null: false
       t.integer :user_id, null: false
       t.text :description
-      t.binary :audio_file, null: false
+      t.text :audio_file_url, null: false
       t.text :image_url
       t.timestamps null: false
     end
