@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { login } from '../../actions/session_actions';
 
 const SessionNav = (props) => {
 
@@ -15,12 +16,21 @@ const SessionNav = (props) => {
       </div>
     );
   } else {
+
+    const guestLogin = (e) => {
+      e.preventDefault();
+      const user = {username: "guest", password: "password"};
+      props.login(user);
+    };
+
     return (
       <div className="nav-links">
         <Link to="login" className="nav-link">Log In</Link> or
         <Link to="signup" className="nav-link">Create Account</Link>
+        <button className="guest-button"
+                onClick={guestLogin}>Guest Account</button>
       </div>
-    );
+      );
   }
 };
 
