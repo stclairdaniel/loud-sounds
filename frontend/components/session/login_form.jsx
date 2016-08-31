@@ -34,7 +34,7 @@ class LoginForm extends React.Component {
     });
 
     return (
-    <div className="session-form-container">
+    <div className="login-form-container">
       <form onSubmit={this.handleSubmit} className="session-form">
         <h1 className="form-h1">Log In</h1>
 

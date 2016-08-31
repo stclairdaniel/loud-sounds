@@ -4,7 +4,7 @@ import React from 'react';
 
 const Root = ({store}) => (
   <Provider store={store}>
-    <AppRouter />
+    <AppRouter store={store} />
   </Provider>
 );
 
