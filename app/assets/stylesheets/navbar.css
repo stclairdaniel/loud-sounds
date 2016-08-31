@@ -33,6 +33,7 @@
   align-self: flex-start;
   justify-content: flex-start;
   background-image: linear-gradient(red, #f06d06);
+  cursor: pointer;
 }
 
 .nav-h1 {
