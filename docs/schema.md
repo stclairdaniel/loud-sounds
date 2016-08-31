@@ -10,7 +10,7 @@ password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
 name            | string    |
 hometown        | string    |
-header_image    | file      |
+header_image_url   | text      |
 
 ## tracks
 column name | data type | details
@@ -19,9 +19,9 @@ id          | integer   | not null, primary key
 title       | string    | not null
 genre       | string    | not null
 user_id     | integer   | not null, foreign key (references users), indexed
-description | integer   | not null
+description | text   |
 audio_file  | file      | not null
-image       | file      |
+image_url      | text      |
 
 ## comments
 column name | data type | details
