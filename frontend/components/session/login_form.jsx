@@ -35,34 +35,34 @@ class LoginForm extends React.Component {
 
     return (
     <div className="session-form-container">
-    <form onSubmit={this.handleSubmit} className="session-form">
-      <h1 className="form-h1">Log In</h1>
+      <form onSubmit={this.handleSubmit} className="session-form">
+        <h1 className="form-h1">Log In</h1>
 
-      <ul className="form-errors">
-        {errors}
-      </ul>
+        <ul className="form-errors">
+          {errors}
+        </ul>
 
-      <label>Username
-        <input onChange={this.handleChange}
-              name = "username"
-              className="form-input"
-              ></input>
-      </label>
+        <label className="form-input-label">Username
+          <input onChange={this.handleChange}
+                name = "username"
+                className="form-input"
+                ></input>
+        </label>
 
-      <label>Password
-        <input type="password"
-               onChange={this.handleChange}
-               name="password"
-               className="form-input"></input>
-      </label>
+        <label className="form-input-label">Password
+          <input type="password"
+                 onChange={this.handleChange}
+                 name="password"
+                 className="form-input"></input>
+        </label>
 
-      <input type="submit" value="Log In" className="form-submit"/>
+        <input type="submit" value="Log In" className="form-submit"/>
 
-      <span>
-        Don't have an account?
-        <Link to="signup" className="form-link"> Sign Up</Link> instead.
+        <span className="form-message">
+          Don't have an account?
+          <Link to="signup" className="form-link"> Sign up</Link> instead.
         </span>
-    </form>
+      </form>
   </div>
     );
   }

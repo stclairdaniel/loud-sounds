@@ -85,40 +85,58 @@ class SignupForm extends React.Component {
     });
 
     return (
-    <form onSubmit={this.handleSubmit}>
-      <h1>Sign Up</h1>
+      <div className="session-form-container">
+        <form onSubmit={this.handleSubmit} className="session-form">
+          <h1 className="form-h1">Sign Up</h1>
 
-      <ul>
-        {callbackErrors}
-      </ul>
+          <ul className="form-errors">
+            {callbackErrors}
+          </ul>
 
-      <label>E-mail Address
-        <input onChange={this.handleChange} name="email"></input>
-      </label>
+          <label className="form-input-label">E-mail Address
+            <input onChange={this.handleChange}
+                   name="email"
+                   className="form-input">
+            </input>
+          </label>
 
-      <label>Username
-        <input onChange={this.handleChange} name = "username"></input>
-      </label>
+          <label className="form-input-label">Username
+            <input onChange={this.handleChange}
+                   name = "username"
+                   className="form-input">
+            </input>
+          </label>
 
-      <label>Password
-        <input type="password"
-               onChange={this.handleChange}
-               name="password">
-        </input>
-      </label>
+          <label className="form-input-label">Password
+            <input type="password"
+                   onChange={this.handleChange}
+                   name="password"
+                   className="form-input">
+            </input>
+          </label>
 
-      <label>Password (again)
-        <input type="password"
-               onChange={this.handleChange}
-              name="passwordAgain">
-        </input>
-      </label>
+          <label>Password (again)
+            <input type="password"
+                   onChange={this.handleChange}
+                   name="passwordAgain"
+                   className="form-input">
+            </input>
+          </label>
 
-      <ul>{inlineErrors}</ul>
+          <ul className="form-errors">{inlineErrors}</ul>
 
-      <input type="submit" disabled={this.disabled()} value="Sign Up"/>
-      <p>Already have an account? <Link to="login">Log In</Link> instead.</p>
-    </form>
+          <input type="submit"
+                 disabled={this.disabled()}
+                 value="Sign Up"
+                 className="form-submit"/>
+
+          <span className="form-message">
+            Already have an account?
+            <Link to="login"
+                  className="form-link"> Log In</Link> instead.
+          </span>
+        </form>
+      </div>
     );
   }
 }
