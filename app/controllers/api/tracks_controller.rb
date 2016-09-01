@@ -1,5 +1,9 @@
 class Api::TracksController < ApplicationController
 
+  def index
+    @tracks = Track.all
+  end
+
   def create
     @track = Track.new(track_params)
     if @track.save
