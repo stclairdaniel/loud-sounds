@@ -9,23 +9,32 @@ import UploadFormContainer from './track/upload_form_container';
 import { clearErrors } from '../actions/error_actions';
 
 const AppRouter = ({store}) => {
-  const clearErrorsOnEnter = () => {
+  const clearErrorsAndRedirect = (nextState, replace) => {
     store.dispatch(clearErrors());
+    if (store.getState().session.currentUser) {
+      replace('/');
+    }
   };
 
+  const clearErrorsAndEnsureLoggedIn = (nextState, replace) => {
+    store.dispatch(clearErrors());
+    if (!store.getState().session.currentUser) {
+      replace('/login');
+    }
+  };
 
   return(
   <Router history={ hashHistory }>
     <Route path='/' component={ App } >
       <Route path='signup'
              component={ SignupFormContainer}
-             onEnter={clearErrorsOnEnter} />
+             onEnter={ clearErrorsAndRedirect } />
       <Route path='login'
              component={ LoginFormContainer}
-             onEnter={clearErrorsOnEnter} />
+             onEnter={ clearErrorsAndRedirect } />
            <Route path='upload'
               component={ UploadFormContainer}
-              onEnter={clearErrorsOnEnter} />
+              onEnter={ clearErrorsAndEnsureLoggedIn } />
     </Route>
   </Router>
 );
