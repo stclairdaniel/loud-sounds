@@ -5,6 +5,7 @@ import { createTrack } from '../../actions/track_actions';
 
 const mapStateToProps = (state, ownProps) => ({
   user_id: state.session.currentUser.id,
+  username: state.session.currentUser.username,
   errors: state.errors,
   trackCount: Object.keys(state.tracks).length
 });

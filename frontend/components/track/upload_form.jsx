@@ -62,7 +62,7 @@ class UploadForm extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.trackCount !== this.props.trackCount) {
-      this.props.router.push('/');
+      this.props.router.push(`/${this.props.username}`);
     }
   }
 

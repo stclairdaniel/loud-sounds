@@ -1,11 +1,11 @@
 import React from 'react';
 import TrackContainer from '../track/track_container';
 
-const Stream = (props) => (
+const UserStream = (props) => (
   <div>
-    Hot tracks
+    {props.currentUser.username}'s tracks
     <TrackContainer />
   </div>
 );
 
-export default Stream;
+export default UserStream;

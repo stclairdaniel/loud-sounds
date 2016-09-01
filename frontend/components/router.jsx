@@ -5,6 +5,8 @@ import App from './app';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import UploadFormContainer from './track/upload_form_container';
+import StreamContainer from './body/stream_container';
+import UserStreamContainer from './body/user_stream_container';
 // Actions
 import { clearErrors } from '../actions/error_actions';
 
@@ -26,15 +28,19 @@ const AppRouter = ({store}) => {
   return(
   <Router history={ hashHistory }>
     <Route path='/' component={ App } >
+      <IndexRoute component={ StreamContainer } />
       <Route path='signup'
              component={ SignupFormContainer}
              onEnter={ clearErrorsAndRedirect } />
       <Route path='login'
              component={ LoginFormContainer}
              onEnter={ clearErrorsAndRedirect } />
-           <Route path='upload'
-              component={ UploadFormContainer}
-              onEnter={ clearErrorsAndEnsureLoggedIn } />
+      <Route path='upload'
+             component={ UploadFormContainer}
+             onEnter={ clearErrorsAndEnsureLoggedIn } />
+           <Route path=':username'
+             component={ UserStreamContainer }
+             onEnter={ clearErrorsAndEnsureLoggedIn } />
     </Route>
   </Router>
 );
