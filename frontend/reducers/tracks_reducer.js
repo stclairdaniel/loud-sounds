@@ -1,13 +1,14 @@
 import { TrackConstants } from '../actions/track_actions';
 import merge from 'lodash/merge';
 
-const TrackReducer = (state = {}, action) => {
+const TracksReducer = (state = {}, action) => {
   switch(action.type) {
     case TrackConstants.RECEIVE_TRACK:
-      return merge({}, state, action.track);
+      const track = action.track;
+      return merge({}, state, {track});
     default:
       return state;
   }
 };
 
-export default TrackReducer;
+export default TracksReducer;

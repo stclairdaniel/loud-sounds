@@ -1,6 +1,6 @@
 import { ErrorConstants } from '../actions/error_actions';
 
-const ErrorReducer = (state = {}, action) => {
+const ErrorsReducer = (state = {}, action) => {
   switch(action.type) {
     case ErrorConstants.RECEIVE_ERRORS:
       return action.errors;
@@ -11,4 +11,4 @@ const ErrorReducer = (state = {}, action) => {
   }
 };
 
-export default ErrorReducer;
+export default ErrorsReducer;

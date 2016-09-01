@@ -5,7 +5,7 @@ import { createTrack } from '../../actions/track_actions';
 
 const mapStateToProps = (state, ownProps) => ({
   user_id: state.session.currentUser.id,
-  errors: state.errors
+  errors: state.errors,
 });
 
 const mapDispatchToProps = dispatch => ({
