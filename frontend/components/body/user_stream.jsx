@@ -10,9 +10,16 @@ const UserStream = (props) => {
   });
 
   return (
-    <div>
-      {props.currentUser.username}s tracks
-      {tracks}
+    <div className="user-stream-container">
+      <div className="user-stream-header">
+        <img src={props.currentUser.header_image_url}/>
+        <h1>{props.currentUser.username}</h1>
+        <h2>{props.currentUser.name}</h2>
+        <h2>{props.currentUser.hometown}</h2>
+      </div>
+      <div className="tracks-container">
+        {tracks}
+      </div>
     </div>
   );
 };
