@@ -5,9 +5,15 @@ import { login, signup } from '../../actions/session_actions';
 class SignupForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {username: "", email: "", password: "", passwordAgain: ""};
+    this.state = {username: "",
+                  email: "",
+                  password: "",
+                  passwordAgain: "",
+                  header_image_url: "",
+                  image_success_message: ""};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.uploadImage = this.uploadImage.bind(this);
     this.passwordsMatch = this.passwordsMatch.bind(this);
     this.passwordsHaveLength = this.passwordsHaveLength.bind(this);
     this.fieldsHaveLength = this.fieldsHaveLength.bind(this);
@@ -32,7 +38,26 @@ class SignupForm extends React.Component {
     this.props.signup({
       username: this.state.username,
       email: this.state.email,
-      password: this.state.password});
+      password: this.state.password,
+      header_image_url: this.state.header_image_url});
+  }
+
+  uploadImage (e) {
+    e.preventDefault();
+    cloudinary.openUploadWidget(
+      window.image_cloudinary_options,
+      (error, results) => {
+        if (!error) {
+          //cfit resizes to fill as much of boundary box while maintining
+          //aspect ratio
+          const path = results[0].path;
+          const url =
+          "http://res.cloudinary.com/loudsounds/image/upload/w_200,h_200,c_fit/";
+          this.setState({header_image_url: url + path,
+                         image_success_message: "Upload succeeded"});
+        }
+      }
+    );
   }
 
   passwordsMatch () {
@@ -117,6 +142,10 @@ class SignupForm extends React.Component {
           </label>
 
           <ul>{inlineErrors}</ul>
+
+          <button className="form-submit"
+                  onClick={this.uploadImage}>Upload User Image</button>
+          <span>{this.state.image_success_message}</span>
 
           <input type="submit"
                  disabled={this.disabled()}

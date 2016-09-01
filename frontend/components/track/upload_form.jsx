@@ -98,7 +98,6 @@ class UploadForm extends React.Component {
                 onClick={this.uploadAudio}>Upload Audio File</button>
         <span>{this.state.audio_success_message}</span>
 
-
         <button className="form-submit"
                 onClick={this.uploadImage}>Upload Track Image</button>
               <span>{this.state.image_success_message}</span>
