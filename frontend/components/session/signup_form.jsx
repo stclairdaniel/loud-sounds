@@ -76,7 +76,7 @@ class SignupForm extends React.Component {
 
     const inlineErrors = [];
     this.errors().forEach( error => {
-      inlineErrors.push(<li key={error}>{error}</li>);
+      inlineErrors.push(<li key={error} className="form-error">{error}</li>);
     });
 
     return (
@@ -116,7 +116,7 @@ class SignupForm extends React.Component {
             </input>
           </label>
 
-          <ul className="form-errors">{inlineErrors}</ul>
+          <ul>{inlineErrors}</ul>
 
           <input type="submit"
                  disabled={this.disabled()}

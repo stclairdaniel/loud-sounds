@@ -24,6 +24,12 @@ class UploadForm extends React.Component {
     this.props.createTrack(this.state);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.trackCount !== this.props.trackCount) {
+      this.props.router.push('/');
+    }
+  }
+
   render () {
     return (
     <div className="upload-form-container">
