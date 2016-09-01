@@ -28,19 +28,12 @@ class LoginForm extends React.Component {
 
   render () {
 
-    const errors = [];
-    this.props.errors.forEach( error => {
-      errors.push(<li key={error}>{error}</li>);
-    });
-
     return (
     <div className="login-form-container">
       <form onSubmit={this.handleSubmit} className="form">
         <h1 className="form-h1">Log In</h1>
 
-        <ul className="form-errors">
-          {errors}
-        </ul>
+        <span className="form-error">{this.props.errors.invalid}</span>
 
         <label className="form-input-label">Username
           <input onChange={this.handleChange}

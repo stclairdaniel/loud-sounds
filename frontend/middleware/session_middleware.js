@@ -1,10 +1,11 @@
 //Actions
-import { SessionConstants, receiveCurrentUser, receiveErrors } from '../actions/session_actions';
+import { SessionConstants, receiveCurrentUser } from '../actions/session_actions';
+import { receiveErrors } from '../actions/error_actions';
 //Util
 import { signup, login, logout } from '../util/session_api_util';
 
 const SessionMiddleware = ({getState, dispatch}) => next => action => {
-  const handleErrors = errors => {console.log(errors);dispatch(receiveErrors(errors.responseJSON))};
+  const handleErrors = errors => dispatch(receiveErrors(errors.responseJSON));
   const handleLogin = user => dispatch(receiveCurrentUser(user));
   switch(action.type) {
     case SessionConstants.SIGNUP:

@@ -25,19 +25,10 @@ class UploadForm extends React.Component {
   }
 
   render () {
-    const errors = [];
-    this.props.errors.forEach( error => {
-      errors.push(<li key={error}>{error}</li>);
-    });
-
     return (
     <div className="upload-form-container">
       <form onSubmit={this.handleSubmit} className="form">
         <h1 className="form-h1">Upload Track</h1>
-
-        <ul className="form-errors">
-          {errors}
-        </ul>
 
         <label className="form-input-label">Title
           <input onChange={this.handleChange}
@@ -45,18 +36,21 @@ class UploadForm extends React.Component {
                 className="form-input"
                 ></input>
         </label>
+        <span className="form-error">{this.props.errors.title}</span>
 
         <label className="form-input-label">Genre
           <input onChange={this.handleChange}
                  name="genre"
                  className="form-input"></input>
         </label>
+        <span className="form-error">{this.props.errors.genre}</span>
 
-        <label className="form-input-label">Desription
+        <label className="form-input-label">Description
           <input onChange={this.handleChange}
                  name="description"
                  className="form-input"></input>
         </label>
+        <span className="form-error">{this.props.errors.description}</span>
 
         <label className="form-input-label">File URL
           <input onChange={this.handleChange}

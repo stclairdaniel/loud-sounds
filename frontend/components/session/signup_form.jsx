@@ -74,11 +74,6 @@ class SignupForm extends React.Component {
 
   render () {
 
-    const callbackErrors = [];
-    this.props.errors.forEach( error => {
-      callbackErrors.push(<li key={error}>{error}</li>);
-    });
-
     const inlineErrors = [];
     this.errors().forEach( error => {
       inlineErrors.push(<li key={error}>{error}</li>);
@@ -89,16 +84,13 @@ class SignupForm extends React.Component {
         <form onSubmit={this.handleSubmit} className="form">
           <h1 className="form-h1">Sign Up</h1>
 
-          <ul className="form-errors">
-            {callbackErrors}
-          </ul>
-
           <label className="form-input-label">E-mail Address
             <input onChange={this.handleChange}
                    name="email"
                    className="form-input">
             </input>
           </label>
+          <span className="form-error">{this.props.errors.email}</span>
 
           <label className="form-input-label">Username
             <input onChange={this.handleChange}
@@ -106,6 +98,7 @@ class SignupForm extends React.Component {
                    className="form-input">
             </input>
           </label>
+          <span className="form-error">{this.props.errors.username}</span>
 
           <label className="form-input-label">Password
             <input type="password"

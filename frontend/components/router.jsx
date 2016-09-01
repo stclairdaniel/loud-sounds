@@ -6,7 +6,7 @@ import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import UploadFormContainer from './track/upload_form_container';
 // Actions
-import { clearErrors } from '../actions/session_actions';
+import { clearErrors } from '../actions/error_actions';
 
 const AppRouter = ({store}) => {
   const clearErrorsOnEnter = () => {
@@ -24,7 +24,8 @@ const AppRouter = ({store}) => {
              component={ LoginFormContainer}
              onEnter={clearErrorsOnEnter} />
            <Route path='upload'
-              component={ UploadFormContainer} />
+              component={ UploadFormContainer}
+              onEnter={clearErrorsOnEnter} />
     </Route>
   </Router>
 );

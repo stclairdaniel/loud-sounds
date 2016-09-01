@@ -4,9 +4,8 @@ import UploadForm from './upload_form';
 import { createTrack } from '../../actions/track_actions';
 
 const mapStateToProps = (state, ownProps) => ({
-  //check this
-  user_id: ownProps.location.pathname,
-  errors: state.track.errors
+  user_id: state.session.currentUser.id,
+  errors: state.errors
 });
 
 const mapDispatchToProps = dispatch => ({

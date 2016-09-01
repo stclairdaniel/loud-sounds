@@ -2,11 +2,11 @@ class Api::TracksController < ApplicationController
 
   def create
     @track = Track.new(track_params)
-    if @track.save!
-      render './api/tracks/show'
+    if @track.save
+      render :show
     else
-      @errors = @tracks.errors.full_messages
-      render './errors', status: 404
+      @errors = @track.errors
+      render './errors', status: 400
     end
   end
 

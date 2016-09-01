@@ -6,7 +6,6 @@ class Api::UsersController < ApplicationController
       render :show
     else
       @errors = @user.errors
-      puts @errors
       render './errors', status: 400
     end
   end

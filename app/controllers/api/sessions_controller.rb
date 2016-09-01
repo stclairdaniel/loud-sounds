@@ -7,7 +7,7 @@ class Api::SessionsController < ApplicationController
       login!(@user)
       render './api/users/show'
     else
-      @errors = ['Invalid credentials']
+      @errors = { invalid: ['credentials'] }
       render './errors', status: 404
     end
   end
