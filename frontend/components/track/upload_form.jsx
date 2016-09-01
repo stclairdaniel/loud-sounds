@@ -9,9 +9,14 @@ class UploadForm extends React.Component {
                   genre: "",
                   description: "",
                   audio_file_url: "",
-                  user_id: this.props.user_id};
+                  image_url: "",
+                  user_id: this.props.user_id,
+                  audio_success_message: "",
+                  image_success_message: ""};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.uploadAudio = this.uploadAudio.bind(this);
+    this.uploadImage = this.uploadImage.bind(this);
   }
 
   handleChange (e) {
@@ -22,6 +27,37 @@ class UploadForm extends React.Component {
   handleSubmit (e) {
     e.preventDefault();
     this.props.createTrack(this.state);
+  }
+
+  uploadAudio (e) {
+    e.preventDefault();
+    cloudinary.openUploadWidget(
+      window.audio_cloudinary_options,
+      (error, results) => {
+        if (!error) {
+          this.setState({audio_file_url: results[0].url,
+                         audio_success_message: "Upload succeeded"});
+        }
+      }
+    );
+  }
+
+  uploadImage (e) {
+    e.preventDefault();
+    cloudinary.openUploadWidget(
+      window.image_cloudinary_options,
+      (error, results) => {
+        if (!error) {
+          //cfit resizes to fill as much of boundary box while maintining
+          //aspect ratio
+          const path = results[0].path;
+          const url =
+          "http://res.cloudinary.com/loudsounds/image/upload/w_200,h_200,c_fit/";
+          this.setState({image_url: url + path,
+                         image_success_message: "Upload succeeded"});
+        }
+      }
+    );
   }
 
   componentWillReceiveProps(nextProps) {
@@ -58,11 +94,14 @@ class UploadForm extends React.Component {
         </label>
         <span className="form-error">{this.props.errors.description}</span>
 
-        <label className="form-input-label">File URL
-          <input onChange={this.handleChange}
-                 name="audio_file_url"
-                 className="form-input"></input>
-        </label>
+        <button className="form-submit"
+                onClick={this.uploadAudio}>Upload Audio File</button>
+        <span>{this.state.audio_success_message}</span>
+
+
+        <button className="form-submit"
+                onClick={this.uploadImage}>Upload Track Image</button>
+              <span>{this.state.image_success_message}</span>
 
         <input type="submit" value="Upload Track" className="form-submit"/>
       </form>
