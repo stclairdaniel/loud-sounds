@@ -1,5 +1,6 @@
 export const TrackConstants = {
   CREATE_TRACK: "CREATE_TRACK",
+  PLAY_TRACK: "PLAY_TRACK",
   REQUEST_TRACK: "REQUEST_TRACK",
   RECEIVE_TRACK: "RECEIVE_TRACK",
   REQUEST_TRACKS: "REQUEST_TRACKS",
@@ -9,6 +10,11 @@ export const TrackConstants = {
 
 export const createTrack = (track) => ({
   type: TrackConstants.CREATE_TRACK,
+  track
+});
+
+export const playTrack = (track) => ({
+  type: TrackConstants.PLAY_TRACK,
   track
 });
 

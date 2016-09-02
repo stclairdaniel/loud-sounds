@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './navbar/header';
-import AudioPlayer from './audio_player/audio_player';
+import AudioPlayerContainer from './audio_player/audio_player_container';
 
 const App = ({children}) => (
   <div className="app">
@@ -8,7 +8,7 @@ const App = ({children}) => (
       <div className="app-container">
         <Header />
         { children }
-        <AudioPlayer />
+        <AudioPlayerContainer />
       </div>
     </div>
   </div>

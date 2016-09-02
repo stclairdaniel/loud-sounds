@@ -1,6 +1,11 @@
-.app {
+body, #root {
+  height: 100%;
   background: #f2f2f2;
-  height: 1000px;
+}
+
+.app {
+  background: white;
+  height: 100%;
 }
 
 .app-header {

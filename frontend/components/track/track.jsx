@@ -1,6 +1,11 @@
 import React from 'react';
 
-const Track = ({track, id}) => {
+const Track = ({track, id, playTrack}) => {
+
+  const play = () => {
+    playTrack(track);
+  };
+
   return(
   <div className='track-container'>
     <div className='track-header'>
@@ -13,7 +18,7 @@ const Track = ({track, id}) => {
       </div>
       <div className='track-body-info'>
         <div className='track-body-info-details'>
-          <img src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_50/v1472833653/Site%20Icons/play.jpg"></img>
+          <img src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_50/v1472833653/Site%20Icons/play.jpg" onClick={play} className="play-button"></img>
           <div className='track-body-info-details-artist-details'>
             {track.title}
           </div>

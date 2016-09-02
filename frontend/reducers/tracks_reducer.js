@@ -1,4 +1,5 @@
 import { TrackConstants } from '../actions/track_actions';
+import merge from 'lodash/merge';
 
 const TracksReducer = (state = {}, action) => {
   switch(action.type) {

@@ -35,3 +35,7 @@
 .track-body-info-comment {
   margin-top: 15px;
 }
+
+.play-button {
+  cursor: pointer;
+}
