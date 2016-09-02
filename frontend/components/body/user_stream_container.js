@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import UserStream from './user_stream';
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, ownProps) => ({
   tracks: state.tracks,
   currentUser: state.session.currentUser
 });

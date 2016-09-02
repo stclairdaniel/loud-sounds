@@ -80,7 +80,7 @@ class SignupForm extends React.Component {
   }
 
   usernameValid () {
-    if (this.state.username.match(/^[a-zA-Z0-9-_]*$/)) {
+    if (this.state.username.match(/^[a-zA-Z0-9-_ ]*$/)) {
       return true;
     }
   }
