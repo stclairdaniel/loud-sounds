@@ -61,8 +61,9 @@ class UploadForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    //redirect to user page if track upload success
     if (nextProps.trackCount !== this.props.trackCount) {
-      this.props.router.push(`/${this.props.username}/${this.state.title}`);
+      this.props.router.push(`/${this.props.username}`);
     }
   }
 

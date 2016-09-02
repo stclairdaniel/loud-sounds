@@ -3,7 +3,8 @@ export const TrackConstants = {
   REQUEST_TRACK: "REQUEST_TRACK",
   RECEIVE_TRACK: "RECEIVE_TRACK",
   REQUEST_TRACKS: "REQUEST_TRACKS",
-  RECEIVE_TRACKS: "RECEIVE_TRACKS",
+  REQUEST_USER_TRACKS: "REQUEST_USER_TRACKS",
+  RECEIVE_TRACKS: "RECEIVE_TRACKS"
 };
 
 export const createTrack = (track) => ({
@@ -21,9 +22,13 @@ export const receiveTrack = (track) => ({
   track
 });
 
-export const requestTracks = (tracks) => ({
-  type: TrackConstants.REQUEST_TRACKS,
-  tracks
+export const requestTracks = () => ({
+  type: TrackConstants.REQUEST_TRACKS
+});
+
+export const requestUserTracks = (username) => ({
+  type: TrackConstants.REQUEST_USER_TRACKS,
+  username
 });
 
 export const receiveTracks = (tracks) => ({

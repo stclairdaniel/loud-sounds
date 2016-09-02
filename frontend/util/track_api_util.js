@@ -25,3 +25,13 @@ export const requestTracks = (success, error) => (
     error: error
   })
 );
+
+export const requestUserTracks = (success, error, username) => (
+  $.ajax({
+    type: "GET",
+    url: "/api/tracks",
+    data: {username: username},
+    success: success,
+    error: error
+  })
+);

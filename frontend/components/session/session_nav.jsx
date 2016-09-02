@@ -9,12 +9,12 @@ const SessionNav = (props) => {
       props.logout();
     };
 
-    const userIdLink = props.currentUser.username;
+    const userLink = props.currentUser.username;
 
     return (
       <div className="nav-links">
         <Link to="upload" className="nav-link">Upload</Link>
-        <Link to={userIdLink}
+        <Link to={userLink}
               className="nav-link">{props.currentUser.username}</Link>
         <Link to="/" onClick={handleClick} className="nav-link">Log Out</Link>
       </div>

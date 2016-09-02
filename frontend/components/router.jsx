@@ -10,7 +10,7 @@ import UserStreamContainer from './body/user_stream_container';
 import TrackContainer from './track/track_container';
 // Actions
 import { clearErrors } from '../actions/error_actions';
-import { receiveTrack, requestTracks } from '../actions/track_actions';
+import { receiveTrack, requestTracks, requestUserTracks } from '../actions/track_actions';
 
 const AppRouter = ({store}) => {
 
@@ -18,8 +18,10 @@ const AppRouter = ({store}) => {
     store.dispatch(requestTracks());
   };
 
-  const getTrack = (track_title) => {
-    store.dispatch(receiveTrack(track_title));
+  const getUserTracks = () => {
+    //get username from URL
+    const username = window.location.hash.match(/[^#\/"]([a-zA-Z0-9-_]*)/);
+    store.dispatch(requestUserTracks(username));
   };
 
   const Redirect = (nextState, replace) => {
@@ -49,13 +51,13 @@ const AppRouter = ({store}) => {
       <Route path='upload'
              component={ UploadFormContainer}
              onEnter={ EnsureLoggedIn } />
-           //fix to get user tracks and individual track
       <Route path=':username'
              component={ UserStreamContainer }
-             onEnter={ EnsureLoggedIn } >
+             onEnter={ getUserTracks } >
+             //fix to only get specific track
         <Route path=':title'
                component={ TrackContainer }
-               onEnter={ EnsureLoggedIn } />
+               onEnter={ getTracks } />
       </Route>
     </Route>
   </Router>

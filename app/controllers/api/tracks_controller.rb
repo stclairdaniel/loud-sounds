@@ -1,7 +1,11 @@
 class Api::TracksController < ApplicationController
-
   def index
-    @tracks = Track.all
+    if params[:username]
+      @user = User.where(username: params[:username]).first
+      @tracks = Track.where(user_id: @user.id)
+    else
+      @tracks = Track.all
+    end
   end
 
   def create
