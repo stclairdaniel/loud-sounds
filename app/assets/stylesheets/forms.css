@@ -92,3 +92,7 @@ h1 {
 .form-link {
   text-decoration: none;
 }
+
+.form-success-message {
+  font-size: 14px;
+}

@@ -10,13 +10,15 @@ class SignupForm extends React.Component {
                   password: "",
                   passwordAgain: "",
                   header_image_url: "http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_100/v1472833698/Site%20Icons/default_user_image_skynsc.png",
-                  image_success_message: ""};
+                  image_success_message: "Optional"};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.uploadImage = this.uploadImage.bind(this);
     this.passwordsMatch = this.passwordsMatch.bind(this);
     this.passwordsHaveLength = this.passwordsHaveLength.bind(this);
     this.fieldsHaveLength = this.fieldsHaveLength.bind(this);
+    this.usernameValid = this.usernameValid.bind(this);
+    this.emailValid = this.emailValid.bind(this);
     this.disabled = this.disabled.bind(this);
     this.errors = this.errors.bind(this);
   }
@@ -77,6 +79,18 @@ class SignupForm extends React.Component {
           );
   }
 
+  usernameValid () {
+    if (this.state.username.match(/^[a-zA-Z0-9-_]*$/)) {
+      return true;
+    }
+  }
+
+  emailValid () {
+    if (this.state.email.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}/)) {
+      return true;
+    }
+  }
+
   errors () {
     const errors = [];
     if (!this.passwordsMatch() && this.passwordsHaveLength()) {
@@ -84,6 +98,12 @@ class SignupForm extends React.Component {
     }
     if (this.state.password.length < 6 && this.state.password.length > 0) {
       errors.push("Password is too short (minimum 6 characters)");
+    }
+    if (!this.usernameValid() && this.state.username.length > 0) {
+      errors.push("Username must contain only letters, digits, _, and -");
+    }
+    if (!this.emailValid() && this.state.email.length > 0) {
+      errors.push("Plese enter a valid e-mail address");
     }
     return errors;
   }
@@ -133,7 +153,7 @@ class SignupForm extends React.Component {
             </input>
           </label>
 
-          <label>Password (again)
+          <label>Confirm password
             <input type="password"
                    onChange={this.handleChange}
                    name="passwordAgain"
@@ -145,7 +165,9 @@ class SignupForm extends React.Component {
 
           <button className="form-submit"
                   onClick={this.uploadImage}>Upload User Image</button>
-          <span>{this.state.image_success_message}</span>
+                <span className="form-success-message">
+            {this.state.image_success_message}
+          </span>
 
           <input type="submit"
                  disabled={this.disabled()}

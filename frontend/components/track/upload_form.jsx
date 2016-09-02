@@ -88,7 +88,7 @@ class UploadForm extends React.Component {
         </label>
         <span className="form-error">{this.props.errors.genre}</span>
 
-        <label className="form-input-label">Description
+        <label className="form-input-label">Description (optional)
           <input onChange={this.handleChange}
                  name="description"
                  className="form-input"></input>
