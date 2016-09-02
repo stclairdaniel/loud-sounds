@@ -10,7 +10,7 @@ class UploadForm extends React.Component {
                   description: "",
                   audio_file_url: "",
                   image_url: "",
-                  user_id: this.props.user_id,
+                  user_id: this.props.userId,
                   audio_success_message: "",
                   image_success_message: ""};
     this.handleChange = this.handleChange.bind(this);
@@ -61,8 +61,8 @@ class UploadForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.trackIds !== this.props.trackIds) {
-      this.props.router.push(`/${this.props.username}`);
+    if (nextProps.trackCount !== this.props.trackCount) {
+      this.props.router.push(`/${this.props.username}/${this.state.title}`);
     }
   }
 
