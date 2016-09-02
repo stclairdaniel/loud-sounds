@@ -20,7 +20,8 @@ const AppRouter = ({store}) => {
 
   const getUserTracks = () => {
     //get username from URL
-    const username = window.location.hash.match(/[^#\/"]([a-zA-Z0-9-_]*)/);
+    const match = window.location.hash.match(/[^#\/"][a-zA-Z0-9-_%]*/);
+    const username = match[0].replace(/%20/, " ");
     store.dispatch(requestUserTracks(username));
   };
 

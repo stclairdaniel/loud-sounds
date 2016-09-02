@@ -1,0 +1,23 @@
+body, #root {
+  height: 100%;
+  background: #f2f2f2;
+}
+
+.app {
+  background: white;
+  height: 100%;
+}
+
+.app-header {
+  background: #333333;
+  height: 50px;
+  border-bottom: 1px solid #ccc;
+}
+
+.app-container {
+  width: 80%;
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+  background: white;
+  position: relative;
+}

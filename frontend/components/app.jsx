@@ -1,16 +1,17 @@
 import React from 'react';
 import Header from './navbar/header';
 import AudioPlayerContainer from './audio_player/audio_player_container';
+import Infinite from 'react-infinite';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.getWindowHeight = this.getWindowHeight.bind(this);
   }
 
-  componentDidMount () {
-    if (window.as) {
-      console.log("yay");
-    }
+  getWindowHeight () {
+    //magic number - makes sure all elements fit in window.
+    return $ (window).height() - 125;
   }
 
   render () {
@@ -20,7 +21,11 @@ class App extends React.Component {
         <div className="app-header">
           <div className="app-container">
             <Header />
-            { this.props.children }
+            <Infinite
+              containerHeight={this.getWindowHeight()}
+              elementHeight={300}>
+              { this.props.children }
+            </Infinite>
             <AudioPlayerContainer />
           </div>
         </div>
