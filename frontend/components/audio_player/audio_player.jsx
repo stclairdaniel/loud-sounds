@@ -6,15 +6,17 @@ class AudioPlayer extends React.Component {
     this.playTrack = this.playTrack.bind(this);
   }
 
-  playTrack () {
-    if (this.props.track) {
-      window.as[0].load(this.props.track.audio_file_url);
-      window.as[0].play();
+   playTrack () {
+    if (window.as) {
+      if (this.props.track && this.props.track.audio_file_url != window.as[0].mp3 ) {
+        window.as[0].load(this.props.track.audio_file_url);
+        window.as[0].play();
+      }
     }
   }
 
   render() {
-    this.playTrack();
+    this.playTrack()
     return (
       <div className="audio-player-container">
         <div><audio preload="none" /></div>
