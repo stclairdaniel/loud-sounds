@@ -1,19 +1,24 @@
 import React from 'react';
 import TrackContainer from '../track/track_container';
 
-const Stream = ({tracks}) => {
-  //display latest 10 tracks
-  const trackIds = Object.keys(tracks);
-  const latestTenTrackIds = trackIds.slice(trackIds.length - 10).reverse();
-  const hotTracks = latestTenTrackIds.map( id => {
+const Stream = ({tracks, user}) => {
+  const streamTracks = Object.keys(tracks).reverse().map( id => {
     return <TrackContainer key={id} id={id} track={tracks[id]} />;
   });
 
+  const message = () => {
+    if (user) {
+      return <h1>Your tracks</h1>;
+    } else {
+      return <h1>Hot tracks</h1>;
+    }
+  };
+
   return (
     <div className="stream-container">
-      <h1>Hot tracks</h1>
+      {message()}
       <div className="tracks-container" >
-        {hotTracks}
+        {streamTracks}
       </div>
     </div>
   );

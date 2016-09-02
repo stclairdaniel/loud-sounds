@@ -7,7 +7,7 @@ const mapStateToProps = (state, ownProps) => ({
   userId: state.session.currentUser.id,
   username: state.session.currentUser.username,
   errors: state.errors,
-  trackCount: Object.keys(state.tracks).length
+  lastTrackId: Object.keys(state.tracks)[Object.keys(state.tracks).length - 1]
 });
 
 const mapDispatchToProps = dispatch => ({

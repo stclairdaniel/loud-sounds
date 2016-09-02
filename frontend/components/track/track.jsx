@@ -1,16 +1,24 @@
 import React from 'react';
 
-const Track = ({track, id, playTrack}) => {
+const Track = ({track, id, playTrack, currentUser}) => {
 
   const play = () => {
     playTrack(track);
+  };
+
+  const trackUsername = () => {
+    if (currentUser && currentUser.username === track.user.username) {
+      return "You";
+    } else {
+      return track.user.username;
+    }
   };
 
   return(
   <div className='track-container'>
     <div className='track-header'>
       <img src={track.user.header_image_url} width="50" height="50"></img>
-      <span className="header-detail">{track.user.username} posted a track</span>
+      <span className="header-detail">{trackUsername()} posted a track</span>
     </div>
     <div className='track-body'>
       <div className='track-body-image'>

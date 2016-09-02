@@ -14,7 +14,7 @@ const UserStream = (props) => {
           <h2>{props.currentUser.hometown}</h2>
         </div>
       </div>
-      <StreamContainer />
+      <StreamContainer user={true} />
     </div>
   );
 };

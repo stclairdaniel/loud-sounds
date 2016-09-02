@@ -4,6 +4,7 @@ import Track from './track';
 import { playTrack } from '../../actions/track_actions';
 
 const mapStateToProps = (state) => ({
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
