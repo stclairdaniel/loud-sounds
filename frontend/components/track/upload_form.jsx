@@ -9,7 +9,7 @@ class UploadForm extends React.Component {
                   genre: "",
                   description: "",
                   audio_file_url: "",
-                  image_url: "",
+                  image_url: "http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1472834316/default_track_icon_d3yaka.png",
                   user_id: this.props.userId,
                   audio_success_message: "",
                   image_success_message: ""};

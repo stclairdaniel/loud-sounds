@@ -13,7 +13,7 @@ const Track = ({track, id}) => {
       </div>
       <div className='track-body-info'>
         <div className='track-body-info-details'>
-          <img src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_50/v1472776743/play_pluyju.jpg"></img>
+          <img src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_50/v1472833653/Site%20Icons/play.jpg"></img>
           <div className='track-body-info-details-artist-details'>
             {track.title}
           </div>

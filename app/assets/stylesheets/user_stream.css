@@ -5,4 +5,9 @@
 .user-stream-header-details {
   display: flex;
   flex-direction: column;
+  padding: 15px 10px;
+}
+
+.user-stream-header-img {
+  padding: 10px;
 }

@@ -9,7 +9,7 @@ class SignupForm extends React.Component {
                   email: "",
                   password: "",
                   passwordAgain: "",
-                  header_image_url: "",
+                  header_image_url: "http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_100/v1472833698/Site%20Icons/default_user_image_skynsc.png",
                   image_success_message: ""};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);

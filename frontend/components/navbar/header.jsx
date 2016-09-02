@@ -8,7 +8,7 @@ class Header extends React.Component {
   return (
   <header className="navbar">
     <div className="nav-logo" onClick={() => {this.props.router.push('/');}}>
-      <img className="nav-img" src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,h_45,w_45/v1472745798/logo_yorfu3.png"/>
+      <img className="nav-img" src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_45/v1472833649/Site%20Icons/logo_09-05-17-541.png"/>
       <h1 className="nav-h1">Loud Sounds</h1>
     </div>
     <SessionNavContainer />

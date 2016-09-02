@@ -1,5 +1,4 @@
 import React from 'react';
-import TrackContainer from '../track/track_container';
 import StreamContainer from './stream_container';
 
 const UserStream = (props) => {
