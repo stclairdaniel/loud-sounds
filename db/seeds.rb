@@ -1,5 +1,5 @@
-User.create!(username: 'guest',
-             email: 'guest@example.com',
+User.create!(username: "Guest",
+             email: Faker::Internet.safe_email,
              password: 'password',
              name: Faker::Name.name,
              hometown: "#{Faker::Address.city}, #{Faker::Address.country}",
@@ -9,7 +9,8 @@ User.create!(username: 'Aphex Twin',
              email: 'aphex_twin@example.com',
              password: 'password',
              name: 'Richard D. James',
-             hometown: 'Cornwall, UK')
+             hometown: 'Cornwall, UK',
+             header_image_url: "http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1472772161/aphex_header_ckii1n.jpg")
 
 Track.create!(title: "Minipops 67 (Source Field Mix)",
               genre: "Electronic",

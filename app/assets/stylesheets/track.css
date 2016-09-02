@@ -1,3 +1,37 @@
 .track-container {
   padding: 15px 10px;
 }
+
+.track-header {
+  padding: 15px 10px;
+  display: flex;
+}
+
+.header-detail {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  font-size: 14px;
+}
+
+.track-body {
+  display: flex;
+}
+
+.track-body-image {
+  padding-right: 20px;
+}
+
+.track-body-info-details {
+  display: flex;
+}
+
+.track-body-info-details-artist-details {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
+.track-body-info-comment {
+  margin-top: 15px;
+}

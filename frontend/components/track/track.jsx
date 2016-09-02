@@ -4,22 +4,21 @@ const Track = ({track, id}) => {
   return(
   <div className='track-container'>
     <div className='track-header'>
-      <span>I'm the header</span>
+      <img src={track.user.header_image_url} width="50" height="50"></img>
+      <span className="header-detail">{track.user.username} posted a track</span>
     </div>
     <div className='track-body'>
       <div className='track-body-image'>
-        <img src={track.image_url}/>
+        <img src={track.image_url} width="100" height="100"/>
       </div>
       <div className='track-body-info'>
         <div className='track-body-info-details'>
-          <div className='track-body-info-details-artist-image'>
-            <img src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,h_45,w_45/v1472745798/logo_yorfu3.png"/>
-          </div>
+          <img src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_50/v1472776743/play_pluyju.jpg"></img>
           <div className='track-body-info-details-artist-details'>
-            <span>{track.title}</span>
+            {track.title}
           </div>
         </div>
-        <div className='track-body-info-comments'>
+        <div className='track-body-info-comment'>
           <span>Eventually I'll be a comment component!</span>
         </div>
       </div>
@@ -27,5 +26,4 @@ const Track = ({track, id}) => {
   </div>
 );
 };
-
 export default Track;

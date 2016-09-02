@@ -23,7 +23,7 @@ const SessionNav = (props) => {
 
     const guestLogin = (e) => {
       e.preventDefault();
-      const user = {username: "guest", password: "password"};
+      const user = {username: "Guest", password: "password"};
       props.login(user);
     };
 

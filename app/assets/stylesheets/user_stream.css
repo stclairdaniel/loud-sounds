@@ -1,0 +1,8 @@
+.user-stream-header {
+  display: flex;
+}
+
+.user-stream-header-details {
+  display: flex;
+  flex-direction: column;
+}
