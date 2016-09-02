@@ -61,7 +61,6 @@ class UploadForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    debugger
     if (nextProps.trackIds !== this.props.trackIds) {
       this.props.router.push(`/${this.props.username}`);
     }
