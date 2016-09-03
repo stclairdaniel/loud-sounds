@@ -11,6 +11,7 @@ class UploadForm extends React.Component {
                   audio_file_url: "",
                   image_url: "http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1472834316/default_track_icon_d3yaka.png",
                   user_id: this.props.userId,
+                  username: this.props.username,
                   audio_success_message: "",
                   image_success_message: ""};
     this.handleChange = this.handleChange.bind(this);
@@ -60,12 +61,12 @@ class UploadForm extends React.Component {
     );
   }
 
-  componentWillReceiveProps(nextProps) {
-    //redirect to user page if track upload success
-    if (nextProps.lastTrackId !== this.props.lastTrackId) {
-      this.props.router.push(`/${this.props.username}`);
-    }
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   //redirect to user page if track upload success
+  //   if (nextProps.lastTrackId !== this.props.lastTrackId) {
+  //     this.props.router.push(`/${this.props.username}`);
+  //   }
+  // }
 
   render () {
     return (

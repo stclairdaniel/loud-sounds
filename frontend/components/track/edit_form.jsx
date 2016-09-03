@@ -13,6 +13,7 @@ class EditForm extends React.Component {
                   audio_file_url: this.props.tracks[id].audio_file_url,
                   image_url: this.props.tracks[id].image_url,
                   user_id: this.props.userId,
+                  username: this.props.username,
                   audio_success_message: "",
                   image_success_message: ""};
     this.handleChange = this.handleChange.bind(this);
