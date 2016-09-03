@@ -4,9 +4,11 @@ export const TrackConstants = {
   REQUEST_TRACK: "REQUEST_TRACK",
   RECEIVE_TRACK: "RECEIVE_TRACK",
   DELETE_TRACK: "DELETE_TRACK",
+  EDIT_TRACK: "EDIT_TRACK",
   REQUEST_TRACKS: "REQUEST_TRACKS",
   REQUEST_USER_TRACKS: "REQUEST_USER_TRACKS",
-  RECEIVE_TRACKS: "RECEIVE_TRACKS"
+  RECEIVE_TRACKS: "RECEIVE_TRACKS",
+  CLEAR_TRACKS: "CLEAR_TRACKS"
 };
 
 export const createTrack = (track) => ({
@@ -19,9 +21,9 @@ export const playTrack = (track) => ({
   track
 });
 
-export const requestTrack = (track) => ({
+export const requestTrack = (trackId) => ({
   type: TrackConstants.REQUEST_TRACK,
-  track
+  trackId
 });
 
 export const receiveTrack = (track) => ({
@@ -32,6 +34,11 @@ export const receiveTrack = (track) => ({
 export const deleteTrack = (trackId) => ({
   type: TrackConstants.DELETE_TRACK,
   trackId
+});
+
+export const editTrack = (track) => ({
+  type: TrackConstants.EDIT_TRACK,
+  track
 });
 
 export const requestTracks = () => ({
@@ -46,4 +53,8 @@ export const requestUserTracks = (username) => ({
 export const receiveTracks = (tracks) => ({
   type: TrackConstants.RECEIVE_TRACKS,
   tracks
+});
+
+export const clearTracks = () => ({
+  type: TrackConstants.CLEAR_TRACKS,
 });

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Track from './track';
-import { playTrack, deleteTrack } from '../../actions/track_actions';
+import { playTrack, deleteTrack, editTrack } from '../../actions/track_actions';
 
 const mapStateToProps = (state) => ({
   currentUser: state.session.currentUser

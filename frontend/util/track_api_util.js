@@ -26,6 +26,16 @@ export const deleteTrack = (success, error, trackId) => (
   })
 );
 
+export const editTrack = (success, error, track) => (
+  $.ajax({
+    type: "PATCH",
+    url: `/api/tracks/${track.id}`,
+    data: {track: track},
+    success: success,
+    error: error
+  })
+);
+
 export const requestTracks = (success, error) => (
   $.ajax({
     type: "GET",

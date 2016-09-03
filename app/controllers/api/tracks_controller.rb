@@ -18,11 +18,32 @@ class Api::TracksController < ApplicationController
     end
   end
 
+  def update
+    @track = Track.find(params[:id])
+    @track.update(track_params)
+    if @track.save!
+      render :show
+    else
+      @errors = @track.errors
+      render './errors', status: 400
+    end
+  end
+
   def destroy
     @track = Track.find(params[:id])
     if @track
       @track.destroy
       render json: {}
+    else
+      @errors = { track: ['not found'] }
+      render './errors', status: 404
+    end
+  end
+
+  def show
+    @track = Track.find(params[:id])
+    if @track
+      render :show
     else
       @errors = { track: ['not found'] }
       render './errors', status: 404

@@ -8,21 +8,29 @@ import UploadFormContainer from './track/upload_form_container';
 import StreamContainer from './body/stream_container';
 import UserStreamContainer from './body/user_stream_container';
 import TrackContainer from './track/track_container';
+import EditFormContainer from './track/edit_form_container';
 // Actions
 import { clearErrors } from '../actions/error_actions';
-import { receiveTrack, requestTracks, requestUserTracks } from '../actions/track_actions';
+import { receiveTrack, requestTracks, requestUserTracks, clearTracks, requestTrack } from '../actions/track_actions';
 
 const AppRouter = ({store}) => {
+
+  const getTrack = (nextState) => {
+    store.dispatch(requestTrack(nextState.params.id));
+  };
+
+  const getTrackAndEnsureAuthor = (nextState) => {
+    store.dispatch(requestTrack(nextState.params.id));
+    //find a way to check the track user id
+  };
 
   const getTracks = () => {
     store.dispatch(requestTracks());
   };
 
-  const getUserTracks = () => {
-    //get username from URL
-    const match = window.location.hash.match(/[^#\/"][a-zA-Z0-9-_%]*/);
-    const username = match[0].replace(/%20/, " ");
-    store.dispatch(requestUserTracks(username));
+  const getUserTracks = (nextState) => {
+    store.dispatch(clearTracks());
+    store.dispatch(requestUserTracks(nextState.params.username));
   };
 
   const Redirect = (nextState, replace) => {
@@ -34,6 +42,7 @@ const AppRouter = ({store}) => {
 
   const EnsureLoggedIn = (nextState, replace) => {
     store.dispatch(clearErrors());
+    store.dispatch(clearTracks());
     if (!store.getState().session.currentUser) {
       replace('/login');
     }
@@ -44,21 +53,25 @@ const AppRouter = ({store}) => {
     <Route path='/' component={ App } >
       <IndexRoute component={ StreamContainer } onEnter={ getTracks } />
       <Route path='signup'
-             component={ SignupFormContainer}
+             component={ SignupFormContainer }
              onEnter={ Redirect } />
       <Route path='login'
-             component={ LoginFormContainer}
+             component={ LoginFormContainer }
              onEnter={ Redirect } />
       <Route path='upload'
-             component={ UploadFormContainer}
+             component={ UploadFormContainer }
              onEnter={ EnsureLoggedIn } />
+      <Route path='edit'>
+       <Route path=':id'
+              component={ EditFormContainer }
+              onEnter={ getTrackAndEnsureAuthor } />
+      </Route>
       <Route path=':username'
              component={ UserStreamContainer }
              onEnter={ getUserTracks } >
-             //fix to only get specific track
-        <Route path=':title'
+        <Route path=':id'
                component={ TrackContainer }
-               onEnter={ getTracks } />
+               onEnter={ getTrack } />
       </Route>
     </Route>
   </Router>
