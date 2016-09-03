@@ -6,6 +6,15 @@ class UserStream extends React.Component  {
     super(props);
   }
 
+  //prevents problems on refreshing
+  componentDidMount () {
+    if (Object.keys(this.props.tracks).length === 0) {
+      const match = window.location.hash.match(/[^#\/"][a-zA-Z0-9-_%]*/);
+      const username = match[0].replace(/%20/, " ");
+      this.props.requestUserTracks(username);
+    }
+  }
+
   render () {
     if (Object.keys(this.props.tracks).length === 0) {
       return <div></div>;
