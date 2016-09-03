@@ -1,5 +1,6 @@
 import React from 'react';
 import StreamContainer from './stream_container';
+import { withRouter } from 'react-router';
 
 class UserStream extends React.Component  {
   constructor (props) {
@@ -9,9 +10,7 @@ class UserStream extends React.Component  {
   //prevents problems on refreshing
   componentDidMount () {
     if (Object.keys(this.props.tracks).length === 0) {
-      const match = window.location.hash.match(/[^#\/"][a-zA-Z0-9-_%]*/);
-      const username = match[0].replace(/%20/, " ");
-      this.props.requestUserTracks(username);
+      this.props.requestUserTracks(this.props.params.username);
     }
   }
 
@@ -45,4 +44,4 @@ class UserStream extends React.Component  {
   }
 }
 
-export default UserStream;
+export default withRouter(UserStream);

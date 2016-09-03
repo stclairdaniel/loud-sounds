@@ -37,7 +37,7 @@ class Track extends React.Component {
   }
 
   deleteClickHandler () {
-
+    this.props.deleteTrack(this.props.track.id);
   }
 
   editClickHandler () {

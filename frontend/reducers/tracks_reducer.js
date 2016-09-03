@@ -4,11 +4,13 @@ import merge from 'lodash/merge';
 const TracksReducer = (state = {}, action) => {
   switch(action.type) {
     case TrackConstants.RECEIVE_TRACK:
-      const track = action.track;
-      return track;
+      return action.track;
     case TrackConstants.RECEIVE_TRACKS:
-      const tracks = action.tracks;
-      return tracks;
+      return action.tracks;
+    case TrackConstants.DELETE_TRACK:
+      let newState = merge({}, state);
+      delete newState[action.trackId];
+      return newState;
     default:
       return state;
   }

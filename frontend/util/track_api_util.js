@@ -17,6 +17,15 @@ export const requestTrack = (success, error, id) => (
   })
 );
 
+export const deleteTrack = (success, error, trackId) => (
+  $.ajax({
+    type: "DELETE",
+    url: `/api/tracks/${trackId}`,
+    success: success,
+    error: error
+  })
+);
+
 export const requestTracks = (success, error) => (
   $.ajax({
     type: "GET",

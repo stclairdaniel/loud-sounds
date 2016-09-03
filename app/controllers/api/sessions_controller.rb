@@ -17,7 +17,7 @@ class Api::SessionsController < ApplicationController
       logout!
       render plain: '{}'
     else
-      @errors = ['No current user']
+      @errors = { user: ['not found'] }
       render './errors', status: 404
     end
   end

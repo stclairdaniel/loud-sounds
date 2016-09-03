@@ -2,7 +2,7 @@
 import { TrackConstants, receiveTrack, receiveTracks } from '../actions/track_actions';
 import { receiveErrors } from '../actions/error_actions';
 //Util
-import { createTrack, requestTrack, requestTracks, requestUserTracks } from '../util/track_api_util';
+import { createTrack, requestTrack, deleteTrack, requestTracks, requestUserTracks } from '../util/track_api_util';
 
 const TrackMiddleware = ({getState, dispatch}) => next => action => {
   const handleErrors = errors => dispatch(receiveErrors(errors.responseJSON));
@@ -14,6 +14,10 @@ const TrackMiddleware = ({getState, dispatch}) => next => action => {
       break;
     case TrackConstants.REQUEST_TRACK:
       requestTrack(handleTrack, handleErrors, action.track);
+      break;
+    case TrackConstants.DELETE_TRACK:
+      deleteTrack(null, handleErrors, action.trackId);
+      next(action);
       break;
     case TrackConstants.REQUEST_TRACKS:
       requestTracks(handleTracks, handleErrors);

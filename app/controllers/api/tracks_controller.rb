@@ -18,6 +18,17 @@ class Api::TracksController < ApplicationController
     end
   end
 
+  def destroy
+    @track = Track.find(params[:id])
+    if @track
+      @track.destroy
+      render json: {}
+    else
+      @errors = { track: ['not found'] }
+      render './errors', status: 404
+    end
+  end
+
   private
 
   def track_params

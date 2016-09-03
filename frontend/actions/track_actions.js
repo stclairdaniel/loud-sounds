@@ -3,6 +3,7 @@ export const TrackConstants = {
   PLAY_TRACK: "PLAY_TRACK",
   REQUEST_TRACK: "REQUEST_TRACK",
   RECEIVE_TRACK: "RECEIVE_TRACK",
+  DELETE_TRACK: "DELETE_TRACK",
   REQUEST_TRACKS: "REQUEST_TRACKS",
   REQUEST_USER_TRACKS: "REQUEST_USER_TRACKS",
   RECEIVE_TRACKS: "RECEIVE_TRACKS"
@@ -26,6 +27,11 @@ export const requestTrack = (track) => ({
 export const receiveTrack = (track) => ({
   type: TrackConstants.RECEIVE_TRACK,
   track
+});
+
+export const deleteTrack = (trackId) => ({
+  type: TrackConstants.DELETE_TRACK,
+  trackId
 });
 
 export const requestTracks = () => ({
