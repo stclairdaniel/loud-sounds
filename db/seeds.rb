@@ -40,4 +40,4 @@ Track.create!(title: '<3',
               user_id: 3,
               description: 'Chiptunes for the soul',
               audio_file_url: 'http://res.cloudinary.com/loudsounds/video/upload/v1472777799/dwv9tduulys31a1akan0.mp3',
-              image_url: 'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_100/v1472862499/ipad_anamanaguchi_background_by_drjord-d3kn4e7_epje8s.png')
+              image_url: 'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1472862499/ipad_anamanaguchi_background_by_drjord-d3kn4e7_epje8s.png')

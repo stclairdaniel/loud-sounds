@@ -8,10 +8,15 @@
   font-size: 14px;
 }
 
+.track-header img {
+  cursor: pointer;
+}
+
 .header-artist {
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 15px;
+  cursor: pointer;
 }
 
 .header-detail {
@@ -44,4 +49,16 @@
 
 .play-button {
   cursor: pointer;
+}
+
+.track-body-info-icons {
+  display: flex;
+}
+
+.track-body-info-icons img {
+  cursor: pointer;
+}
+
+.hide-icon {
+  display: none;
 }
