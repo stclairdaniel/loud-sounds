@@ -24,6 +24,12 @@ class Track extends React.Component {
   clickHandler () {
     if (this.trackUsername() === "You") {
       this.props.router.push(this.props.currentUser.username);
+    } else {
+      let username = this.props.track.user.username;
+      if (username.includes(" ")) {
+        username = username.replace(/ /, "%20");
+      }
+      this.props.router.push(username);
     }
   }
 
@@ -31,8 +37,8 @@ class Track extends React.Component {
     return (
       <div className='track-container'>
         <div className='track-header'>
-          <img src={this.props.track.user.header_image_url} width="50" height="50"></img>
-          <span className="header-artist">{this.trackUsername()}</span>
+          <img src={this.props.track.user.header_image_url} width="50" height="50" onClick={this.clickHandler}></img>
+          <span className="header-artist" onClick={this.clickHandler}>{this.trackUsername()}</span>
           <span className="header-detail">posted a track</span>
         </div>
         <div className='track-body'>
