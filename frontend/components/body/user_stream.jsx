@@ -33,7 +33,8 @@ class UserStream extends React.Component  {
               <h2>{user.hometown}</h2>
             </div>
           </div>
-          <StreamContainer user={user.id === this.props.currentUser.id} />
+          // render a user's self page if logged in, otherwise artist page
+          <StreamContainer user={user === this.props.currentUser} />
         </div>
       );
     }

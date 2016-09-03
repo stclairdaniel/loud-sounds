@@ -34,7 +34,7 @@ Track.create!(title: 'diskhat ALL prepared1mixed 13',
               description: 'Percussion comes to life',
               audio_file_url: 'http://res.cloudinary.com/loudsounds/video/upload/v1472862021/01_diskhat_ALL_prepared1mixed_13_bgdwmh.m4a',
               image_url: 'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1472862095/aphex-twin-300x300_fzercf.jpg')
-              
+
 Track.create!(title: '<3',
               genre: 'Electronic',
               user_id: 3,
