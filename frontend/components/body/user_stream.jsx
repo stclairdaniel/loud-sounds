@@ -19,8 +19,13 @@ class UserStream extends React.Component  {
     if (Object.keys(this.props.tracks).length === 0) {
       return <div></div>;
     } else {
-      //this is hacky, but it gets the user from the list of tracks
       const user = this.props.tracks[Object.keys(this.props.tracks)[0]].user;
+      let id;
+      if (this.props.currentUser) {
+        id = this.props.currentUser.id;
+      } else {
+        id = null;
+      }
       return (
         <div className="user-stream-container">
           <div className="user-stream-header">
@@ -33,8 +38,7 @@ class UserStream extends React.Component  {
               <h2>{user.hometown}</h2>
             </div>
           </div>
-          // render a user's self page if logged in, otherwise artist page
-          <StreamContainer user={user === this.props.currentUser} />
+          <StreamContainer user={user.id === id} />
         </div>
       );
     }

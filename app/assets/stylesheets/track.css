@@ -5,13 +5,19 @@
 .track-header {
   padding: 15px 10px;
   display: flex;
+  font-size: 14px;
+}
+
+.header-artist {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px;
 }
 
 .header-detail {
   padding-top: 10px;
   padding-bottom: 10px;
-  padding-left: 15px;
-  font-size: 14px;
+  padding-left: 5px;
 }
 
 .track-body {
