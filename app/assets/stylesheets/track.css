@@ -46,14 +46,18 @@
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 10px;
-  width: 100%
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
+.genre {
+  font-style: italic;
+}
+
 .track-body-info-details-artist-details span {
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .track-body-info-comment {

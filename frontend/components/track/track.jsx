@@ -87,7 +87,8 @@ class Track extends React.Component {
                 <img src={this.playPauseIcon()} onClick={this.play} className="play-button"></img>
               </div>
               <div className='track-body-info-details-artist-details'>
-                {this.props.track.title}
+                <span>{this.props.track.title}</span>
+                <span className="genre">{this.props.track.genre}</span>
               </div>
             </div>
             <div className='track-body-info-comment'>
