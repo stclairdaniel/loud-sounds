@@ -10,10 +10,17 @@ class Track extends React.Component {
     this.deleteClickHandler = this.deleteClickHandler.bind(this);
     this.editClickHandler = this.editClickHandler.bind(this);
     this.showIcon = this.showIcon.bind(this);
+    this.playPauseIcon = this.playPauseIcon.bind(this);
   }
 
   play () {
-    this.props.playTrack(this.props.track);
+    if (window.as[0].mp3 !== this.props.track.audio_file_url) {
+      this.props.playTrack(this.props.track);
+    } else if (!window.as[0].playing) {
+      window.as[0].play();
+    } else {
+      window.as[0].pause();
+    }
   }
 
   trackUsername ()  {
@@ -54,6 +61,14 @@ class Track extends React.Component {
     }
   }
 
+  playPauseIcon () {
+    if (window.as[0].playing && this.props.nowPlaying.id === this.props.track.id) {
+      return "http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_40/v1472949332/player-pause-icon-11193_guwsko.png"
+    } else {
+      return "http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_50/v1472833653/Site%20Icons/play.jpg"
+    }
+  }
+
   render () {
     return (
       <div className='track-container'>
@@ -68,7 +83,9 @@ class Track extends React.Component {
           </div>
           <div className='track-body-info'>
             <div className='track-body-info-details'>
-              <img src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_50/v1472833653/Site%20Icons/play.jpg" onClick={this.play} className="play-button"></img>
+              <div>
+                <img src={this.playPauseIcon()} onClick={this.play} className="play-button"></img>
+              </div>
               <div className='track-body-info-details-artist-details'>
                 {this.props.track.title}
               </div>

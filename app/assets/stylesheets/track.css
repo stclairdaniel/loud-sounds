@@ -37,10 +37,22 @@
   display: flex;
 }
 
+.track-body-info-details img {
+  padding-top: 5px
+  padding-bottom: 5px
+}
+
 .track-body-info-details-artist-details {
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 10px;
+  width: 100%
+  display: flex;
+  justify-content: space-between;
+}
+
+.track-body-info-details-artist-details span {
+
 }
 
 .track-body-info-comment {

@@ -23,7 +23,7 @@ class App extends React.Component {
             <Header />
             <Infinite
               containerHeight={this.getWindowHeight()}
-              elementHeight={300}>
+              elementHeight={267}>
               { this.props.children }
             </Infinite>
             <AudioPlayerContainer />

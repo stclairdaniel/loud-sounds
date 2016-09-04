@@ -4,7 +4,8 @@ import Track from './track';
 import { playTrack, deleteTrack, editTrack } from '../../actions/track_actions';
 
 const mapStateToProps = (state) => ({
-  currentUser: state.session.currentUser
+  currentUser: state.session.currentUser,
+  nowPlaying: state.nowPlaying
 });
 
 const mapDispatchToProps = dispatch => ({
