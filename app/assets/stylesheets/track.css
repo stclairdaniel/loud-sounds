@@ -38,8 +38,8 @@
 }
 
 .track-body-info-details img {
-  padding-top: 5px
-  padding-bottom: 5px
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .track-body-info-details-artist-details {
@@ -52,7 +52,8 @@
 }
 
 .track-body-info-details-artist-details span {
-
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .track-body-info-comment {
