@@ -2,13 +2,13 @@ import React from 'react';
 import TrackContainer from '../track/track_container';
 import Infinite from 'react-infinite';
 
-const Stream = ({tracks, user}) => {
+const Stream = ({tracks, isUser}) => {
   const streamTracks = Object.keys(tracks).reverse().map( id => {
     return <TrackContainer key={id} id={id} track={tracks[id]} />;
   });
 
   const message = () => {
-    if (user) {
+    if (isUser) {
       return <h1>Your tracks</h1>;
     } else {
       return <h1>Hot tracks</h1>;
