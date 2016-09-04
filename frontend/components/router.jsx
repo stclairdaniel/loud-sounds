@@ -22,9 +22,17 @@ const AppRouter = ({store}) => {
     store.dispatch(TrackActions.requestTrack(nextState.params.id));
   };
 
-  const getTrackAndEnsureAuthor = (nextState) => {
+
+  //this is CLUNKY. There are a lot of conditions to check though...
+  const EnsureAuthor = (nextState, replace) => {
     store.dispatch(TrackActions.requestTrack(nextState.params.id));
-    //find a way to check the track user id
+    store.dispatch(requestUser(nextState.params.username));
+    if (!store.getState().session.currentUser ||
+        nextState.params.username !== store.getState().tracks[parseInt(nextState.params.id)].user.username || (nextState.params.username !== store.getState().session.currentUser.username))
+      {
+        store.dispatch(TrackActions.requestTracks());
+        replace('/');
+      }
   };
 
   const getTracks = () => {
@@ -65,18 +73,15 @@ const AppRouter = ({store}) => {
       <Route path='upload'
              component={ UploadFormContainer }
              onEnter={ ensureLoggedIn } />
-      <Route path='edit'>
-       <Route path=':id'
-              component={ EditFormContainer }
-              onEnter={ getTrackAndEnsureAuthor } />
-      </Route>
       <Route path=':username'
              component={ UserStreamContainer }
-             onEnter={ getUserTracksAndUser } >
-        <Route path=':id'
-               component={ TrackContainer }
-               onEnter={ getTrack } />
-      </Route>
+             onEnter={ getUserTracksAndUser } />
+      <Route path=':username/:id'
+             component={ StreamContainer }
+             onEnter={ getTrack } />
+      <Route path=':username/:id/edit'
+             component={ EditFormContainer }
+             onEnter={ EnsureAuthor } />
     </Route>
   </Router>
 );

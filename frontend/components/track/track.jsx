@@ -50,7 +50,7 @@ class Track extends React.Component {
   }
 
   editClickHandler () {
-    this.props.router.push(`/edit/${this.props.track.id}`);
+    this.props.router.push(`/${this.props.track.user.username}/${this.props.track.id}/edit`);
   }
 
   showIcon () {
