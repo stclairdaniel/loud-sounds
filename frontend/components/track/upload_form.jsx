@@ -61,13 +61,6 @@ class UploadForm extends React.Component {
     );
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   //redirect to user page if track upload success
-  //   if (nextProps.lastTrackId !== this.props.lastTrackId) {
-  //     this.props.router.push(`/${this.props.username}`);
-  //   }
-  // }
-
   render () {
     return (
     <div className="upload-form-container">
