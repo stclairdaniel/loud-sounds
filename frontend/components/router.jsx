@@ -13,6 +13,7 @@ import EditFormContainer from './track/edit_form_container';
 
 // Actions
 import { clearErrors } from '../actions/error_actions';
+import { requestUser } from '../actions/user_actions';
 import * as TrackActions from '../actions/track_actions';
 
 const AppRouter = ({store}) => {
@@ -30,9 +31,10 @@ const AppRouter = ({store}) => {
     store.dispatch(TrackActions.requestTracks());
   };
 
-  const getUserTracks = (nextState) => {
+  const getUserTracksAndUser = (nextState) => {
     store.dispatch(TrackActions.clearTracks());
     store.dispatch(TrackActions.requestUserTracks(nextState.params.username));
+    store.dispatch(requestUser(nextState.params.username));
   };
 
   const redirectIfLoggedIn = (nextState, replace) => {
@@ -70,7 +72,7 @@ const AppRouter = ({store}) => {
       </Route>
       <Route path=':username'
              component={ UserStreamContainer }
-             onEnter={ getUserTracks } >
+             onEnter={ getUserTracksAndUser } >
         <Route path=':id'
                component={ TrackContainer }
                onEnter={ getTrack } />

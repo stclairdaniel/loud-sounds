@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import Stream from './stream';
 
 const mapStateToProps = (state, ownProps) => ({
-  tracks: state.tracks
+  tracks: state.tracks,
+  user: state.user
 });
 
 const mapDispatchToProps = dispatch => ({

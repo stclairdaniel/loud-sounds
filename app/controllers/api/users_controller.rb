@@ -10,6 +10,18 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def show
+    if params[:username]
+      @user = User.find_by(username: params[:username])
+      if @user
+        render :show
+      else
+        @errors = { track: ['not found'] }
+        render './errors', status: 404
+      end
+    end
+  end
+
   private
 
   def user_params

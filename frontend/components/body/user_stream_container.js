@@ -5,7 +5,8 @@ import { requestUserTracks} from '../../actions/track_actions';
 
 const mapStateToProps = (state, ownProps) => ({
   tracks: state.tracks,
-  currentUser: state.session.currentUser
+  currentUser: state.session.currentUser,
+  user: state.user
 });
 
 const mapDispatchToProps = dispatch => ({
