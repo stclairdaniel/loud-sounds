@@ -1,0 +1,31 @@
+header {
+  background: #333333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  color: white;
+  border-bottom: 1px solid #ccc;
+}
+
+.nav-logo {
+  display: flex;
+  align-self: flex-start;
+  justify-content: flex-start;
+  background-image: linear-gradient(red, #f06d06);
+  cursor: pointer;
+}
+
+header h1 {
+  font-family: 'Exo', sans-serif;
+  font-size: 32px;
+  align-self: flex-start;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+header img {
+  align-self: flex-start;
+  padding: 2.5px;
+}

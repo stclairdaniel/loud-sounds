@@ -1,10 +1,18 @@
-body, #root {
+html, body, #root {
   height: 100%;
-  background: #f2f2f2;
+  background: $app-background;
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
+}
+
+.app-container {
+  width: 80%;
+  margin: 0 auto;
+  background: white;
+  position: relative;
 }
 
 .app {
-  background: white;
   height: 100%;
 }
 
@@ -12,12 +20,7 @@ body, #root {
   background: #333333;
   height: 50px;
   border-bottom: 1px solid #ccc;
-}
-
-.app-container {
-  width: 80%;
-  margin: 0 auto;
-  font-family: 'Roboto', sans-serif;
-  background: white;
-  position: relative;
+  margin: 0 -9999rem;
+  /* add back negative margin value */
+  padding: 0.01rem 9999rem;
 }

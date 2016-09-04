@@ -5,14 +5,15 @@ import { withRouter } from 'react-router';
 class Header extends React.Component {
 
   render () {
-  return (
-  <header className="navbar">
-    <div className="nav-logo" onClick={() => {this.props.router.push('/');}}>
-      <img className="nav-img" src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_45/v1472833649/Site%20Icons/logo_09-05-17-541.png"/>
-      <h1 className="nav-h1">Loud Sounds</h1>
-    </div>
-    <SessionNavContainer />
-  </header>
+    return (
+      <header>
+        <div className="nav-logo"
+             onClick={() => {this.props.router.push('/');}}>
+          <img src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_45/v1472833649/Site%20Icons/logo_09-05-17-541.png"/>
+          <h1>Loud Sounds</h1>
+        </div>
+        <SessionNavContainer />
+      </header>
     );
   }
 }

@@ -1,22 +1,10 @@
-.signup-form-container {
+.form-container {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.login-form-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.upload-form-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.form {
+form {
   display: flex;
   width: 50%;
   flex-direction: column;
@@ -24,7 +12,7 @@
   align-items: center;
 }
 
-h1 {
+form h1 {
   font-size: 28px;
 }
 
@@ -32,12 +20,12 @@ h1 {
   color: red;
 }
 
-.form-input-label {
+form label {
   display: block;
   margin-bottom: 15px;
 }
 
-.form-input {
+form input {
   display: block;
   font-size: 20px;
   padding: 10px;
@@ -45,7 +33,7 @@ h1 {
   border-radius: 10px;
   transition: box-shadow 0.3s, border 0.3s;
 }
-.form-input:focus {
+form input:focus {
   border: solid 1px #707070;
   box-shadow: 0 0 5px 1px #969696;
  }

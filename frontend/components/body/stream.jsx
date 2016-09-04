@@ -1,5 +1,6 @@
 import React from 'react';
 import TrackContainer from '../track/track_container';
+import Infinite from 'react-infinite';
 
 const Stream = ({tracks, user}) => {
   const streamTracks = Object.keys(tracks).reverse().map( id => {
@@ -14,12 +15,17 @@ const Stream = ({tracks, user}) => {
     }
   };
 
+  const getContainerHeight = () => {
+    //magic number - makes sure all elements fit in window.
+    return $ (window).height() - 275;
+  };
+
   return (
     <div className="stream-container">
       {message()}
-      <div className="tracks-container" >
+      <Infinite containerHeight={getContainerHeight()} elementHeight={240}>
         {streamTracks}
-      </div>
+      </Infinite>
     </div>
   );
 };

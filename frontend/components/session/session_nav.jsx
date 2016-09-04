@@ -31,8 +31,7 @@ const SessionNav = (props) => {
       <div className="nav-links">
         <Link to="login" className="nav-link">Log In</Link> or
         <Link to="signup" className="nav-link">Create Account</Link>
-        <button className="guest-button"
-                onClick={guestLogin}>Guest Account</button>
+        <button onClick={guestLogin}>Guest Account</button>
       </div>
       );
   }

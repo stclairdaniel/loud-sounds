@@ -63,29 +63,26 @@ class UploadForm extends React.Component {
 
   render () {
     return (
-    <div className="upload-form-container">
-      <form onSubmit={this.handleSubmit} className="form">
-        <h1 className="form-h1">Upload Track</h1>
+    <div className="form-container">
+      <form onSubmit={this.handleSubmit}>
+        <h1>Upload Track</h1>
 
-        <label className="form-input-label">Title
+        <label>Title
           <input onChange={this.handleChange}
                 name = "title"
-                className="form-input"
                 ></input>
         </label>
         <span className="form-error">{this.props.errors.title}</span>
 
-        <label className="form-input-label">Genre
+        <label>Genre
           <input onChange={this.handleChange}
-                 name="genre"
-                 className="form-input"></input>
+                 name="genre"></input>
         </label>
         <span className="form-error">{this.props.errors.genre}</span>
 
-        <label className="form-input-label">Description (optional)
+        <label>Description (optional)
           <input onChange={this.handleChange}
-                 name="description"
-                 className="form-input"></input>
+                 name="description"></input>
         </label>
         <span className="form-error">{this.props.errors.description}</span>
 
