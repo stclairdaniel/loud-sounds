@@ -25,6 +25,12 @@ class User < ActiveRecord::Base
     foreign_key: :user_id,
     class_name: :Track
 
+  has_many :comments,
+    dependent: :destroy,
+    primary_key: :id,
+    foreign_key: :comment_id,
+    class_name: :Comment
+
   attr_reader :password
 
   after_initialize :ensure_session_token

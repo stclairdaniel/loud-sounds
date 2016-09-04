@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router';
+import CommentFormContainer from '../comment/comment_form_container';
 
 class Track extends React.Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class Track extends React.Component {
     this.editClickHandler = this.editClickHandler.bind(this);
     this.showIcon = this.showIcon.bind(this);
     this.playPauseIcon = this.playPauseIcon.bind(this);
+    this.commentForm = this.commentForm.bind(this);
   }
 
   playPause () {
@@ -69,6 +71,14 @@ class Track extends React.Component {
     }
   }
 
+  commentForm () {
+    if (this.props.currentUser) {
+      return <commentFormContainer />;
+    } else {
+      return "";
+    }
+  }
+
   render () {
     return (
       <div className='track-container'>
@@ -92,7 +102,7 @@ class Track extends React.Component {
               </div>
             </div>
             <div className='track-body-info-comment'>
-              <span>Eventually I'll be a comment component!</span>
+              <CommentFormContainer trackId={this.props.track.id}/>
             </div>
             <div className='track-body-info-icons'>
               <img src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_25/v1472928235/trash-512_tzepba.png" className={this.showIcon()} onClick={this.deleteClickHandler}></img>

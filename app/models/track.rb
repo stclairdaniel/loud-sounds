@@ -17,4 +17,10 @@ class Track < ActiveRecord::Base
   validates :title, :genre, :user_id, :audio_file_url, presence: true
 
   belongs_to :user
+
+  has_many :comments,
+    dependent: :destroy,
+    primary_key: :id,
+    foreign_key: :comment_id,
+    class_name: :Comment
 end
