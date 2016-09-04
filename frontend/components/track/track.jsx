@@ -4,7 +4,7 @@ import { withRouter } from 'react-router';
 class Track extends React.Component {
   constructor(props) {
     super(props);
-    this.play = this.play.bind(this);
+    this.playPause = this.playPause.bind(this);
     this.trackUsername = this.trackUsername.bind(this);
     this.userClickHandler = this.userClickHandler.bind(this);
     this.deleteClickHandler = this.deleteClickHandler.bind(this);
@@ -13,7 +13,7 @@ class Track extends React.Component {
     this.playPauseIcon = this.playPauseIcon.bind(this);
   }
 
-  play () {
+  playPause () {
     if (window.as[0].mp3 !== this.props.track.audio_file_url) {
       this.props.playTrack(this.props.track);
     } else if (!window.as[0].playing) {
@@ -84,7 +84,7 @@ class Track extends React.Component {
           <div className='track-body-info'>
             <div className='track-body-info-details'>
               <div>
-                <img src={this.playPauseIcon()} onClick={this.play} className="play-button"></img>
+                <img src={this.playPauseIcon()} onClick={this.playPause} className="play-button"></img>
               </div>
               <div className='track-body-info-details-artist-details'>
                 <span>{this.props.track.title}</span>
