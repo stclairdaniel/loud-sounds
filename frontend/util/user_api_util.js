@@ -8,3 +8,13 @@ export const requestUser = (success, error, username) => (
     error: error
   })
 );
+
+export const requestLikedTracks = (success, error, userId) => (
+  $.ajax({
+    type: "GET",
+    url: `/api/users/${userId}`,
+    data: {userId: userId},
+    success: success,
+    error: error
+  })
+);

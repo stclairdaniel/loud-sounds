@@ -14,7 +14,7 @@ import EditFormContainer from './track/edit_form_container';
 
 // Actions
 import { clearErrors } from '../actions/error_actions';
-import { requestUser } from '../actions/user_actions';
+import { requestUser, requestLikedTracks } from '../actions/user_actions';
 import * as TrackActions from '../actions/track_actions';
 
 const AppRouter = ({store}) => {
@@ -39,6 +39,10 @@ const AppRouter = ({store}) => {
   const getTracks = () => {
     store.dispatch(TrackActions.requestTracks());
   };
+
+  const getLikedTracks = (userId) -> {
+    store.dispatch(UserActions.requestLikedTracks(userId))
+  }
 
   const getUserTracksAndUser = (nextState) => {
     store.dispatch(TrackActions.clearTracks());
@@ -77,6 +81,9 @@ const AppRouter = ({store}) => {
       <Route path=':username'
              component={ UserStreamContainer }
              onEnter={ getUserTracksAndUser } />
+           <Route path=':username/likes'
+             component={ UserStreamContainer }
+             onEnter={ getLikedTracks } />
       <Route path=':username/:id'
              component={ TrackDetailContainer }
              onEnter={ getTrack } />

@@ -6,7 +6,7 @@ import { receiveTrackComments } from '../actions/track_actions.js';
 import { createComment, deleteComment } from '../util/comment_api_util';
 import { hashHistory } from 'react-router';
 
-const TrackMiddleware = ({getState, dispatch}) => next => action => {
+const CommentMiddleware = ({getState, dispatch}) => next => action => {
   const handleErrors = errors => dispatch(receiveErrors(errors.responseJSON));
   const handleTrackComments = comment => dispatch(receiveTrackComments(comment));
   switch(action.type) {
@@ -21,4 +21,4 @@ const TrackMiddleware = ({getState, dispatch}) => next => action => {
   }
 };
 
-export default TrackMiddleware;
+export default CommentMiddleware;

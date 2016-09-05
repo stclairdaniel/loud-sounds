@@ -4,6 +4,7 @@ import SessionMiddleware from './session_middleware';
 import TrackMiddleware from './track_middleware';
 import UserMiddleware from './user_middleware';
 import CommentMiddleware from './comment_middleware';
+import LikeMiddleware from './like_middleware';
 import createLogger from 'redux-logger';
 
 const LoggerMiddleware = createLogger();
@@ -13,7 +14,8 @@ const RootMiddleware = applyMiddleware(
   TrackMiddleware,
   LoggerMiddleware,
   UserMiddleware,
-  CommentMiddleware
+  CommentMiddleware,
+  LikeMiddleware
 );
 
 export default RootMiddleware;

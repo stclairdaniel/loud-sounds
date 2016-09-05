@@ -27,7 +27,7 @@ class UserStream extends React.Component  {
             <h2>{this.props.user.hometown}</h2>
           </div>
         </div>
-        <StreamContainer isUser={this.props.user.id === id} />
+        <StreamContainer isUser={this.props.user.id === id} type={"user"} />
       </div>
     );
   }

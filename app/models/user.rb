@@ -28,8 +28,14 @@ class User < ActiveRecord::Base
   has_many :comments,
     dependent: :destroy,
     primary_key: :id,
-    foreign_key: :comment_id,
+    foreign_key: :user_id,
     class_name: :Comment
+
+  has_many :likes,
+    dependent: :destroy,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :Like
 
   attr_reader :password
 

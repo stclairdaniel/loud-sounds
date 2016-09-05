@@ -12,9 +12,11 @@ class Track extends React.Component {
     this.deleteClickHandler = this.deleteClickHandler.bind(this);
     this.editClickHandler = this.editClickHandler.bind(this);
     this.trackClickHandler = this.trackClickHandler.bind(this);
+    this.likeClickHandler = this.likeClickHandler.bind(this);
     this.showIcon = this.showIcon.bind(this);
     this.showHeart = this.showHeart.bind(this);
     this.playPauseIcon = this.playPauseIcon.bind(this);
+    this.likeIcon = this.likeIcon.bind(this);
     this.commentForm = this.commentForm.bind(this);
   }
 
@@ -56,6 +58,10 @@ class Track extends React.Component {
     }
   }
 
+  likeClickHandler () {
+    this.props.createLike({track_id: this.props.track.id, user_id: this.props.currentUser.id});
+  }
+
   editClickHandler () {
     this.props.router.push(`/${this.props.track.user.username}/${this.props.track.id}/edit`);
   }
@@ -82,15 +88,23 @@ class Track extends React.Component {
 
   playPauseIcon () {
     if (window.as[0].playing && this.props.nowPlaying.id === this.props.track.id) {
-      return "http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_40/v1472949332/player-pause-icon-11193_guwsko.png"
+      return "http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_40/v1472949332/player-pause-icon-11193_guwsko.png";
     } else {
-      return "http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_50/v1472833653/Site%20Icons/play.jpg"
+      return "http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_50/v1472833653/Site%20Icons/play.jpg";
+    }
+  }
+
+  likeIcon () {
+    if (true) {
+      return "http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_25/v1473109327/heart-outline_hbpvrx.png";
+    } else {
+      return "http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_25/v1473097489/heart-icon_bdfp0l.png";
     }
   }
 
   commentForm () {
     if (this.props.currentUser) {
-      return <CommentFormContainer trackId={this.props.track.id}/>
+      return <CommentFormContainer trackId={this.props.track.id}/>;
     } else {
       return "";
     }
@@ -131,7 +145,7 @@ class Track extends React.Component {
             <div className='track-body-info-icons'>
               <img src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_25/v1472928235/trash-512_tzepba.png" className={this.showIcon()} onClick={this.deleteClickHandler}></img>
               <img src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_25/v1472928619/pencil-512_ddms2g.png" className={this.showIcon()} onClick={this.editClickHandler}></img>
-              <img src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_25/v1473097489/heart-icon_bdfp0l.png" className={this.showHeart()}></img>
+              <img src={this.likeIcon()} className={this.showHeart()} onClick={this.likeClickHandler}></img>
             </div>
           </div>
         </div>

@@ -7,4 +7,11 @@ json.set! track.id do
   json.image_url track.image_url
   json.id track.id
   json.comments track.comments, :id, :body, :user, :track
+  json.likes do
+    json.array! track.likes do |like|
+      json.user_id like.user_id
+    end
+  end
 end
+
+#  json.likes track.likes, :user_id  this is working
