@@ -1,5 +1,6 @@
 import React from 'react';
 import Infinite from 'react-infinite';
+import Comment from './comment';
 
 class Comments extends React.Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class Comments extends React.Component {
   commentsList () {
     let comments = this.props.tracks[this.props.trackId].comments;
     comments = comments.map(comment => {
-      return <li key={comment.body}>{comment.body}</li>;
+      return <Comment key={comment.body} comment={comment} />;
     });
     return comments;
   }
