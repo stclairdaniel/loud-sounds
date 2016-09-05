@@ -7,6 +7,7 @@ class Comment extends React.Component {
     this.clickHandler = this.clickHandler.bind(this);
     this.commentUsername = this.commentUsername.bind(this);
     this.showIcon = this.showIcon.bind(this);
+    this.deleteClickHandler = this.deleteClickHandler.bind(this);
   }
 
   clickHandler () {
@@ -29,10 +30,18 @@ class Comment extends React.Component {
     }
   }
 
+  deleteClickHandler () {
+    if (window.confirm("Are you sure you want to delete this comment?")) {
+      this.props.deleteComment(this.props.comment.id);
+    }
+    this.props.requestTrack(this.props.comment.track.id);
+  }
+
   render () {
 
     return (
       <li className='comment-list'>
+        <img src={this.props.comment.user.header_image_url} onClick={this.clickHandler}></img>
         <span className='comment-list-username' onClick={this.clickHandler}>
           {this.commentUsername()}
         </span>

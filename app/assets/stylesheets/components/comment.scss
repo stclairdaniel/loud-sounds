@@ -3,6 +3,14 @@
   padding-right: 5px;
 }
 
+.comment-list img {
+  cursor: pointer;
+}
+
 .hide-icon {
   display: none;
+}
+
+.comment-list {
+  list-style: none;
 }

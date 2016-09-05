@@ -10,6 +10,17 @@ class Api::CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @comment = Comment.find(params[:id])
+    if @comment
+      @comment.destroy
+      render json: {}
+    else
+      @errors = { comment: ['not found'] }
+      render './errors', status: 404
+    end
+  end
+
   private
 
   def comment_params
