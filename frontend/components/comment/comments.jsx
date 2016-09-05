@@ -16,8 +16,8 @@ class Comments extends React.Component {
 
   commentsList () {
     let comments = this.props.tracks[this.props.trackId].comments;
-    comments = comments.map(comment => {
-      return <CommentContainer key={comment.body} comment={comment}/>;
+    comments = comments.reverse().map( (comment, idx) => {
+      return <CommentContainer key={comment.body + idx } comment={comment}/>;
     });
     return comments;
   }

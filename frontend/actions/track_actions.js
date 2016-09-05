@@ -8,7 +8,8 @@ export const TrackConstants = {
   REQUEST_TRACKS: "REQUEST_TRACKS",
   REQUEST_USER_TRACKS: "REQUEST_USER_TRACKS",
   RECEIVE_TRACKS: "RECEIVE_TRACKS",
-  CLEAR_TRACKS: "CLEAR_TRACKS"
+  CLEAR_TRACKS: "CLEAR_TRACKS",
+  RECEIVE_TRACK_COMMENTS: "RECEIVE_TRACK_COMMENTS"
 };
 
 export const createTrack = (track) => ({
@@ -57,4 +58,9 @@ export const receiveTracks = (tracks) => ({
 
 export const clearTracks = () => ({
   type: TrackConstants.CLEAR_TRACKS,
+});
+
+export const receiveTrackComments = (comment) => ({
+  type: TrackConstants.RECEIVE_TRACK_COMMENTS,
+  comment
 });
