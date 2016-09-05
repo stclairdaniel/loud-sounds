@@ -40,9 +40,9 @@ const AppRouter = ({store}) => {
     store.dispatch(TrackActions.requestTracks());
   };
 
-  const getLikedTracks = (userId) -> {
-    store.dispatch(UserActions.requestLikedTracks(userId))
-  }
+  const getLikedTracks = (userId) => {
+    store.dispatch(requestLikedTracks(userId));
+  };
 
   const getUserTracksAndUser = (nextState) => {
     store.dispatch(TrackActions.clearTracks());

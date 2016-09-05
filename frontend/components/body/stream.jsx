@@ -1,14 +1,24 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 import TrackContainer from '../track/track_container';
 import Infinite from 'react-infinite';
 
-const Stream = ({tracks, isUser, type}) => {
-  const streamTracks = Object.keys(tracks).reverse().map( id => {
-    return <TrackContainer key={id} id={id} track={tracks[id]} />;
-  });
+class Stream extends React.Component {
+  constructor(props) {
+    super(props);
+    this.streamTracks = this.streamTracks.bind(this);
+    this.streamHeader = this.streamHeader.bind(this);
+    this.getContainerHeight = this.getContainerHeight.bind(this);
+  }
 
-  const streamHeader = () => {
-    if (isUser && type === "user") {
+  streamTracks () {
+    return Object.keys(this.props.tracks).reverse().map( id => {
+      return <TrackContainer key={id} id={id} track={this.props.tracks[id]} />;
+    });
+  }
+
+  streamHeader () {
+    if (this.props.isUser && this.props.type === "user") {
       return (
         <div className="stream-header">
           <div>
@@ -24,21 +34,23 @@ const Stream = ({tracks, isUser, type}) => {
         <h1>Hot tracks</h1>
       );
     }
-  };
+  }
 
-  const getContainerHeight = () => {
+  getContainerHeight () {
     //magic number - makes sure all elements fit in window.
     return $ (window).height() - 275;
-  };
+  }
 
-  return (
-    <div className="stream-container">
-      {streamHeader()}
-      <Infinite containerHeight={getContainerHeight()} elementHeight={278}>
-        {streamTracks}
-      </Infinite>
-    </div>
-  );
-};
+  render () {
+    return (
+      <div className="stream-container">
+        {this.streamHeader()}
+        <Infinite containerHeight={this.getContainerHeight()} elementHeight={278}>
+          {this.streamTracks()}
+        </Infinite>
+      </div>
+    );
+  }
+}
 
-export default Stream;
+export default withRouter(Stream);
