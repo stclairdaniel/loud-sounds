@@ -67,7 +67,7 @@ class Track extends React.Component {
   }
 
   trackClickHandler () {
-    this.props.router.push(`/${this.props.track.user.username}/${this.props.track.id}`);
+    this.props.router.push(`/${this.props.track.user.username}/tracks/${this.props.track.id}`);
   }
 
   showIcon () {

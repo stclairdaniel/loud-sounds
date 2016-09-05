@@ -1,3 +1,3 @@
 @likes.each do |like|
-  json.partial! like
+  json.partial! './api/tracks/track', track: like.track
 end

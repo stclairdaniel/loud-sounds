@@ -9,11 +9,11 @@ export const requestUser = (success, error, username) => (
   })
 );
 
-export const requestLikedTracks = (success, error, userId) => (
+export const requestLikedTracks = (success, error, username) => (
   $.ajax({
     type: "GET",
-    url: `/api/users/${userId}`,
-    data: {userId: userId},
+    url: `/api/users/1/likes`,
+    data: {username: username},
     success: success,
     error: error
   })

@@ -1,1 +1,1 @@
-json.extract! like, :id, :user, :track
+json.extract! like, :id, :user, :track, :user.username

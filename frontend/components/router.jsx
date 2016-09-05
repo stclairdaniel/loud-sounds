@@ -40,8 +40,9 @@ const AppRouter = ({store}) => {
     store.dispatch(TrackActions.requestTracks());
   };
 
-  const getLikedTracks = (userId) => {
-    store.dispatch(requestLikedTracks(userId));
+  const getLikedTracks = (nextState) => {
+    store.dispatch(requestLikedTracks(nextState.params.username));
+    store.dispatch(requestUser(nextState.params.username));
   };
 
   const getUserTracksAndUser = (nextState) => {
@@ -81,10 +82,10 @@ const AppRouter = ({store}) => {
       <Route path=':username'
              component={ UserStreamContainer }
              onEnter={ getUserTracksAndUser } />
-           <Route path=':username/likes'
+      <Route path=':username/likes'
              component={ UserStreamContainer }
              onEnter={ getLikedTracks } />
-      <Route path=':username/:id'
+           <Route path=':username/tracks/:id'
              component={ TrackDetailContainer }
              onEnter={ getTrack } />
       <Route path=':username/:id/edit'

@@ -22,7 +22,9 @@ class Api::LikesController < ApplicationController
   end
 
   def index
-    @likes = Like.where(user_id: params[:user_id])
+    @user = User.find_by(username: params[:username])
+    puts @user
+    @likes = Like.where(user_id: @user.id)
   end
 
   private

@@ -14,7 +14,7 @@ export const requestUser = (user) => ({
   user
 });
 
-export const requestLikedTracks = (userId) => ({
+export const requestLikedTracks = (username) => ({
   type: UserConstants.REQUEST_LIKED_TRACKS,
-  userId
+  username
 });

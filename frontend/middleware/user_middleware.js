@@ -3,7 +3,7 @@ import { UserConstants, receiveUser} from '../actions/user_actions';
 import { receiveTracks } from '../actions/track_actions';
 import { receiveErrors } from '../actions/error_actions';
 //Util
-import { requestUser } from '../util/user_api_util';
+import { requestUser, requestLikedTracks } from '../util/user_api_util';
 
 const UserMiddleware = ({getState, dispatch}) => next => action => {
   const handleErrors = errors => dispatch(receiveErrors(errors.responseJSON));
@@ -14,7 +14,7 @@ const UserMiddleware = ({getState, dispatch}) => next => action => {
       break;
     case UserConstants.REQUEST_LIKED_TRACKS:
       const handleTracks = tracks => dispatch(receiveTracks(tracks));
-      requestUser(handleTracks, handleErrors, action.userID);
+      requestLikedTracks(handleTracks, handleErrors, action.username);
       break;
     default:
       return next(action);
