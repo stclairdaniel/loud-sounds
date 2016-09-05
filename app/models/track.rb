@@ -21,6 +21,6 @@ class Track < ActiveRecord::Base
   has_many :comments,
     dependent: :destroy,
     primary_key: :id,
-    foreign_key: :comment_id,
+    foreign_key: :track_id,
     class_name: :Comment
 end

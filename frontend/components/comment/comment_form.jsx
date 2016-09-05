@@ -1,13 +1,16 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router';
+import { Link } from 'react-router';
 
 class CommentForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {body: "", track_id: this.props.trackId, user_id: this.props.currentUser.id};
+    const { trackId, currentUser } = this.props;
+    this.state = {body: "",
+                  track_id: trackId, user_id:
+                  currentUser ? currentUser.id : ""};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.disables = this.disabled.bind(this);
+    this.disabled = this.disabled.bind(this);
   }
 
   handleChange (e) {
@@ -47,4 +50,4 @@ class CommentForm extends React.Component {
   }
 }
 
-export default withRouter(CommentForm);
+export default CommentForm;

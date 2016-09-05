@@ -6,4 +6,5 @@ json.set! track.id do
   json.audio_file_url track.audio_file_url
   json.image_url track.image_url
   json.id track.id
+  json.comments track.comments
 end

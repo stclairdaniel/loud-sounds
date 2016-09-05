@@ -73,7 +73,7 @@ class Track extends React.Component {
 
   commentForm () {
     if (this.props.currentUser) {
-      return <commentFormContainer />;
+      return <CommentFormContainer trackId={this.props.track.id}/>
     } else {
       return "";
     }
@@ -102,7 +102,7 @@ class Track extends React.Component {
               </div>
             </div>
             <div className='track-body-info-comment'>
-              <CommentFormContainer trackId={this.props.track.id}/>
+              { this.commentForm() }
             </div>
             <div className='track-body-info-icons'>
               <img src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_25/v1472928235/trash-512_tzepba.png" className={this.showIcon()} onClick={this.deleteClickHandler}></img>

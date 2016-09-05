@@ -9,6 +9,7 @@ import UploadFormContainer from './track/upload_form_container';
 import StreamContainer from './body/stream_container';
 import UserStreamContainer from './body/user_stream_container';
 import TrackContainer from './track/track_container';
+import TrackDetailContainer from './track/track_detail_container';
 import EditFormContainer from './track/edit_form_container';
 
 // Actions
@@ -77,7 +78,7 @@ const AppRouter = ({store}) => {
              component={ UserStreamContainer }
              onEnter={ getUserTracksAndUser } />
       <Route path=':username/:id'
-             component={ StreamContainer }
+             component={ TrackDetailContainer }
              onEnter={ getTrack } />
       <Route path=':username/:id/edit'
              component={ EditFormContainer }
