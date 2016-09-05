@@ -33,6 +33,10 @@
   padding-right: 20px;
 }
 
+.track-body-image img {
+  cursor: pointer;
+}
+
 .track-body-info-details {
   display: flex;
 }
@@ -58,6 +62,7 @@
 .track-body-info-details-artist-details span {
   padding-top: 10px;
   padding-bottom: 10px;
+  cursor: pointer;
 }
 
 .track-body-info-comment {

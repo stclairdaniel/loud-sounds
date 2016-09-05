@@ -9,14 +9,17 @@ class TrackDetail extends React.Component {
   }
 
   render () {
-
     let id = this.props.params.id;
-    return (
-    <div>
-      <TrackContainer id={id} track={this.props.tracks[id]} />
-      <CommentsContainer trackId={id} />
-    </div>
-    );
+    if (!this.props.tracks[id]) {
+      return <div></div>;
+    } else {
+      return (
+      <div>
+        <TrackContainer id={id} track={this.props.tracks[id]} />
+        <CommentsContainer trackId={id} />
+      </div>
+      );
+    }
   }
 }
 

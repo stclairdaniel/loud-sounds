@@ -10,6 +10,7 @@ class Track extends React.Component {
     this.userClickHandler = this.userClickHandler.bind(this);
     this.deleteClickHandler = this.deleteClickHandler.bind(this);
     this.editClickHandler = this.editClickHandler.bind(this);
+    this.trackClickHandler = this.trackClickHandler.bind(this);
     this.showIcon = this.showIcon.bind(this);
     this.playPauseIcon = this.playPauseIcon.bind(this);
     this.commentForm = this.commentForm.bind(this);
@@ -55,6 +56,10 @@ class Track extends React.Component {
     this.props.router.push(`/${this.props.track.user.username}/${this.props.track.id}/edit`);
   }
 
+  trackClickHandler () {
+    this.props.router.push(`/${this.props.track.user.username}/${this.props.track.id}`);
+  }
+
   showIcon () {
     if (this.trackUsername() === "You") {
       return "show-icon";
@@ -89,7 +94,10 @@ class Track extends React.Component {
         </div>
         <div className='track-body'>
           <div className='track-body-image'>
-            <img src={this.props.track.image_url} width="150" height="150"/>
+            <img src={this.props.track.image_url}
+                 width="150"
+                 height="150"
+                 onClick={this.trackClickHandler}/>
           </div>
           <div className='track-body-info'>
             <div className='track-body-info-details'>
@@ -97,7 +105,9 @@ class Track extends React.Component {
                 <img src={this.playPauseIcon()} onClick={this.playPause} className="play-button"></img>
               </div>
               <div className='track-body-info-details-artist-details'>
-                <span>{this.props.track.title}</span>
+                <span onClick={this.trackClickHandler}>
+                  {this.props.track.title}
+                </span>
                 <span className="genre">{this.props.track.genre}</span>
               </div>
             </div>
