@@ -37,6 +37,11 @@
   cursor: pointer;
 }
 
+.track-body-info {
+  width: 60%;
+  position: relative;
+}
+
 .track-body-info-details {
   display: flex;
 }
@@ -75,10 +80,13 @@
 
 .track-body-info-icons {
   display: flex;
+  position: absolute;
+  bottom: 0;
 }
 
 .track-body-info-icons img {
   cursor: pointer;
+  padding: 0 5px;
 }
 
 .hide-icon {

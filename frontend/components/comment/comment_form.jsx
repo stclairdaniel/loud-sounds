@@ -34,16 +34,17 @@ class CommentForm extends React.Component {
 
   render () {
     return (
-      <div className="form-container">
+      <div className="comment-form-container">
         <form onSubmit={this.handleSubmit}>
           <span className="form-error">{this.props.errors.invalid}</span>
-
-          <input onChange={this.handleChange}
-                name="body"
-                value={this.state.body}
-                placeholder="Leave a comment...">
-          </input>
-          <input type="submit" value="+" className="form-submit" disabled={this.disabled()}/>
+          <div className="comment-form-body">
+            <input className="comment-input" onChange={this.handleChange}
+                  name="body"
+                  value={this.state.body}
+                  placeholder="Leave a comment...">
+            </input>
+            <input type="submit" value="+" className="form-submit" disabled={this.disabled()}/>
+          </div>
         </form>
       </div>
     );

@@ -1,6 +1,8 @@
 import { TrackConstants } from '../actions/track_actions';
 import merge from 'lodash/merge';
 
+//get single track, merge with current tracks to include new comments
+
 const TracksReducer = (state = {}, action) => {
   switch(action.type) {
     case TrackConstants.RECEIVE_TRACK:

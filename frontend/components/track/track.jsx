@@ -5,6 +5,7 @@ import CommentFormContainer from '../comment/comment_form_container';
 class Track extends React.Component {
   constructor(props) {
     super(props);
+    this.state = ({nowPlayingTrack: false});
     this.playPause = this.playPause.bind(this);
     this.trackUsername = this.trackUsername.bind(this);
     this.userClickHandler = this.userClickHandler.bind(this);
@@ -12,6 +13,7 @@ class Track extends React.Component {
     this.editClickHandler = this.editClickHandler.bind(this);
     this.trackClickHandler = this.trackClickHandler.bind(this);
     this.showIcon = this.showIcon.bind(this);
+    this.showHeart = this.showHeart.bind(this);
     this.playPauseIcon = this.playPauseIcon.bind(this);
     this.commentForm = this.commentForm.bind(this);
   }
@@ -21,8 +23,10 @@ class Track extends React.Component {
       this.props.playTrack(this.props.track);
     } else if (!window.as[0].playing) {
       window.as[0].play();
+      this.setState({nowPlayingTrack: true});
     } else {
       window.as[0].pause();
+      this.setState({nowPlayingTrack: false});
     }
   }
 
@@ -62,6 +66,14 @@ class Track extends React.Component {
 
   showIcon () {
     if (this.trackUsername() === "You") {
+      return "show-icon";
+    } else {
+      return "hide-icon";
+    }
+  }
+
+  showHeart () {
+    if (this.props.currentUser) {
       return "show-icon";
     } else {
       return "hide-icon";
@@ -111,12 +123,15 @@ class Track extends React.Component {
                 <span className="genre">{this.props.track.genre}</span>
               </div>
             </div>
-            <div className='track-body-info-comment'>
-              { this.commentForm() }
+            <div>
+              <div className='track-body-info-comment'>
+                { this.commentForm() }
+              </div>
             </div>
             <div className='track-body-info-icons'>
               <img src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_25/v1472928235/trash-512_tzepba.png" className={this.showIcon()} onClick={this.deleteClickHandler}></img>
               <img src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_25/v1472928619/pencil-512_ddms2g.png" className={this.showIcon()} onClick={this.editClickHandler}></img>
+              <img src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_25/v1473097489/heart-icon_bdfp0l.png" className={this.showHeart()}></img>
             </div>
           </div>
         </div>

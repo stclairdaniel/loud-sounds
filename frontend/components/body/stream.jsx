@@ -23,7 +23,7 @@ const Stream = ({tracks, isUser}) => {
   return (
     <div className="stream-container">
       {message()}
-      <Infinite containerHeight={getContainerHeight()} elementHeight={240}>
+      <Infinite containerHeight={getContainerHeight()} elementHeight={278}>
         {streamTracks}
       </Infinite>
     </div>
