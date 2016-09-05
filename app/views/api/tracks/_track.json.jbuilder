@@ -7,9 +7,9 @@ json.set! track.id do
   json.image_url track.image_url
   json.id track.id
   json.comments track.comments, :id, :body, :user, :track
-  json.likes do
-    json.array! track.likes do |like|
-      json.user_id like.user_id
+  json.likes do json.array!
+    track.likes.map do |like|
+      like.user_id
     end
   end
 end

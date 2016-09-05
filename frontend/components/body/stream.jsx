@@ -9,6 +9,8 @@ class Stream extends React.Component {
     this.streamTracks = this.streamTracks.bind(this);
     this.streamHeader = this.streamHeader.bind(this);
     this.getContainerHeight = this.getContainerHeight.bind(this);
+    this.yourTracksOnClick = this.yourTracksOnClick.bind(this);
+    this.yourLikesOnClick = this.yourLikesOnClick.bind(this);
   }
 
   streamTracks () {
@@ -17,15 +19,23 @@ class Stream extends React.Component {
     });
   }
 
+  yourTracksOnClick () {
+    this.props.router.push(`/${this.props.currentUser.username}`);
+  }
+
+  yourLikesOnClick () {
+    this.props.router.push(`/${this.props.currentUser.username}/likes`);
+  }
+
   streamHeader () {
     if (this.props.isUser && this.props.type === "user") {
       return (
         <div className="stream-header">
           <div>
-            <h1>Your tracks</h1>
+            <h1 onClick={this.yourTracksOnClick}>Your tracks</h1>
           </div>
           <div>
-            <h1>Your likes</h1>
+            <h1 onClick={this.yourLikesOnClick}>Your likes</h1>
           </div>
         </div>
       );

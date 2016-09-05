@@ -21,6 +21,10 @@ class Api::LikesController < ApplicationController
     end
   end
 
+  def index
+    @likes = Like.where(user_id: params[:user_id])
+  end
+
   private
 
   def like_params
