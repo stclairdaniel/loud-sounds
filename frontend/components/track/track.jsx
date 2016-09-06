@@ -63,10 +63,8 @@ class Track extends React.Component {
     let currentLikes = this.state.likes;
     if (this.props.track.likes.includes(this.props.currentUser.id)) {
       this.props.deleteLike({track_id: this.props.track.id, user_id: this.props.currentUser.id});
-      this.setState({likes: currentLikes - 1});
     } else {
       this.props.createLike({track_id: this.props.track.id, user_id: this.props.currentUser.id});
-      this.setState({likes: currentLikes + 1});
     }
   }
 
@@ -154,7 +152,7 @@ class Track extends React.Component {
               <img src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_25/v1472928235/trash-512_tzepba.png" className={this.showIcon()} onClick={this.deleteClickHandler}></img>
               <img src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_25/v1472928619/pencil-512_ddms2g.png" className={this.showIcon()} onClick={this.editClickHandler}></img>
               <img src={this.likeIcon()} className={this.showHeart()} onClick={this.likeClickHandler}></img>
-              <span>{this.state.likes.length}</span>
+              <span>{this.props.tracks[this.props.track.id].likes.length}</span>
             </div>
           </div>
         </div>
