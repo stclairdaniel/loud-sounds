@@ -18,6 +18,7 @@ class Track extends React.Component {
     this.playPauseIcon = this.playPauseIcon.bind(this);
     this.likeIcon = this.likeIcon.bind(this);
     this.commentForm = this.commentForm.bind(this);
+    this.hidePointer = this.hidePointer.bind(this);
   }
 
   playPause () {
@@ -104,11 +105,13 @@ class Track extends React.Component {
   commentForm () {
     if (this.props.currentUser) {
       return <CommentFormContainer trackId={this.props.track.id}/>;
-    } else {
-      return "";
     }
   }
-
+  hidePointer () {
+    if (!this.props.currentUser) {
+      return "hide-pointer";
+    }
+  }
 
   render () {
     return (
@@ -145,7 +148,7 @@ class Track extends React.Component {
             <div className='track-body-info-icons'>
               <img src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_25/v1472928235/trash-512_tzepba.png" className={this.showIcon()} onClick={this.deleteClickHandler}></img>
               <img src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_25/v1472928619/pencil-512_ddms2g.png" className={this.showIcon()} onClick={this.editClickHandler}></img>
-              <img src={this.likeIcon()} onClick={this.likeClickHandler}></img>
+              <img src={this.likeIcon()} className={this.hidePointer()} onClick={this.likeClickHandler}></img>
               <span>{this.props.tracks[this.props.track.id].likes.length}</span>
               <img src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_25/v1473133152/comment_icon2_t7epjf.png" onClick={this.trackClickHandler}></img>
               <span>{this.props.tracks[this.props.track.id].comments.length}</span>
