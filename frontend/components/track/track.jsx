@@ -101,7 +101,7 @@ class Track extends React.Component {
   }
 
   likeIcon () {
-    if (this.props.track.likes.includes(this.props.currentUser.id)) {
+    if (this.props.currentUser && this.props.track.likes.includes(this.props.currentUser.id)) {
       return "http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_25/v1473097489/heart-icon_bdfp0l.png";
     } else {
       return "http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_25/v1473109327/heart-outline_hbpvrx.png" ;
@@ -152,7 +152,7 @@ class Track extends React.Component {
               <img src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_25/v1472928235/trash-512_tzepba.png" className={this.showIcon()} onClick={this.deleteClickHandler}></img>
               <img src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_25/v1472928619/pencil-512_ddms2g.png" className={this.showIcon()} onClick={this.editClickHandler}></img>
               <img src={this.likeIcon()} className={this.showHeart()} onClick={this.likeClickHandler}></img>
-              <span>{this.props.tracks[this.props.track.id].likes.length}</span>
+              <span className={this.showIcon()}>{this.props.tracks[this.props.track.id].likes.length}</span>
             </div>
           </div>
         </div>

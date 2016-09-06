@@ -48,7 +48,7 @@ class Stream extends React.Component {
 
   getContainerHeight () {
     //magic number - makes sure all elements fit in window.
-    return $ (window).height() - 275;
+    return $ (window).height() - 300;
   }
 
   render () {
