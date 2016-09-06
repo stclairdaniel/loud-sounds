@@ -1,0 +1,26 @@
+.search {
+  background: #ccc;
+  border-radius: 10px;
+  width: 40%;
+  display: flex;
+  vertical-align: middle;
+}
+
+.search img {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.search input {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background: #ccc;
+  border: none;
+  width: 80%;
+  font-size: 16px;
+  padding-left: 5px;
+}
+
+.search input:focus {
+  outline: none;
+}
