@@ -3,6 +3,9 @@ class Api::TracksController < ApplicationController
     if params[:username]
       @user = User.where(username: params[:username]).first
       @tracks = Track.where(user_id: @user.id)
+    elsif params[:title]
+      @tracks = Track.where("title ILIKE ?" , "%#{params[:title]}%")
+      render :search
     else
       @tracks = Track.all
     end

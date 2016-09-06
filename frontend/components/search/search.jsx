@@ -11,7 +11,9 @@ class Search extends React.Component {
     if (e.target.value === "") {
       this.props.clearSearchResults();
     } else {
+      this.props.clearSearchResults();
       this.props.requestUsersLike(e.target.value);
+      this.props.requestTracksLike(e.target.value);
     }
   }
 

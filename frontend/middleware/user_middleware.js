@@ -2,7 +2,7 @@
 import { UserConstants, receiveUser} from '../actions/user_actions';
 import { receiveTracks } from '../actions/track_actions';
 import { receiveErrors } from '../actions/error_actions';
-import { receiveSearchResults } from '../actions/search_actions';
+import { receiveUserSearchResults } from '../actions/search_actions';
 //Util
 import { requestUser, requestLikedTracks, requestUsersLike } from '../util/user_api_util';
 
@@ -18,7 +18,7 @@ const UserMiddleware = ({getState, dispatch}) => next => action => {
       requestLikedTracks(handleTracks, handleErrors, action.username);
       break;
     case UserConstants.REQUEST_USERS_LIKE:
-      const handleSearch = users => dispatch(receiveSearchResults(users));
+      const handleSearch = users => dispatch(receiveUserSearchResults(users));
       requestUsersLike(handleSearch, null, action.username);
       break;
     default:
