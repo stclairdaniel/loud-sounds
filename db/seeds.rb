@@ -3,7 +3,7 @@ User.create!(username: 'Guest',
              password: 'password',
              name: Faker::Name.name,
              hometown: "#{Faker::Address.city}, #{Faker::Address.country}",
-             header_image_url: Faker::Avatar.image('my-own-slug', '100x100'))
+             header_image_url: Faker::Avatar.image("#{Faker::Name.name}",'100x100'))
 User.create!(username: 'Aphex Twin',
              email: 'aphex_twin@example.com',
              password: 'password',

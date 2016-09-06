@@ -28,7 +28,7 @@ class Stream extends React.Component {
   }
 
   streamHeader () {
-    if (this.props.isUser && this.props.type === "user") {
+    if (this.props.isUser) {
       return (
         <div className="stream-header">
           <div>
@@ -48,7 +48,12 @@ class Stream extends React.Component {
 
   getContainerHeight () {
     //magic number - makes sure all elements fit in window.
-    return $ (window).height() - 300;
+    if (this.props.type === "user") {
+      return $ (window).height() - 300;
+    } else {
+      return $ (window).height() - 175;
+    }
+
   }
 
   render () {
