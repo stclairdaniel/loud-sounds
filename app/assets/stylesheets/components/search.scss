@@ -4,6 +4,7 @@
   width: 40%;
   display: flex;
   vertical-align: middle;
+  position: relative;
 }
 
 .search img {
@@ -23,4 +24,32 @@
 
 .search input:focus {
   outline: none;
+}
+
+.search-results {
+  position: absolute;
+  top: 42px;
+  left: 25px;
+  background: #333333;
+  list-style: none;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px
+}
+
+.search-results .hidden {
+  display: none;
+}
+
+.search-results li {
+  padding: 5px;
+}
+
+.search-results img {
+  width: 25px;
+  height: 25px;
+}
+
+.result {
+  display: flex;
 }

@@ -11,5 +11,3 @@ json.set! track.id do
     json.array! track.likes.map { |like| like.user_id}
   end
 end
-
-#  json.likes track.likes, :user_id  this is working

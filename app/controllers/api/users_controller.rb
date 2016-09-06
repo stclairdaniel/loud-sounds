@@ -22,6 +22,13 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def index
+    if params[:username]
+      @users = User.where("username ILIKE ?" , "%#{params[:username]}%")
+      render :index
+    end
+  end
+
   private
 
   def user_params
