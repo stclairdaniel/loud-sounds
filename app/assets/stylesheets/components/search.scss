@@ -36,6 +36,7 @@
   border-radius: 10px;
   padding: 10px;
   z-index: 1;
+  width: 80%;
 }
 
 .search-results .hidden {
@@ -53,4 +54,5 @@
 
 .result {
   display: flex;
+  cursor: pointer;
 }
