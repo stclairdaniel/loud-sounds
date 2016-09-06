@@ -62,11 +62,11 @@ class Track extends React.Component {
   likeClickHandler () {
     let currentLikes = this.state.likes;
     if (this.props.track.likes.includes(this.props.currentUser.id)) {
-      this.setState({likes: currentLikes - 1});
       this.props.deleteLike({track_id: this.props.track.id, user_id: this.props.currentUser.id});
+      this.setState({likes: currentLikes - 1});
     } else {
-      this.setState({likes: currentLikes + 1});
       this.props.createLike({track_id: this.props.track.id, user_id: this.props.currentUser.id});
+      this.setState({likes: currentLikes + 1});
     }
   }
 

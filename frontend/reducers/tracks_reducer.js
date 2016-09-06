@@ -16,8 +16,14 @@ const TracksReducer = (state = {}, action) => {
     case TrackConstants.CLEAR_TRACKS:
       return {};
     case TrackConstants.RECEIVE_TRACK_COMMENTS:
-      newState = merge({}, state);
       newState[action.comment.track.id].comments.push(action.comment);
+      return newState;
+    case TrackConstants.RECEIVE_TRACK_LIKE:
+      newState[action.like.track.id].likes.push(action.like.user.id);
+      return newState;
+    case TrackConstants.DELETE_TRACK_LIKE:
+      const idx = newState[action.like.track.id].likes.indexOf(action.like.user.id);
+      newState[action.like.track.id].likes.splice(idx, 1);
       return newState;
     default:
       return state;

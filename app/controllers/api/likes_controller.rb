@@ -16,7 +16,7 @@ class Api::LikesController < ApplicationController
     @like = Like.find_by(user_id: @user.id, track_id: @track.id)
     if @like
       @like.destroy
-      render json: {}
+      render @like
     else
       @errors = { like: ['not found'] }
       render './errors', status: 404
