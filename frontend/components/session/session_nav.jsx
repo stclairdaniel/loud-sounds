@@ -29,9 +29,9 @@ const SessionNav = (props) => {
 
     return (
       <div className="nav-links">
-        <Link to="login" className="nav-link">Log In</Link> or
-        <Link to="signup" className="nav-link">Create Account</Link>
-        <button onClick={guestLogin}>Guest Account</button>
+        <Link to="login" className="nav-link">Login</Link> or
+        <Link to="signup" className="nav-link">Sign Up</Link>
+        <button onClick={guestLogin}>Guest</button>
       </div>
       );
   }
