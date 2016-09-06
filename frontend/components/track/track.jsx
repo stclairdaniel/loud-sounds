@@ -5,7 +5,8 @@ import CommentFormContainer from '../comment/comment_form_container';
 class Track extends React.Component {
   constructor(props) {
     super(props);
-    this.state = ({nowPlayingTrack: false});
+    this.state = ({nowPlayingTrack: false,
+                  likes: this.props.tracks[this.props.track.id].likes});
     this.playPause = this.playPause.bind(this);
     this.trackUsername = this.trackUsername.bind(this);
     this.userClickHandler = this.userClickHandler.bind(this);
@@ -59,7 +60,14 @@ class Track extends React.Component {
   }
 
   likeClickHandler () {
-    this.props.createLike({track_id: this.props.track.id, user_id: this.props.currentUser.id});
+    let currentLikes = this.state.likes;
+    if (this.props.track.likes.includes(this.props.currentUser.id)) {
+      this.setState({likes: currentLikes - 1});
+      this.props.deleteLike({track_id: this.props.track.id, user_id: this.props.currentUser.id});
+    } else {
+      this.setState({likes: currentLikes + 1});
+      this.props.createLike({track_id: this.props.track.id, user_id: this.props.currentUser.id});
+    }
   }
 
   editClickHandler () {
@@ -95,10 +103,10 @@ class Track extends React.Component {
   }
 
   likeIcon () {
-    if (true) {
-      return "http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_25/v1473109327/heart-outline_hbpvrx.png";
-    } else {
+    if (this.props.track.likes.includes(this.props.currentUser.id)) {
       return "http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_25/v1473097489/heart-icon_bdfp0l.png";
+    } else {
+      return "http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_25/v1473109327/heart-outline_hbpvrx.png" ;
     }
   }
 
@@ -146,6 +154,7 @@ class Track extends React.Component {
               <img src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_25/v1472928235/trash-512_tzepba.png" className={this.showIcon()} onClick={this.deleteClickHandler}></img>
               <img src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_25/v1472928619/pencil-512_ddms2g.png" className={this.showIcon()} onClick={this.editClickHandler}></img>
               <img src={this.likeIcon()} className={this.showHeart()} onClick={this.likeClickHandler}></img>
+              <span>{this.state.likes.length}</span>
             </div>
           </div>
         </div>

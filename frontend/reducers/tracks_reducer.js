@@ -16,7 +16,6 @@ const TracksReducer = (state = {}, action) => {
     case TrackConstants.CLEAR_TRACKS:
       return {};
     case TrackConstants.RECEIVE_TRACK_COMMENTS:
-      console.log(action.comment.track);
       newState = merge({}, state);
       newState[action.comment.track.id].comments.push(action.comment);
       return newState;

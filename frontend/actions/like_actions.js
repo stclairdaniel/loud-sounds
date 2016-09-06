@@ -8,7 +8,7 @@ export const createLike = (like) => ({
   like
 });
 
-export const deleteLike = (likeId) => ({
+export const deleteLike = (like) => ({
   type: LikeConstants.DELETE_LIKE,
-  likeId
+  like
 });

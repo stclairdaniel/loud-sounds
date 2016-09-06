@@ -8,10 +8,12 @@ export const createLike = (success, error, like) => (
   })
 );
 
-export const deleteLike = (success, error, likeId) => (
+// dummy index
+export const deleteLike = (success, error, like) => (
   $.ajax({
     type: "DELETE",
-    url: `/api/likes/${likeId}`,
+    url: `/api/likes/1`,
+    data: {user_id: like.user_id, track_id: like.track_id },
     success: success,
     error: error
   })

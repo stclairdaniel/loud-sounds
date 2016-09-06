@@ -6,7 +6,8 @@ import { createLike, deleteLike } from '../../actions/like_actions';
 
 const mapStateToProps = (state) => ({
   currentUser: state.session.currentUser,
-  nowPlaying: state.nowPlaying
+  nowPlaying: state.nowPlaying,
+  tracks: state.tracks
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -10,7 +10,7 @@ const LikeMiddleware = ({getState, dispatch}) => next => action => {
       createLike(null, null, action.like);
       break;
     case LikeConstants.DELETE_LIKE:
-      deleteLike(null, null, action.like.id);
+      deleteLike(null, null, action.like);
       break;
     default:
       return next(action);
