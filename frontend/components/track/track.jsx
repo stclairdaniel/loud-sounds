@@ -146,6 +146,8 @@ class Track extends React.Component {
               <img src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_25/v1472928619/pencil-512_ddms2g.png" className={this.showIcon()} onClick={this.editClickHandler}></img>
               <img src={this.likeIcon()} onClick={this.likeClickHandler}></img>
               <span>{this.props.tracks[this.props.track.id].likes.length}</span>
+              <span>{this.props.tracks[this.props.track.id].comments.length}</span>
+              <span>Comments</span>
             </div>
           </div>
         </div>
