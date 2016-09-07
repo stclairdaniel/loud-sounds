@@ -10,8 +10,13 @@
 .comment-list {
   list-style: none;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   padding: 10px 0;
+}
+
+.comment-list img {
+  width: 40px;
+  height: 40px;
 }
 
 .comment-list-username {

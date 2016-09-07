@@ -114,47 +114,17 @@ class Track extends React.Component {
     }
   }
 
-  timeSince(date) {
-
-    let seconds = Math.floor((new Date() - date) / 1000);
-
-    let interval = Math.floor(seconds / 31536000);
-
-    if (interval > 1) {
-        return interval + " years";
-    }
-    interval = Math.floor(seconds / 2592000);
-    if (interval > 1) {
-        return interval + " months";
-    }
-    interval = Math.floor(seconds / 86400);
-    if (interval > 1) {
-        return interval + " days";
-    }
-    interval = Math.floor(seconds / 3600);
-    if (interval > 1) {
-        return interval + " hours";
-    }
-    interval = Math.floor(seconds / 60);
-    if (interval > 1) {
-        return interval + " minutes";
-    }
-    return Math.floor(seconds) + " seconds";
-}
-
   render () {
     return (
       <div className='track-container'>
         <div className='track-header'>
-          <img src={this.props.track.user.header_image_url} width="40" height="40" onClick={this.userClickHandler}></img>
+          <img src={this.props.track.user.header_image_url} onClick={this.userClickHandler}></img>
           <span className="header-artist" onClick={this.userClickHandler}>{this.trackUsername()}</span>
           <span className="header-detail">posted a track {this.props.track.time_ago} ago</span>
         </div>
         <div className='track-body'>
           <div className='track-body-image'>
             <img src={this.props.track.image_url}
-                 width="150"
-                 height="150"
                  className="hvr-shrink"
                  onClick={this.trackClickHandler}/>
           </div>
