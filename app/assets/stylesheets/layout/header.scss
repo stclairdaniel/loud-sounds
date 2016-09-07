@@ -15,6 +15,7 @@ header {
   justify-content: flex-start;
   background-image: linear-gradient(red, #f06d06);
   cursor: pointer;
+  border-right: 1px solid #ccc;
 }
 
 header h1 {
@@ -27,5 +28,6 @@ header h1 {
 
 header img {
   align-self: flex-start;
-  padding: 2.5px;
+  padding: 2.5px 0;
+  padding-left: 5px;
 }

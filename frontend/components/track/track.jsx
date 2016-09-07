@@ -17,7 +17,7 @@ class Track extends React.Component {
     this.showIcon = this.showIcon.bind(this);
     this.playPauseIcon = this.playPauseIcon.bind(this);
     this.likeIcon = this.likeIcon.bind(this);
-    this.hidePointer = this.hidePointer.bind(this);
+    this.likeClass = this.likeClass.bind(this);
   }
 
   playPause () {
@@ -101,9 +101,9 @@ class Track extends React.Component {
     }
   }
 
-  hidePointer () {
+  likeClass () {
     if (!this.props.currentUser) {
-      return "hide-pointer hvr-pulse";
+      return "hide-pointer";
     } else {
       return "hvr-pulse";
     }
@@ -143,7 +143,7 @@ class Track extends React.Component {
             </div>
             <div className='track-body-info-icons'>
 
-              <img src={this.likeIcon()} className={this.hidePointer()} onClick={this.likeClickHandler}></img>
+              <img src={this.likeIcon()} className={this.likeClass()} onClick={this.likeClickHandler}></img>
               <span>{this.props.tracks[this.props.track.id].likes.length}</span>
 
               <img src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_25/v1473133152/comment_icon2_t7epjf.png" onClick={this.trackClickHandler}></img>
