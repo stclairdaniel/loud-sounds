@@ -11,6 +11,8 @@ class CommentForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.disabled = this.disabled.bind(this);
+    this.placeholder = this.placeholder.bind(this);
+    this.inputDisabled = this.inputDisabled.bind(this);
   }
 
   handleChange (e) {
@@ -25,10 +27,26 @@ class CommentForm extends React.Component {
   }
 
   disabled () {
-    if (this.state.body.length === 0) {
+    if (this.state.body.length === 0 || !this.props.currentUser) {
       return true;
     } else {
       return false;
+    }
+  }
+
+  placeholder () {
+    if (this.props.currentUser) {
+      return "Leave a comment...";
+    } else {
+      return "Sign in to leave a comment";
+    }
+  }
+
+  inputDisabled () {
+    if (this.props.currentUser) {
+      return false;
+    } else {
+      return true;
     }
   }
 
@@ -40,7 +58,8 @@ class CommentForm extends React.Component {
             <input className="comment-input" onChange={this.handleChange}
                   name="body"
                   value={this.state.body}
-                  placeholder="Leave a comment...">
+                  placeholder={this.placeholder()}
+                  disabled={this.inputDisabled()}>
             </input>
             <input type="submit" value="+" className="form-submit" disabled={this.disabled()}/>
           </div>

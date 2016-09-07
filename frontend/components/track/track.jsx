@@ -17,7 +17,6 @@ class Track extends React.Component {
     this.showIcon = this.showIcon.bind(this);
     this.playPauseIcon = this.playPauseIcon.bind(this);
     this.likeIcon = this.likeIcon.bind(this);
-    this.commentForm = this.commentForm.bind(this);
     this.hidePointer = this.hidePointer.bind(this);
   }
 
@@ -102,12 +101,6 @@ class Track extends React.Component {
     }
   }
 
-  commentForm () {
-    if (this.props.currentUser) {
-      return <CommentFormContainer trackId={this.props.track.id}/>;
-    }
-  }
-
   hidePointer () {
     if (!this.props.currentUser) {
       return "hide-pointer hvr-pulse";
@@ -145,7 +138,7 @@ class Track extends React.Component {
             </div>
             <div>
               <div className='track-body-info-comment'>
-                { this.commentForm() }
+                <CommentFormContainer trackId={this.props.track.id}/>
               </div>
             </div>
             <div className='track-body-info-icons'>
