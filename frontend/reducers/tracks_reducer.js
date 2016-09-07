@@ -20,10 +20,14 @@ const TracksReducer = (state = {}, action) => {
       return newState;
     case TrackConstants.RECEIVE_TRACK_LIKE:
       newState[action.like.track.id].likes.push(action.like.user.id);
+      //strange hack to a strange bug - comments were getting
+      //reversed by lodash merge
+      newState[action.like.track.id].comments = newState[action.like.track.id].comments.reverse();
       return newState;
     case TrackConstants.DELETE_TRACK_LIKE:
       const idx = newState[action.like.track.id].likes.indexOf(action.like.user.id);
       newState[action.like.track.id].likes.splice(idx, 1);
+      newState[action.like.track.id].comments = newState[action.like.track.id].comments.reverse();
       return newState;
     default:
       return state;
