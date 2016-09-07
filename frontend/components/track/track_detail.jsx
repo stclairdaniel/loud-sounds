@@ -15,7 +15,7 @@ class TrackDetail extends React.Component {
     } else {
       return (
       <div>
-        <h1 className="track-detail-title">{this.props.tracks[id].title} by {this.props.tracks[id].user.username}</h1>
+        <h1 className="track-detail-title">{this.props.tracks[id].user.username} - {this.props.tracks[id].title}</h1>
         <TrackContainer id={id} track={this.props.tracks[id]} />
         <CommentsContainer trackId={id} />
       </div>

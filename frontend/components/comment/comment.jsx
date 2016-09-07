@@ -24,7 +24,7 @@ class Comment extends React.Component {
 
   showIcon () {
     if (this.commentUsername() === "You") {
-      return "show-icon trash";
+      return "show-icon trash hvr-grow";
     } else {
       return "hide-icon";
     }

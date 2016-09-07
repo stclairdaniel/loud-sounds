@@ -79,7 +79,7 @@ class Track extends React.Component {
 
   showIcon () {
     if (this.trackUsername() === "You") {
-      return "show-icon";
+      return "show-icon, hvr-grow";
     } else {
       return "hide-icon";
     }
@@ -122,6 +122,7 @@ class Track extends React.Component {
             <img src={this.props.track.image_url}
                  width="150"
                  height="150"
+                 className="hvr-shrink"
                  onClick={this.trackClickHandler}/>
           </div>
           <div className='track-body-info'>
@@ -133,7 +134,7 @@ class Track extends React.Component {
                 <span className="cursor" onClick={this.trackClickHandler}>
                   {this.props.track.title}
                 </span>
-                <span className="genre">{this.props.track.genre}</span>
+                <span className="genre">#{this.props.track.genre}</span>
               </div>
             </div>
             <div>
@@ -146,7 +147,7 @@ class Track extends React.Component {
               <img src={this.likeIcon()} className={this.likeClass()} onClick={this.likeClickHandler}></img>
               <span>{this.props.tracks[this.props.track.id].likes.length}</span>
 
-              <img src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_25/v1473133152/comment_icon2_t7epjf.png" onClick={this.trackClickHandler}></img>
+              <img src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_25/v1473133152/comment_icon2_t7epjf.png" onClick={this.trackClickHandler} className="hvr-grow"></img>
               <span>{this.props.tracks[this.props.track.id].comments.length}</span>
 
               <img src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_25/v1472928619/pencil-512_ddms2g.png" className={this.showIcon()} onClick={this.editClickHandler}></img>
