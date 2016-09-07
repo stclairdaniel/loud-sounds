@@ -11,6 +11,8 @@ class EditForm extends React.Component {
                   id: id,
                   description: this.props.tracks[id].description,
                   audio_file_url: this.props.tracks[id].audio_file_url,
+                  audio_image_url: "http://res.cloudinary.com/loudsounds/image/upload/v1472834316/default_track_icon_d3yaka.png",
+                  default_image_url: "http://res.cloudinary.com/loudsounds/image/upload/v1473262712/18.Pictures-Day-512_jnot1n.png",
                   image_url: this.props.tracks[id].image_url,
                   user_id: this.props.userId,
                   username: this.props.username,
@@ -20,6 +22,7 @@ class EditForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.uploadAudio = this.uploadAudio.bind(this);
     this.uploadImage = this.uploadImage.bind(this);
+    this.imageUrl = this.imageUrl.bind(this);
   }
 
   handleChange (e) {
@@ -57,10 +60,19 @@ class EditForm extends React.Component {
           const url =
           "http://res.cloudinary.com/loudsounds/image/upload/w_200,h_200,c_fit/";
           this.setState({image_url: url + path,
-                         image_success_message: "Upload succeeded"});
+                         default_image_url: url + path});
         }
       }
     );
+  }
+
+  //don't use upload image icon if user has already uploaded image
+  imageUrl () {
+    if (this.state.image_url !== "http://res.cloudinary.com/loudsounds/image/upload/v1472834316/default_track_icon_d3yaka.png" ) {
+      return this.state.image_url;
+    } else {
+      return this.state.default_image_url;
+    }
   }
 
   render () {
@@ -91,13 +103,10 @@ class EditForm extends React.Component {
         </label>
         <span className="form-error">{this.props.errors.description}</span>
 
-        <button className="form-submit"
-                onClick={this.uploadAudio}>Upload Audio File</button>
-        <span>{this.state.audio_success_message}</span>
+        <img src={this.imageUrl()} onClick={this.uploadImage} className="upload-image"></img>
 
-        <button className="form-submit"
-                onClick={this.uploadImage}>Upload Track Image</button>
-              <span>{this.state.image_success_message}</span>
+        <img src={this.state.audio_image_url} onClick={this.uploadAudio} className="upload-image"></img>
+        <span className="form-message">{this.state.audio_success_message}</span>
 
         <input type="submit" value="Edit Track" className="form-submit"/>
       </form>

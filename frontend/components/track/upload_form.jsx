@@ -10,7 +10,8 @@ class UploadForm extends React.Component {
                   description: "",
                   audio_file_url: "",
                   audio_image_url: "http://res.cloudinary.com/loudsounds/image/upload/v1473261173/cloud-music-2_aotps0.png",
-                  image_url: "http://res.cloudinary.com/loudsounds/image/upload/v1473262712/18.Pictures-Day-512_jnot1n.png",
+                  display_image_url: "http://res.cloudinary.com/loudsounds/image/upload/v1473262712/18.Pictures-Day-512_jnot1n.png",
+                  image_url: "http://res.cloudinary.com/loudsounds/image/upload/v1472834316/default_track_icon_d3yaka.png",
                   user_id: this.props.userId,
                   username: this.props.username};
     this.handleChange = this.handleChange.bind(this);
@@ -53,7 +54,8 @@ class UploadForm extends React.Component {
           const path = results[0].path;
           const url =
           "http://res.cloudinary.com/loudsounds/image/upload/w_200,h_200,c_fit/";
-          this.setState({image_url: url + path});
+          this.setState({image_url: url + path,
+                         display_image_url: url + path});
         }
       }
     );
@@ -84,7 +86,7 @@ class UploadForm extends React.Component {
         </label>
         <span className="form-error">{this.props.errors.description}</span>
 
-        <img src={this.state.image_url} onClick={this.uploadImage} className="upload-image"></img>
+        <img src={this.state.display_image_url} onClick={this.uploadImage} className="upload-image"></img>
 
         <img src={this.state.audio_image_url} onClick={this.uploadAudio} className="upload-image"></img>
 

@@ -26,6 +26,10 @@ const AppRouter = ({store}) => {
 
   //this is CLUNKY. There are a lot of conditions to check though...
   const EnsureAuthor = (nextState, replace) => {
+    //redirect to track page on refresh - otherwise user is undefined
+    if (Object.keys(store.getState().tracks).length === 0) {
+      replace(`/${nextState.params.username}/tracks/${nextState.params.id}`);
+    } else {
     store.dispatch(TrackActions.requestTrack(nextState.params.id));
     store.dispatch(requestUser(nextState.params.username));
     if (!store.getState().session.currentUser ||
@@ -34,6 +38,7 @@ const AppRouter = ({store}) => {
         store.dispatch(TrackActions.requestTracks());
         replace('/');
       }
+    }
   };
 
   const getTracks = () => {

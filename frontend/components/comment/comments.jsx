@@ -7,6 +7,7 @@ class Comments extends React.Component {
     super(props);
     this.commentsList = this.commentsList.bind(this);
     this.getContainerHeight = this.getContainerHeight.bind(this);
+    this.className = this.className.bind(this);
   }
 
   getContainerHeight () {
@@ -22,9 +23,17 @@ class Comments extends React.Component {
     return comments;
   }
 
+  className () {
+    if (this.props.tracks[this.props.trackId].comments.length === 0) {
+      return "none";
+    } else {
+      return "comments-container";
+    }
+  }
+
   render () {
     return (
-      <div className="comments-container">
+      <div className={this.className()}>
       <Infinite containerHeight={this.getContainerHeight()} elementHeight={60}>
         {this.commentsList()}
       </Infinite>
