@@ -14,7 +14,16 @@ class Stream extends React.Component {
   }
 
   streamTracks () {
-    return Object.keys(this.props.tracks).reverse().map( id => {
+    let sortedTrackIds = Object.keys(this.props.tracks).sort( (a, b) => {
+      if (this.props.tracks[a].created_at < this.props.tracks[b].created_at) {
+        return 1;
+      }
+      if (this.props.tracks[a].created_at > this.props.tracks[b].created_at) {
+        return -1;
+      }
+      return 0;
+    });
+    return sortedTrackIds.map( id => {
       return <TrackContainer key={id} id={id} track={this.props.tracks[id]} />;
     });
   }
