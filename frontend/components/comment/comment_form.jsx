@@ -36,7 +36,6 @@ class CommentForm extends React.Component {
     return (
       <div className="comment-form-container">
         <form onSubmit={this.handleSubmit}>
-          <span className="form-error">{this.props.errors.invalid}</span>
           <div className="comment-form-body">
             <input className="comment-input" onChange={this.handleChange}
                   name="body"
