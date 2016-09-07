@@ -52,7 +52,12 @@
   height: 25px;
 }
 
+.search-results span {
+  font-size: 18px;
+}
+
 .result {
   display: flex;
   cursor: pointer;
+  padding-left: 20px;
 }

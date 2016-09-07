@@ -55,7 +55,9 @@ class SearchResults extends React.Component {
     if (this.props.results.users.length > 0 ||
         this.props.results.tracks.length > 0) {
           results = <Infinite containerHeight={200} elementHeight={35} className="search-results">
+            <span>Artists</span>
             {this.userResults()}
+            <span>Tracks</span>
             {this.trackResults()}
           </Infinite>;
     } else {
