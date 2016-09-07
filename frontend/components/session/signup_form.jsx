@@ -9,8 +9,8 @@ class SignupForm extends React.Component {
                   email: "",
                   password: "",
                   passwordAgain: "",
-                  header_image_url: "http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_100/v1472833698/Site%20Icons/default_user_image_skynsc.png",
-                  image_success_message: "Optional"};
+                  header_image_url: "http://res.cloudinary.com/loudsounds/image/upload/v1472833698/Site%20Icons/default_user_image_skynsc.png",
+                  upload_icon_display: "upload-icon"};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.uploadImage = this.uploadImage.bind(this);
@@ -56,7 +56,7 @@ class SignupForm extends React.Component {
           const url =
           "http://res.cloudinary.com/loudsounds/image/upload/w_200,h_200,c_fit/";
           this.setState({header_image_url: url + path,
-                         image_success_message: "Upload succeeded"});
+                         upload_icon_display: "none"});
         }
       }
     );
@@ -159,11 +159,8 @@ class SignupForm extends React.Component {
 
           <ul>{inlineErrors}</ul>
 
-          <button className="form-submit"
-                  onClick={this.uploadImage}>Upload User Image</button>
-                <span className="form-success-message">
-            {this.state.image_success_message}
-          </span>
+          <img src={this.state.header_image_url} onClick={this.uploadImage} className="upload-image"></img>
+          <img src="http://res.cloudinary.com/loudsounds/image/upload/v1473259781/cloud-upload-2_mt41zs.png" className={this.state.upload_icon_display}></img>
 
           <input type="submit"
                  disabled={this.disabled()}

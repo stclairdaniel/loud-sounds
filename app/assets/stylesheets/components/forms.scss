@@ -81,3 +81,21 @@ form input:focus {
 .form-success-message {
   font-size: 14px;
 }
+
+.none {
+  display: none;
+}
+
+.upload-image {
+  display: absolute;
+  width: 100px;
+  height: 100px;
+}
+
+.upload-icon {
+  position: relative;
+  bottom: 18px;
+  left: 40px;
+  width: 20px;
+  height: 20px;
+}
