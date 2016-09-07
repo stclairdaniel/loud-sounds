@@ -16,6 +16,7 @@ const TracksReducer = (state = {}, action) => {
     case TrackConstants.CLEAR_TRACKS:
       return {};
     case TrackConstants.RECEIVE_TRACK_COMMENTS:
+          newState[action.comment.track.id].comments = newState[action.comment.track.id].comments.reverse();
       newState[action.comment.track.id].comments.push(action.comment);
       return newState;
     case TrackConstants.RECEIVE_TRACK_LIKE:
