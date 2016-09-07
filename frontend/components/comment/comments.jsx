@@ -24,9 +24,11 @@ class Comments extends React.Component {
 
   render () {
     return (
-      <Infinite containerHeight={this.getContainerHeight()} elementHeight={30}>
+      <div className="comments-container">
+      <Infinite containerHeight={this.getContainerHeight()} elementHeight={60}>
         {this.commentsList()}
       </Infinite>
+      </div>
     );
   }
 }

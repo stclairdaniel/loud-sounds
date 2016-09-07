@@ -24,7 +24,7 @@ class Comment extends React.Component {
 
   showIcon () {
     if (this.commentUsername() === "You") {
-      return "show-icon";
+      return "show-icon trash";
     } else {
       return "hide-icon";
     }
@@ -41,7 +41,7 @@ class Comment extends React.Component {
 
     return (
       <li className='comment-list'>
-        <img src={this.props.comment.user.header_image_url} onClick={this.clickHandler} width="40" height="40"></img>
+        <img src={this.props.comment.user.header_image_url} onClick={this.clickHandler} width="40" height="40" className="user-img"></img>
         <span className='comment-list-username' onClick={this.clickHandler}>
           {this.commentUsername()}
         </span>

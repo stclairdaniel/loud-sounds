@@ -107,9 +107,12 @@ class Track extends React.Component {
       return <CommentFormContainer trackId={this.props.track.id}/>;
     }
   }
+
   hidePointer () {
     if (!this.props.currentUser) {
-      return "hide-pointer";
+      return "hide-pointer hvr-pulse";
+    } else {
+      return "hvr-pulse";
     }
   }
 
@@ -117,7 +120,7 @@ class Track extends React.Component {
     return (
       <div className='track-container'>
         <div className='track-header'>
-          <img src={this.props.track.user.header_image_url} width="50" height="50" onClick={this.userClickHandler}></img>
+          <img src={this.props.track.user.header_image_url} width="40" height="40" onClick={this.userClickHandler}></img>
           <span className="header-artist" onClick={this.userClickHandler}>{this.trackUsername()}</span>
           <span className="header-detail">posted a track</span>
         </div>
@@ -131,10 +134,10 @@ class Track extends React.Component {
           <div className='track-body-info'>
             <div className='track-body-info-details'>
               <div>
-                <img src={this.playPauseIcon()} onClick={this.playPause} className="play-button"></img>
+                <img src={this.playPauseIcon()} onClick={this.playPause} className="cursor hvr-grow"></img>
               </div>
               <div className='track-body-info-details-artist-details'>
-                <span onClick={this.trackClickHandler}>
+                <span className="cursor" onClick={this.trackClickHandler}>
                   {this.props.track.title}
                 </span>
                 <span className="genre">{this.props.track.genre}</span>
@@ -146,12 +149,17 @@ class Track extends React.Component {
               </div>
             </div>
             <div className='track-body-info-icons'>
-              <img src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_25/v1472928235/trash-512_tzepba.png" className={this.showIcon()} onClick={this.deleteClickHandler}></img>
-              <img src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_25/v1472928619/pencil-512_ddms2g.png" className={this.showIcon()} onClick={this.editClickHandler}></img>
+
               <img src={this.likeIcon()} className={this.hidePointer()} onClick={this.likeClickHandler}></img>
               <span>{this.props.tracks[this.props.track.id].likes.length}</span>
+
               <img src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_25/v1473133152/comment_icon2_t7epjf.png" onClick={this.trackClickHandler}></img>
               <span>{this.props.tracks[this.props.track.id].comments.length}</span>
+
+              <img src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_25/v1472928619/pencil-512_ddms2g.png" className={this.showIcon()} onClick={this.editClickHandler}></img>
+
+              <img src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_25/v1472928235/trash-512_tzepba.png" className={this.showIcon()} onClick={this.deleteClickHandler}></img>
+
             </div>
           </div>
         </div>

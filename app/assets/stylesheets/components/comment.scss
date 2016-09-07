@@ -1,6 +1,24 @@
+.comments-container {
+  width: 60%;
+  margin-left: 170px;
+}
+
+.comment-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+
 .comment-list-username {
   cursor: pointer;
   padding-right: 5px;
+  vertical-align: middle;
+}
+
+.user-img {
+  margin-right: 10px;
+  border-radius: 50%;
 }
 
 .comment-list img {
@@ -11,6 +29,7 @@
   display: none;
 }
 
-.comment-list {
-  list-style: none;
+
+.trash {
+  margin-left: 10px;
 }
