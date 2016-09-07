@@ -9,11 +9,12 @@ class UploadForm extends React.Component {
                   genre: "",
                   description: "",
                   audio_file_url: "",
-                  image_url: "http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1472834316/default_track_icon_d3yaka.png",
+                  audio_image_url: "http://res.cloudinary.com/loudsounds/image/upload/v1473261173/cloud-music-2_aotps0.png",
+                  image_url: "http://res.cloudinary.com/loudsounds/image/upload/v1473198591/vgv7zdei4rllspn9ngio_gqermj.jpg",
                   user_id: this.props.userId,
                   username: this.props.username,
-                  audio_success_message: "",
-                  image_success_message: ""};
+                  audio_upload_icon_display: "upload-icon",
+                  image_upload_icon_display: "upload-icon"};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.uploadAudio = this.uploadAudio.bind(this);
@@ -37,7 +38,7 @@ class UploadForm extends React.Component {
       (error, results) => {
         if (!error) {
           this.setState({audio_file_url: results[0].url,
-                         audio_success_message: "Upload succeeded"});
+                         audio_image_url: "http://res.cloudinary.com/loudsounds/image/upload/v1472834316/default_track_icon_d3yaka.png"});
         }
       }
     );
@@ -55,7 +56,7 @@ class UploadForm extends React.Component {
           const url =
           "http://res.cloudinary.com/loudsounds/image/upload/w_200,h_200,c_fit/";
           this.setState({image_url: url + path,
-                         image_success_message: "Upload succeeded"});
+                         image_upload_icon_display: "none"});
         }
       }
     );
@@ -86,13 +87,10 @@ class UploadForm extends React.Component {
         </label>
         <span className="form-error">{this.props.errors.description}</span>
 
-        <button className="form-submit"
-                onClick={this.uploadAudio}>Upload Audio File</button>
-        <span>{this.state.audio_success_message}</span>
+        <img src={this.state.image_url} onClick={this.uploadImage} className="upload-image"></img>
+        <img src="http://res.cloudinary.com/loudsounds/image/upload/v1473259781/cloud-upload-2_mt41zs.png" className={this.state.image_upload_icon_display}></img>
 
-        <button className="form-submit"
-                onClick={this.uploadImage}>Upload Track Image</button>
-              <span>{this.state.image_success_message}</span>
+        <img src={this.state.audio_image_url} onClick={this.uploadAudio} className="upload-image"></img>
 
         <input type="submit" value="Upload Track" className="form-submit"/>
       </form>
