@@ -60,5 +60,9 @@
 .result {
   display: flex;
   cursor: pointer;
-  padding-left: 20px;
+  margin-left: 20px;
+}
+
+.result:hover {
+  background: #595959;
 }
