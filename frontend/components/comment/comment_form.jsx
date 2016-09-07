@@ -6,8 +6,8 @@ class CommentForm extends React.Component {
     super(props);
     const { trackId, currentUser } = this.props;
     this.state = {body: "",
-                  track_id: trackId, user_id:
-                  currentUser ? currentUser.id : ""};
+                  track_id: trackId,
+                  user_id: ""};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.disabled = this.disabled.bind(this);
@@ -22,8 +22,8 @@ class CommentForm extends React.Component {
 
   handleSubmit (e) {
     e.preventDefault();
-    this.props.createComment(this.state);
-    this.setState({body: "", track_id: this.props.trackId, user_id: this.props.currentUser.id});
+    this.props.createComment({body: this.state.body, track_id: this.state.track_id, user_id: this.props.currentUser.id});
+    this.setState({body: ""});
   }
 
   disabled () {
