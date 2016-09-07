@@ -50,6 +50,10 @@ const AppRouter = ({store}) => {
     store.dispatch(requestUser(nextState.params.username));
   };
 
+  const getGenreTracks = (nextState) => {
+    store.dispatch(TrackActions.requestGenreTracks(nextState.params.genre));
+  };
+
   const getUserTracksAndUser = (nextState) => {
     store.dispatch(TrackActions.clearTracks());
     store.dispatch(TrackActions.requestUserTracks(nextState.params.username));
@@ -96,6 +100,9 @@ const AppRouter = ({store}) => {
       <Route path=':username/:id/edit'
              component={ EditFormContainer }
              onEnter={ EnsureAuthor } />
+           <Route path='genre/:genre'
+             component={ StreamContainer}
+             onEnter={ getGenreTracks } />
     </Route>
   </Router>
 );

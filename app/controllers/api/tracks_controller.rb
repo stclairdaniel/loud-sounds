@@ -6,6 +6,8 @@ class Api::TracksController < ApplicationController
     elsif params[:title]
       @tracks = Track.where("title ILIKE ?" , "%#{params[:title]}%")
       render :search
+    elsif params[:genre]
+      @tracks = Track.where(genre: params[:genre])
     else
       @tracks = Track.all
     end

@@ -137,6 +137,11 @@
   color: white;
   padding: 0 10px;
   border-radius: 10px;
+  cursor: pointer;
+}
+
+.genre:hover {
+  background: #a6a6a6;
 }
 
 .track-body-info-details-artist-details span {

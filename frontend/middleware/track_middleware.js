@@ -3,7 +3,7 @@ import { TrackConstants, receiveTrack, receiveTracks } from '../actions/track_ac
 import { receiveErrors } from '../actions/error_actions';
 import { receiveTrackSearchResults } from '../actions/search_actions';
 //Util
-import { createTrack, requestTrack, deleteTrack, editTrack, requestTracks, requestUserTracks, requestTracksLike } from '../util/track_api_util';
+import { createTrack, requestTrack, deleteTrack, editTrack, requestTracks, requestUserTracks, requestTracksLike, requestGenreTracks } from '../util/track_api_util';
 import { hashHistory } from 'react-router';
 
 const TrackMiddleware = ({getState, dispatch}) => next => action => {
@@ -35,6 +35,9 @@ const TrackMiddleware = ({getState, dispatch}) => next => action => {
     case TrackConstants.REQUEST_TRACKS_LIKE:
       const handleSearch = tracks => dispatch(receiveTrackSearchResults(tracks));
       requestTracksLike(handleSearch, null, action.title);
+      break;
+    case TrackConstants.REQUEST_GENRE_TRACKS:
+      requestGenreTracks(handleTracks, null, action.genre);
       break;
     default:
       return next(action);

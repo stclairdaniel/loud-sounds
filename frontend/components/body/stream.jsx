@@ -28,6 +28,7 @@ class Stream extends React.Component {
   }
 
   streamHeader () {
+
     if (this.props.isUser) {
       return (
         <div className="stream-header">
@@ -39,6 +40,8 @@ class Stream extends React.Component {
           </div>
         </div>
       );
+    } else if ( this.props.params && Object.keys(this.props.params).includes("genre")) {
+      return <h1>{this.props.params.genre} Tracks</h1>;
     } else {
       return (
         <h1>Hot tracks</h1>

@@ -12,7 +12,8 @@ export const TrackConstants = {
   RECEIVE_TRACK_COMMENTS: "RECEIVE_TRACK_COMMENTS",
   RECEIVE_TRACK_LIKE: "RECEIVE_TRACK_LIKE",
   DELETE_TRACK_LIKE: "DELETE_TRACK_LIKE",
-  REQUEST_TRACKS_LIKE: "REQUEST_TRACKS_LIKE"
+  REQUEST_TRACKS_LIKE: "REQUEST_TRACKS_LIKE",
+  REQUEST_GENRE_TRACKS: "REQUEST_GENRE_TRACKS"
 };
 
 export const createTrack = (track) => ({
@@ -81,4 +82,9 @@ export const deleteTrackLike = (like) => ({
 export const requestTracksLike = (title) => ({
   type: TrackConstants.REQUEST_TRACKS_LIKE,
   title
+});
+
+export const requestGenreTracks = (genre) => ({
+  type: TrackConstants.REQUEST_GENRE_TRACKS,
+  genre
 });

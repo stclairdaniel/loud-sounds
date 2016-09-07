@@ -64,3 +64,13 @@ export const requestTracksLike = (success, error, title) => (
     error: error
   })
 );
+
+export const requestGenreTracks = (success, error, genre) => (
+  $.ajax({
+    type: "GET",
+    url: `/api/tracks/`,
+    data: {genre: genre},
+    success: success,
+    error: error
+  })
+);

@@ -14,6 +14,7 @@ class Track extends React.Component {
     this.editClickHandler = this.editClickHandler.bind(this);
     this.trackClickHandler = this.trackClickHandler.bind(this);
     this.likeClickHandler = this.likeClickHandler.bind(this);
+    this.genreClickHandler = this.genreClickHandler.bind(this);
     this.showIcon = this.showIcon.bind(this);
     this.playPauseIcon = this.playPauseIcon.bind(this);
     this.likeIcon = this.likeIcon.bind(this);
@@ -75,6 +76,10 @@ class Track extends React.Component {
 
   trackClickHandler () {
     this.props.router.push(`/${this.props.track.user.username}/tracks/${this.props.track.id}`);
+  }
+
+  genreClickHandler () {
+    this.props.router.push(`/genre/${this.props.track.genre}`);
   }
 
   showIcon () {
@@ -162,7 +167,7 @@ class Track extends React.Component {
                 <span className="cursor" onClick={this.trackClickHandler}>
                   {this.props.track.title}
                 </span>
-                <span className="genre">#{this.props.track.genre}</span>
+                <span className="genre" onClick={this.genreClickHandler}>#{this.props.track.genre}</span>
               </div>
             </div>
             <div>
