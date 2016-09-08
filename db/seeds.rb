@@ -76,6 +76,13 @@ User.create!(username: 'DJ Krush',
              hometown: 'Tokyo, Japan',
              header_image_url:
              'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_100/v1473292842/2258_sd33se.jpg')
+User.create!(username: 'Eleven Tigers',
+             email: 'eleventigers@example.com',
+             password: 'password',
+             name: 'Jokubas Dargis',
+             hometown: 'Lithuania',
+             header_image_url:
+             'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_100/v1473361886/a3346130537_10_rjuw5q.jpg')
 
 Track.create!(title: 'TBF9',
               genre: 'Electronic',
@@ -245,6 +252,18 @@ Track.create!(title: 'Still Island Feat. Ken Shima',
               user_id: 11,
               audio_file_url: 'http://res.cloudinary.com/loudsounds/video/upload/v1473351586/06_Stormy_Cloud_Feat._Ken_Shima_d4n2pf.m4a',
               image_url: 'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1473351516/24f87492_tplppy.jpg',
+              created_at: Date.parse("#{Faker::Date.between(2.years.ago, Date.today)}").to_s)
+Track.create!(title: 'Couldn\'t',
+              genre: 'Bass',
+              user_id: 12,
+              audio_file_url: 'http://res.cloudinary.com/loudsounds/video/upload/v1473362129/04_Couldn_t_fchmul.m4a',
+              image_url: 'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1473361897/homepage_large.e2c1baa6_ngooq1.jpg',
+              created_at: Date.parse("#{Faker::Date.between(2.years.ago, Date.today)}").to_s)
+Track.create!(title: 'Songs for You',
+              genre: 'Bass',
+              user_id: 12,
+              audio_file_url: 'http://res.cloudinary.com/loudsounds/video/upload/v1473362153/03_Songs_for_You_bxag3f.m4a',
+              image_url: 'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1473361897/homepage_large.e2c1baa6_ngooq1.jpg',
               created_at: Date.parse("#{Faker::Date.between(2.years.ago, Date.today)}").to_s)
 
 
