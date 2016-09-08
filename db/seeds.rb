@@ -266,7 +266,7 @@ comments = [
   'what synth did you use for the hook, its so entrancing',
   'that sick melody mmmmmh',
   'still this is my favorite track',
-  'this track got such a nice sound. I can only dream of achieving something similar',
+  'this track has such a nice sound. I can only dream of achieving something similar',
   'It\'s very satisfying to notice a new favorite detail to a song you have heard dozens of times. Your music is so special.',
   'Why? Why is this guy so magical?',
   'best track of the year hands down.',
@@ -320,7 +320,20 @@ comments = [
   'I just want to hug this guy lol',
   'Madness!',
   'Epic track',
-  'This song is fire'
+  'This song is fire',
+  'Beam me up!!!',
+  'Take us away..',
+  'So subtle & beautiful..',
+  'Love this one. So lovely!',
+  'it\'s so cool so nice !~~~',
+  'the bass is amazing',
+  'nice vibe!',
+  'If I were talented, this is the music I would make.',
+  'damn this awesome.....inspiring for me',
+  'mind escaping',
+  'this is hot. a great balance of chill and tapping the feet',
+  'serene',
+  'so tasty!'
 ]
 
 user_count = User.all.length
