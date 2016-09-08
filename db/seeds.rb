@@ -54,7 +54,7 @@ User.create!(username: 'Wisp',
              name: 'Reid W. Dunn',
              hometown: 'Niagara, United States',
              header_image_url:
-             'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_100/v1473292453/wisp_april2013_feat_sdmvfc.jpg')
+             'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_100/v1473350904/R-714527-1301926897.jpeg_mjmtdg.jpg')
 User.create!(username: 'Forest Swords',
              email: 'forestswords@example.com',
              password: 'password',
@@ -222,14 +222,123 @@ Track.create!(title: 'Irby Tremor',
               audio_file_url: 'http://res.cloudinary.com/loudsounds/video/upload/v1473309519/03_Irby_Tremor_pxoxdu.m4a',
               image_url: 'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1473309459/homepage_large.f2e8fe13_tvduja.jpg',
               created_at: Date.parse("#{Faker::Date.between(2.years.ago, Date.today)}").to_s)
+Track.create!(title: 'Veronika\'s Dream',
+              genre: 'Orchestral Electronic',
+              user_id: 10,
+              audio_file_url: 'http://res.cloudinary.com/loudsounds/video/upload/v1473351373/06_Veronika_s_Dream_jylpm9.m4a',
+              image_url: 'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1473351261/a3860469600_16_ge4yqq.jpg',
+              created_at: Date.parse("#{Faker::Date.between(2.years.ago, Date.today)}").to_s)
+Track.create!(title: 'Nel Blu Feat. Musetta',
+              genre: 'Orchestral Electronic',
+              user_id: 10,
+              audio_file_url: 'http://res.cloudinary.com/loudsounds/video/upload/v1473351356/09_Nel_Blu_feat._Musetta_rznxio.m4a',
+              image_url: 'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1473351299/artworks-000011865616-xnpvyp-t500x500_vw58m8.jpg',
+              created_at: Date.parse("#{Faker::Date.between(2.years.ago, Date.today)}").to_s)
 Track.create!(title: 'Lunation',
               genre: 'Hip Hop',
               user_id: 11,
               audio_file_url: 'http://res.cloudinary.com/loudsounds/video/upload/v1473309655/02_Lunation_hei9vy.mp3',
               image_url: 'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1473309615/1-400x395_cdmw9v.jpg',
               created_at: Date.parse("#{Faker::Date.between(2.years.ago, Date.today)}").to_s)
+Track.create!(title: 'Still Island Feat. Ken Shima',
+              genre: 'Orchestral Hip Hop',
+              user_id: 11,
+              audio_file_url: 'http://res.cloudinary.com/loudsounds/video/upload/v1473351586/06_Stormy_Cloud_Feat._Ken_Shima_d4n2pf.m4a',
+              image_url: 'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1473351516/24f87492_tplppy.jpg',
+              created_at: Date.parse("#{Faker::Date.between(2.years.ago, Date.today)}").to_s)
 
 
 #Comments
-#user_count = User.all.length
-#track_count = Track.all.length
+
+comments = [
+  'A great sound for sure. Like it!',
+  'Great sound',
+  'This record is dope! Make sure to go and check out my page. Like and leave a comment, much love!',
+  'This is so good ~(*_*)~',
+  'On repeat :)',
+  'this grooves so hard, the mix is immaculate, sound design on point',
+  'this is a hard track to stop listening to mid way. very captivating!',
+  'I dig the low, breathing sizzle of the bass line.',
+  'massive',
+  'unreal',
+  'mind blowing. killer track!',
+  'masterpiece',
+  'what synth did you use for the hook, its so entrancing',
+  'that sick melody mmmmmh',
+  'still this is my favorite track',
+  'this track got such a nice sound. I can only dream of achieving something similar',
+  'It\'s very satisfying to notice a new favorite detail to a song you have heard dozens of times. Your music is so special.',
+  'Why? Why is this guy so magical?',
+  'best track of the year hands down.',
+  'That moment when you lisen to a song, and have very mixed emotions.',
+  'One of my favourite 12"\'s, never run out of little details to hear!',
+  'smooth atmosphere!!!',
+  'beautiful textures',
+  'the grooviest thing ever',
+  'every time i hear this song... so excellent , i am overwhelmed.',
+  'Trivia: This entire song is made from a cowbell sample.',
+  'the master has spoken',
+  'I like the ending the best! It almost changes into another song. Very interesting what you did here. Fun!',
+  'this is well lush, glad you\'re releasing stuff again.',
+  'like a sunset on a summer day',
+  'this is my twentieth time listening to this song. i listen to it all night long',
+  'cant get over how good this is',
+  'Omg this is soooooo cool',
+  'Really feeling this. Great work!',
+  'Totally stellar!',
+  'This is amazing! <3',
+  'this is massive',
+  'that leaves me breathless',
+  'big bada boooooooom',
+  'right here... ooh!',
+  'instant like !',
+  'madness',
+  'Mind officially blown.',
+  'Whoa. Yep. Click.',
+  'I got my copy already! just trippy and nice!',
+  'This is just too much, excuse me while i quit music!',
+  'This is sooooo good, taking me into another realm. My goodness',
+  'very creative and exciting soundmaking.',
+  'this is the most unique melody i\'ve ever heard',
+  'Gives a child like feeling. Kinda feel of imagitive, playfulness, and curiosity.',
+  'very satisfying to listen to, sensory-wise',
+  'cool weird song',
+  '(~￣▽￣)~',
+  'This song always makes me smile',
+  'chaotic and classy.brilliant.',
+  'Reminds me of oldskool stuff, produced with a current edge. Gj',
+  'heavy',
+  'sick',
+  'whoa',
+  'Cool!',
+  'nice one',
+  'amazing',
+  'tuuuune',
+  'Masive tune',
+  'This beat is fresh to death. You put it together really well.',
+  'What a great intro, absolutely touching!',
+  'I just want to hug this guy lol',
+  'Madness!',
+  'Epic track',
+  'This song is fire'
+]
+
+user_count = User.all.length
+track_count = Track.all.length
+
+(1...track_count).each do |track_id|
+  #shuffle users each time to make sure comments are distributed nicely
+  user_ids = (1...user_count).to_a.shuffle
+  user_ids.each do |user_id|
+    #comment chance
+    #ensure user isn't self-commenting
+    if user_id != Track.find(track_id).user.id && Random.rand < 0.3
+      body = comments[Random.rand(comments.length)]
+      Comment.create!({body: body, user_id: user_id, track_id: track_id})
+    end
+    #like chance
+    if user_id != Track.find(track_id).user.id && Random.rand < 0.5
+      Like.create!({user_id: user_id, track_id: track_id})
+    end
+  end
+end

@@ -42,12 +42,15 @@ class Comment extends React.Component {
     return (
       <li className='comment-list'>
         <img src={this.props.comment.user.header_image_url} onClick={this.clickHandler} className="user-img"></img>
-        <span className='comment-list-username' onClick={this.clickHandler}>
-          {this.commentUsername()}
-        </span>
-        <span>
-          wrote: {this.props.comment.body}
-        </span>
+        <div className="comment-detail">
+          <div>
+            <span className='comment-detail-username' onClick={this.clickHandler}>
+              {this.commentUsername()}
+            </span>
+            <span className="comment-detail-text">said:</span>
+          </div>
+          <span className="comment-detail-body">{this.props.comment.body}</span>
+        </div>
         <img src="http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_25/v1472928235/trash-512_tzepba.png" className={this.showIcon()} onClick={this.deleteClickHandler}></img>
       </li>
     );

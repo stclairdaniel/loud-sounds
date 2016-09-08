@@ -19,14 +19,24 @@
   height: 40px;
 }
 
-.comment-list-username {
+.comment-detail {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-detail-username {
   cursor: pointer;
   padding-right: 5px;
   vertical-align: middle;
+  font-size: 14px;
 }
 
-.comment-list-username:hover {
+.comment-detail-username:hover {
   color: #a6a6a6;
+}
+
+.comment-detail-text {
+  font-size: 14px;
 }
 
 .user-img {

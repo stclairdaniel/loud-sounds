@@ -34,7 +34,7 @@ class Comments extends React.Component {
   render () {
     return (
       <div className={this.className()}>
-      <Infinite containerHeight={this.getContainerHeight()} elementHeight={60}>
+      <Infinite containerHeight={this.getContainerHeight()} elementHeight={68}>
         {this.commentsList()}
       </Infinite>
       </div>
