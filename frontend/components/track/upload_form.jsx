@@ -80,12 +80,6 @@ class UploadForm extends React.Component {
         </label>
         <span className="form-error">{this.props.errors.genre}</span>
 
-        <label>Description (optional)
-          <input onChange={this.handleChange}
-                 name="description"></input>
-        </label>
-        <span className="form-error">{this.props.errors.description}</span>
-
         <img src={this.state.display_image_url} onClick={this.uploadImage} className="upload-image"></img>
 
         <img src={this.state.audio_image_url} onClick={this.uploadAudio} className="upload-image"></img>
