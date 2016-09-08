@@ -72,7 +72,7 @@ class Stream extends React.Component {
     return (
       <div className="stream-container">
         {this.streamHeader()}
-        <Infinite containerHeight={this.getContainerHeight()} elementHeight={278}>
+        <Infinite containerHeight={this.getContainerHeight()} elementHeight={256}>
           {this.streamTracks()}
         </Infinite>
       </div>
