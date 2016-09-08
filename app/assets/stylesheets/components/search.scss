@@ -53,8 +53,14 @@
   height: 25px;
 }
 
-.search-results span {
+.search-results-span {
   font-size: 18px;
+  height: 35px;
+  display: block;
+}
+
+.none {
+  display: none;
 }
 
 .result {

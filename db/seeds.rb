@@ -83,6 +83,20 @@ User.create!(username: 'Eleven Tigers',
              hometown: 'Lithuania',
              header_image_url:
              'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_100/v1473361886/a3346130537_10_rjuw5q.jpg')
+User.create!(username: 'Boards of Canada',
+             email: 'boardsofcanada@example.com',
+             password: 'password',
+             name: 'Michael Sandison, Marcus Eoin',
+             hometown: 'Scotland',
+             header_image_url:
+             'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_100/v1473368886/3a4ebe27d480ebc9552829e6dc7f7ee8d2fb77cf87dcd1cb1f999df1_fzyzh8.jpg')
+User.create!(username: 'Rip Slyme',
+             email: 'ripslyme@example.com',
+             password: 'password',
+             name: 'Ryo-Z, Ilmari, Pes, Su, DJ Fumiya,',
+             hometown: 'Tokyo, Japan',
+             header_image_url:
+             'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_100/v1473369238/huge_avatar_ingm8r.jpg')
 
 Track.create!(title: 'TBF9',
               genre: 'Electronic',
@@ -264,6 +278,30 @@ Track.create!(title: 'Songs for You',
               user_id: 12,
               audio_file_url: 'http://res.cloudinary.com/loudsounds/video/upload/v1473362153/03_Songs_for_You_bxag3f.m4a',
               image_url: 'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1473361897/homepage_large.e2c1baa6_ngooq1.jpg',
+              created_at: Date.parse("#{Faker::Date.between(2.years.ago, Date.today)}").to_s)
+Track.create!(title: 'Kid for Today',
+              genre: 'Chill',
+              user_id: 13,
+              audio_file_url: 'http://res.cloudinary.com/loudsounds/video/upload/v1473362153/03_Songs_for_You_bxag3f.m4a',
+              image_url: 'http://res.cloudinary.com/loudsounds/video/upload/v1473369183/01_Kid_For_Today_oftxgn.m4a',
+              created_at: Date.parse("#{Faker::Date.between(2.years.ago, Date.today)}").to_s)
+Track.create!(title: 'Smokes Quantity',
+              genre: 'Chill',
+              user_id: 13,
+              audio_file_url: 'http://res.cloudinary.com/loudsounds/video/upload/v1473369182/15_Smokes_Quantity_jzlia4.m4a',
+              image_url: 'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1473368917/81564ade_kprchj.jpg',
+              created_at: Date.parse("#{Faker::Date.between(2.years.ago, Date.today)}").to_s)
+Track.create!(title: 'Tokyo Classic',
+              genre: 'Hip Hop',
+              user_id: 14,
+              audio_file_url: 'http://res.cloudinary.com/loudsounds/video/upload/v1473370091/06_Tokyo_Classic_irm4o6.mp3',
+              image_url: 'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1473369281/B0006H2YOC.01.LZZZZZZZ_burtor.jpg',
+              created_at: Date.parse("#{Faker::Date.between(2.years.ago, Date.today)}").to_s)
+Track.create!(title: 'Galaxy',
+              genre: 'Hip Hop',
+              user_id: 14,
+              audio_file_url: 'http://res.cloudinary.com/loudsounds/video/upload/v1473370106/11_GALAXY_psrtfg.mp3',
+              image_url: 'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1473369274/WPCL-10093_ueah8j.jpg',
               created_at: Date.parse("#{Faker::Date.between(2.years.ago, Date.today)}").to_s)
 
 

@@ -55,9 +55,13 @@ class SearchResults extends React.Component {
     let artistsClass, tracksClass;
     if (this.props.results.users.length === 0) {
       artistsClass = "none";
+    } else {
+      artistsClass = "search-results-span";
     }
     if (this.props.results.tracks.length === 0) {
       tracksClass = "none";
+    } else {
+      tracksClass = "search-results-span";
     }
     if (this.props.results.users.length > 0 ||
         this.props.results.tracks.length > 0) {
