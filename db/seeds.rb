@@ -33,49 +33,49 @@ User.create!(username: 'Plaid',
              name: 'Andy Turner, Ed Handley',
              hometown: 'London, England',
              header_image_url:
-             'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1473291725/d92ee6e7_ebtekm.jpg')
+             'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_100/v1473291725/d92ee6e7_ebtekm.jpg')
 User.create!(username: 'Starkey',
              email: 'starkey@example.com',
              password: 'password',
              name: 'Paul Geissinger',
              hometown: 'Philadelphia, United States',
              header_image_url:
-             'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1473292079/YcZJyzYi_zeuelo.jpg')
+             'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_100/v1473292079/YcZJyzYi_zeuelo.jpg')
 User.create!(username: 'Toe',
              email: 'toe@example.com',
              password: 'password',
              name: 'Kashikura Takashi, Mino Takaaki, Yamane Satoshi, Yamazaki Hirokazu',
              hometown: 'Tokyo, Japan',
              header_image_url:
-             'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1473292154/300x300_ghhafd.jpg')
+             'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_100/v1473292154/300x300_ghhafd.jpg')
 User.create!(username: 'Wisp',
              email: 'wisp@example.com',
              password: 'password',
              name: 'Reid W. Dunn',
              hometown: 'Niagara, United States',
              header_image_url:
-             'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1473292453/wisp_april2013_feat_sdmvfc.jpg')
+             'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_100/v1473292453/wisp_april2013_feat_sdmvfc.jpg')
 User.create!(username: 'Forest Swords',
              email: 'forestswords@example.com',
              password: 'password',
              name: 'Matthew Barnes',
              hometown: 'England',
              header_image_url:
-             'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1473292620/bb2aa0de_iiqqo0.jpg')
+             'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_100/v1473292620/bb2aa0de_iiqqo0.jpg')
 User.create!(username: 'Floex',
              email: 'floex@example.com',
              password: 'password',
              name: 'Tomáš Dvořák',
              hometown: 'Prague, Czech Republic',
              header_image_url:
-             'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1473292707/a3185495246_5_go7ud7.jpg')
+             'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_100/v1473292707/a3185495246_5_go7ud7.jpg')
 User.create!(username: 'DJ Krush',
              email: 'krush@example.com',
              password: 'password',
              name: 'Hideaki Ishi',
              hometown: 'Tokyo, Japan',
              header_image_url:
-             'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1473292842/2258_sd33se.jpg')
+             'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_100/v1473292842/2258_sd33se.jpg')
 
 Track.create!(title: 'TBF9',
               genre: 'Electronic',
@@ -167,4 +167,39 @@ Track.create!(title: 'Dust (Floex Remix)',
               description: 'Lovely clarinet',
               audio_file_url: 'http://res.cloudinary.com/loudsounds/video/upload/v1473294344/02_Dust_Floex_Remix_mytydp.m4a',
               image_url: 'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1473294260/Hidden_Orchestra-Flight_Mixtape_kykmdz.jpg',
+              created_at: Date.parse("#{Faker::Date.between(2.years.ago, Date.today)}").to_s)
+Track.create!(title: 'Lilith',
+              genre: 'Electronic',
+              user_id: 5,
+              description: 'Guest vocals by Björk',
+              audio_file_url: 'http://res.cloudinary.com/loudsounds/video/upload/v1473295570/12_Lilith_odex0a.m4a',
+              image_url: 'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1473295295/4109JBKG34L_kglmte.jpg',
+              created_at: Date.parse("#{Faker::Date.between(2.years.ago, Date.today)}").to_s)
+Track.create!(title: 'Shakblu',
+              genre: 'Electronic',
+              user_id: 5,
+              description: 'Funky grooves',
+              audio_file_url: 'http://res.cloudinary.com/loudsounds/video/upload/v1473295604/01_Shackblu_xrl6qd.m4a',
+              image_url: 'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1473295439/3e49d55074627a4899518c741566e5ba57f2b7c55d102b793d11ca62_yy3x7z.jpg',
+              created_at: Date.parse("#{Faker::Date.between(2.years.ago, Date.today)}").to_s)
+Track.create!(title: 'Ok Luv',
+              genre: 'Bass',
+              user_id: 6,
+              description: 'Solid grooves',
+              audio_file_url: 'http://res.cloudinary.com/loudsounds/video/upload/v1473295953/01_OK_Luv_tkqkwa.m4a',
+              image_url: 'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1473295928/ZIQ259Starkeyhires_iigxrm.jpg',
+              created_at: Date.parse("#{Faker::Date.between(2.years.ago, Date.today)}").to_s)
+Track.create!(title: 'Neck Snap',
+              genre: 'Bass',
+              user_id: 6,
+              description: 'Solid grooves',
+              audio_file_url: 'http://res.cloudinary.com/loudsounds/video/upload/v1473300429/08_Neck_Snap_fsb9qu.m4a',
+              image_url: 'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1473296090/Starkey_TablePic_vxqvwm.png',
+              created_at: Date.parse("#{Faker::Date.between(2.years.ago, Date.today)}").to_s)
+Track.create!(title: 'Stars (Ital Tek Remix)',
+              genre: 'Bass',
+              user_id: 6,
+              description: 'Solid grooves',
+              audio_file_url: 'http://res.cloudinary.com/loudsounds/video/upload/v1473300437/07_Stars_Ital_Tek_Remix_ceo3wn.m4a',
+              image_url: 'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1473296020/R-2179804-1272773509.jpeg_qxsmgd.jpg',
               created_at: Date.parse("#{Faker::Date.between(2.years.ago, Date.today)}").to_s)
