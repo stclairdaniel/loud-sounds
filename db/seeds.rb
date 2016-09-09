@@ -479,18 +479,35 @@ comments = [
   'very complete track',
   'you\'re a god',
   'just realized I haven\'t bought this album yet... not right',
+  'next level',
+  'ohhhhh my',
+  'Insanely MINDBLOWING 😎',
+  'Woah. I underestimated you :D',
+  'killed it brotha',
+  'really nice harmonies',
+  'if you could ever translate sound into light, this would be shades of orange',
+  'An absolute stunner this track.',
+  'immediate favourite',
+  'can\'t stop bobbing my head, tapping the foot',
+  'smooth track.....gets my mind moving with the pen',
+  'Really creative beat, really diggin the track!',
+  'Vibes everywhere on this one!',
+  'you were meant to make music man',
+  'Cosmically dope',
+  'really creative stuff on here homie',
+  'transmissions coming through loud and clear'
 ]
 
 user_count = User.all.length
 track_count = Track.all.length
 
-(1...track_count).each do |track_id|
+(1..track_count).each do |track_id|
   #shuffle users each time to make sure comments are distributed nicely
-  user_ids = (1...user_count).to_a.shuffle
+  user_ids = (1..user_count).to_a.shuffle
   user_ids.each do |user_id|
     #comment chance
     #ensure user isn't self-commenting
-    if user_id != Track.find(track_id).user.id && Random.rand < 0.3
+    if user_id != Track.find(track_id).user.id && Random.rand < 0.25
       body = comments[Random.rand(comments.length)]
       Comment.create!({body: body, user_id: user_id, track_id: track_id})
     end
