@@ -93,10 +93,31 @@ User.create!(username: 'Boards of Canada',
 User.create!(username: 'Rip Slyme',
              email: 'ripslyme@example.com',
              password: 'password',
-             name: 'Ryo-Z, Ilmari, Pes, Su, DJ Fumiya,',
+             name: 'Ryo-Z, Ilmari, Pes, Su, DJ Fumiya',
              hometown: 'Tokyo, Japan',
              header_image_url:
              'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_100/v1473369238/huge_avatar_ingm8r.jpg')
+User.create!(username: 'Daft Punk',
+             email: 'daftpunk@example.com',
+             password: 'password',
+             name: 'Guy-Manuel de Homem-Christo, Thomas Bangalter',
+             hometown: 'France',
+             header_image_url:
+             'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_100/v1473436328/300x300_y3c9xz.jpg')
+User.create!(username: 'Blu Mar Ten',
+             email: 'blumarten@example.com',
+             password: 'password',
+             name: 'Leo Wyndham, Chris Marigold, Michael Tognarelli',
+             hometown: 'London. England',
+             header_image_url:
+             'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_100/v1473436902/BLU_MAR_TEN_logo_cutxab.jpg')
+User.create!(username: 'Spor',
+             email: 'spor@example.com',
+             password: 'password',
+             name: 'Jonathan Gooch',
+             hometown: 'Hertfordshire, England',
+             header_image_url:
+             'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_100/v1473437080/spor_pvl91f.jpg')
 
 Track.create!(title: 'TBF9',
               genre: 'Electronic',
@@ -303,6 +324,42 @@ Track.create!(title: 'Galaxy',
               audio_file_url: 'http://res.cloudinary.com/loudsounds/video/upload/v1473370106/11_GALAXY_psrtfg.mp3',
               image_url: 'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1473369274/WPCL-10093_ueah8j.jpg',
               created_at: Date.parse("#{Faker::Date.between(2.years.ago, Date.today)}").to_s)
+Track.create!(title: 'Something About Us',
+              genre: 'Downtempo',
+              user_id: 15,
+              audio_file_url: 'http://res.cloudinary.com/loudsounds/video/upload/v1473436587/09_Something_About_Us_ovw3zq.m4a',
+              image_url: 'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1473436487/Something-About-Us-Love-Theme-From-Interstella-5555-3-picture_zowhki.jpg',
+              created_at: Date.parse("#{Faker::Date.between(2.years.ago, Date.today)}").to_s)
+Track.create!(title: 'Revolution 909',
+              genre: 'House',
+              user_id: 15,
+              audio_file_url: 'http://res.cloudinary.com/loudsounds/video/upload/v1473436589/03_Revolution_909_j0wsag.m4a',
+              image_url: 'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1473436461/Revolution909_ttkbvs.jpg',
+              created_at: Date.parse("#{Faker::Date.between(2.years.ago, Date.today)}").to_s)
+Track.create!(title: 'Sweet Little Supernova',
+              genre: 'Drum & Bass',
+              user_id: 16,
+              audio_file_url: 'http://res.cloudinary.com/loudsounds/video/upload/v1473436786/13_Sweet_Little_Supernova_feat._Rochelle_Parker_qghwrr.m4a',
+              image_url: 'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1473436946/avatars-000039768716-05rfl3-t500x500_j5lnhy.jpg',
+              created_at: Date.parse("#{Faker::Date.between(2.years.ago, Date.today)}").to_s)
+Track.create!(title: 'The Fourth',
+              genre: 'Drum & Bass',
+              user_id: 16,
+              audio_file_url: 'http://res.cloudinary.com/loudsounds/video/upload/v1473436789/09_The_Fourth_feat._Jenni_Potts_cbbede.m4a',
+              image_url: 'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1473436961/Blu-Mar-Ten1_b18qkk.jpg',
+              created_at: Date.parse("#{Faker::Date.between(2.years.ago, Date.today)}").to_s)
+Track.create!(title: 'Overdue Feat. Tasha Baxter',
+              genre: 'Drum & Bass',
+              user_id: 17,
+              audio_file_url: 'http://res.cloudinary.com/loudsounds/video/upload/v1473437616/Spor_-_Overdue_192_uczlhk.mp3',
+              image_url: 'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1473437143/large_qn1smq.jpg',
+              created_at: Date.parse("#{Faker::Date.between(2.years.ago, Date.today)}").to_s)
+Track.create!(title: 'Aztec',
+              genre: 'Drum & Bass',
+              user_id: 17,
+              audio_file_url: 'http://res.cloudinary.com/loudsounds/video/upload/v1473437614/01_Aztec_msqs8u.m4a',
+              image_url: 'http://res.cloudinary.com/loudsounds/image/upload/c_scale,w_250/v1473437172/300x300_nh2osg.jpg',
+              created_at: Date.parse("#{Faker::Date.between(2.years.ago, Date.today)}").to_s)
 
 
 #Comments
@@ -390,7 +447,38 @@ comments = [
   'mind escaping',
   'this is hot. a great balance of chill and tapping the feet',
   'serene',
-  'so tasty!'
+  'so tasty!',
+  'truth',
+  '$$$',
+  'This is really smooth',
+  'FUEGO',
+  'original sound...cool...',
+  'FRESH',
+  'woah I should randomly click more often',
+  'thats what im talking about',
+  'cover art is dope!!!',
+  'Great tunes guys. keep it up.🔊🎶😎👍',
+  'cant stop listening. turn it up so my ears tickle! =)',
+  'check out my page let me know if you wanna collab',
+  'are my prayers for more of you guys finally gonna be answered??',
+  'so juicy',
+  'Finally that new new so goooood',
+  'Love this funkiness!',
+  'BANGER',
+  'straight snapping, much respect, had to be sure I had this track on my playlist',
+  'this song was so good live',
+  'The song you can play at anytime of the day <3',
+  'warms my heart everytime',
+  'Not the destination, but the journey. Truly nice.',
+  'I\'d leave the computer if your tunes weren\'t so good',
+  'Ohh the tingles...',
+  'Dreamy!!',
+  'I love the soundscape from the very beginning, brother.',
+  'So deep. Straight from the heart, to the heart. Love it.',
+  'the ending is euphoria if it were a sound',
+  'very complete track',
+  'you\'re a god',
+  'just realized I haven\'t bought this album yet... not right',
 ]
 
 user_count = User.all.length
