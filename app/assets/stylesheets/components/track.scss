@@ -35,12 +35,9 @@
   display: flex;
 }
 
-.track-body-image {
+.track-image {
   padding-right: 20px;
   line-height: 0;
-}
-
-.track-body-image img {
   cursor: pointer;
   width: 150px;
   height: 150px;
@@ -53,12 +50,65 @@
 
 .track-body-info-details {
   display: flex;
-  margin-bottom: 10px;
 }
 
 .track-body-info-details img {
   padding-top: 5px;
   padding-bottom: 5px;
+}
+
+.track-body-info-details-artist-details {
+  padding-top: 10px;
+  padding-left: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.genre {
+  font-style: italic;
+  background: #b3b3b3;
+  color: white;
+  padding: 10px 10px 10px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.genre:hover {
+  background: #a6a6a6;
+}
+
+.track-body-info-comment {
+  margin-top: 15px;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.track-body-info-icons {
+  display: flex;
+}
+.track-body-info-icons span {
+  padding: 0 5px;
+}
+
+.track-body-info-icons img {
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+.hide-icon {
+  display: none;
+}
+
+.track-body-info-icons .hide-pointer {
+  cursor: default;
+}
+
+.track-detail-title {
+  margin-left: 175px;
 }
 
 .hvr-grow {
@@ -124,66 +174,6 @@
   animation-timing-function: linear;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
-}
-
-.track-body-info-details-artist-details {
-  padding-top: 10px;
-  padding-left: 10px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-
-.genre {
-  font-style: italic;
-  background: #b3b3b3;
-  color: white;
-  padding: 0 10px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.genre:hover {
-  background: #a6a6a6;
-}
-
-.track-body-info-details-artist-details span {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.track-body-info-comment {
-  margin-top: 15px;
-}
-
-.cursor {
-  cursor: pointer;
-}
-
-.track-body-info-icons {
-  display: flex;
-  position: absolute;
-  bottom: 0;
-}
-.track-body-info-icons span {
-  padding: 0 5px;
-}
-
-.track-body-info-icons img {
-  cursor: pointer;
-  padding: 0 10px;
-}
-
-.hide-icon {
-  display: none;
-}
-
-.track-body-info-icons .hide-pointer {
-  cursor: default;
-}
-
-.track-detail-title {
-  margin-left: 175px;
 }
 
 /* Shrink */

@@ -123,28 +123,27 @@ class Track extends React.Component {
           <span className="header-detail">posted a track {this.props.track.time_ago} ago</span>
         </div>
         <div className='track-body'>
-          <div className='track-body-image'>
             <img src={this.props.track.image_url}
-                 className="hvr-shrink"
+                 className="hvr-shrink track-image"
                  onClick={this.trackClickHandler}/>
-          </div>
           <div className='track-body-info'>
+
             <div className='track-body-info-details'>
-              <div>
-                <img src={this.playPauseIcon()} onClick={this.playPause} className="cursor hvr-grow"></img>
-              </div>
+
+              <img src={this.playPauseIcon()} onClick={this.playPause} className="cursor hvr-grow"></img>
+
               <div className='track-body-info-details-artist-details'>
+
                 <span className="cursor" onClick={this.trackClickHandler}>
                   {this.props.track.title}
                 </span>
                 <span className="genre" onClick={this.genreClickHandler}>#{this.props.track.genre}</span>
+                
               </div>
             </div>
-            <div>
-              <div className='track-body-info-comment'>
-                <CommentFormContainer trackId={this.props.track.id}/>
-              </div>
-            </div>
+
+            <CommentFormContainer className='track-body-info-comment' trackId={this.props.track.id}/>
+
             <div className='track-body-info-icons'>
 
               <img src={this.likeIcon()} className={this.likeClass()} onClick={this.likeClickHandler}></img>

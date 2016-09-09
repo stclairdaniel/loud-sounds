@@ -1,20 +1,7 @@
-.comment-form-container {
-width: 100%;
-display: flex;
-justify-content: flex-start;
-position: relative;
-}
-
-.comment-form-body {
+.comment-form {
   display: flex;
   width: 100%;
-  position: absolute;
-  right: 0;
-  left: 0;
-  height: 55px;
   flex-direction: row;
-  align-items: baseline;
-  margin-top: 10px;
 }
 
 .comment-input {
