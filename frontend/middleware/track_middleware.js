@@ -11,6 +11,7 @@ const TrackMiddleware = ({getState, dispatch}) => next => action => {
   const handleTrack = track => dispatch(receiveTrack(track));
   const handleTracks = tracks => dispatch(receiveTracks(tracks));
   const redirect = () => hashHistory.push(`/${action.track.username}`);
+  const handle404 = () => { hashHistory.push('/error');};
 
   switch(action.type) {
     case TrackConstants.CREATE_TRACK:
@@ -34,7 +35,7 @@ const TrackMiddleware = ({getState, dispatch}) => next => action => {
       break;
     case TrackConstants.REQUEST_TRACKS_LIKE:
       const handleSearch = tracks => dispatch(receiveTrackSearchResults(tracks));
-      requestTracksLike(handleSearch, null, action.title);
+      requestTracksLike(handleSearch, action.title);
       break;
     case TrackConstants.REQUEST_GENRE_TRACKS:
       requestGenreTracks(handleTracks, null, action.genre);

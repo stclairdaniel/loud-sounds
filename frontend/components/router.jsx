@@ -11,6 +11,7 @@ import UserStreamContainer from './body/user_stream_container';
 import TrackContainer from './track/track_container';
 import TrackDetailContainer from './track/track_detail_container';
 import EditFormContainer from './track/edit_form_container';
+import Errors from './errors/errors';
 
 // Actions
 import { clearErrors } from '../actions/error_actions';
@@ -79,6 +80,7 @@ const AppRouter = ({store}) => {
   <Router history={ hashHistory }>
     <Route path='/' component={ App } >
       <IndexRoute component={ StreamContainer } onEnter={ getTracks } />
+      <Route path='error' component={ Errors } />
       <Route path='signup'
              component={ SignupFormContainer }
              onEnter={ redirectIfLoggedIn } />
@@ -104,6 +106,7 @@ const AppRouter = ({store}) => {
              component={ StreamContainer}
              onEnter={ getGenreTracks } />
     </Route>
+
   </Router>
 );
 };
