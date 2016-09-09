@@ -138,7 +138,7 @@ class Track extends React.Component {
                   {this.props.track.title}
                 </span>
                 <span className="genre" onClick={this.genreClickHandler}>#{this.props.track.genre}</span>
-                
+
               </div>
             </div>
 

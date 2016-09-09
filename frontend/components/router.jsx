@@ -43,6 +43,7 @@ const AppRouter = ({store}) => {
   };
 
   const getTracks = () => {
+    store.dispatch(TrackActions.clearTracks());
     store.dispatch(TrackActions.requestTracks());
   };
 
@@ -52,6 +53,7 @@ const AppRouter = ({store}) => {
   };
 
   const getGenreTracks = (nextState) => {
+    store.dispatch(TrackActions.clearTracks());
     store.dispatch(TrackActions.requestGenreTracks(nextState.params.genre));
   };
 
