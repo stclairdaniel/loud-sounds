@@ -12,7 +12,6 @@ const LoggerMiddleware = createLogger();
 const RootMiddleware = applyMiddleware(
   SessionMiddleware,
   TrackMiddleware,
-  LoggerMiddleware,
   UserMiddleware,
   CommentMiddleware,
   LikeMiddleware
