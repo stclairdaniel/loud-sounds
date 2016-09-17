@@ -10,7 +10,7 @@ LoudSounds is a full-stack web application inspired by SoundCloud. It utilizes R
 
 ### Single-Page App
 
-LoudSounds takes advantage of the React Router in order to deliver a seamless user experience, delivering all content on a static page.
+LoudSounds takes advantage the React/Redux architecture in order to create a seamless user experience by delivering all content on a static page. This allows users to listen to music uninterrupted as they navigate the site, since the page never reloads.
 
 ### Track Uploading, Rendering, & Editing
 
@@ -35,7 +35,7 @@ Tracks are stored in a database table containing columns for the `user_id` of th
 ### Comments and Likes
 
 Comments and Likes are both join tables in the database joining `user_id`s
-and `track_id`s. Comments has an additional `body` column. The state does not keep track of comments and likes, but included each as part of the tracks state. This way, the tracks reducer can simply merge the current state with the updated track whenever a comment or like is made or destroyed.
+and `track_id`s. Comments has an additional `body` column. The state does not keep track of comments and likes, but includes each as part of the track's state. This way, the tracks reducer can simply merge the current state with the updated track whenever a comment or like is made or destroyed, instead of requesting all tracks (or all comments or likes).
 
 ### Playing Music
 

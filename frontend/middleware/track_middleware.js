@@ -35,7 +35,7 @@ const TrackMiddleware = ({getState, dispatch}) => next => action => {
       break;
     case TrackConstants.REQUEST_TRACKS_LIKE:
       const handleSearch = tracks => dispatch(receiveTrackSearchResults(tracks));
-      requestTracksLike(handleSearch, action.title);
+      requestTracksLike(handleSearch, null, action.title);
       break;
     case TrackConstants.REQUEST_GENRE_TRACKS:
       requestGenreTracks(handleTracks, null, action.genre);

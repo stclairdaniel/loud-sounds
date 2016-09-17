@@ -14,7 +14,8 @@ const RootMiddleware = applyMiddleware(
   TrackMiddleware,
   UserMiddleware,
   CommentMiddleware,
-  LikeMiddleware
+  LikeMiddleware,
+  LoggerMiddleware
 );
 
 export default RootMiddleware;
