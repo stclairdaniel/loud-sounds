@@ -12,6 +12,9 @@ LoudSounds is a full-stack web application inspired by SoundCloud. It utilizes R
 
 LoudSounds takes advantage the React/Redux architecture in order to create a seamless user experience by delivering all content on a static page. This allows users to listen to music uninterrupted as they navigate the site, since the page never reloads.
 
+<img src="http://imgur.com/MSHyROz.jpg" style="width:800px;height:auto"/>
+
+
 ### Track Uploading, Rendering, & Editing
 
 Tracks are stored in a database table containing columns for the `user_id` of the artist who posted the track, a link to the `audio_file_url` provided by the Cloudinary upload widget, and other essential information including track `comments` and `likes`. On enter hooks make an API call to the database to receive tracks appropriate for the view: and individual track for a show page, tracks uploaded by a specific user for the user's show page, tracks filtered by genre the genre show page, tracks filtered by title search, and all tracks for the main page (in future versions to improve scalability, the main show page on enter hook can easily be edited to only grab the most recent N tracks). Tracks are rendered along with a count of likes and comments in the main stream or user stream. An expanded comments view is visible on the track's show page. The tracks controller index method returns the appropriate tracks based on URL query parameters:
@@ -32,6 +35,9 @@ Tracks are stored in a database table containing columns for the `user_id` of th
   end
 ```
 
+<img src="http://imgur.com/09TjcK8.jpg" style="width:300px;height:auto"/>
+
+
 ### Comments and Likes
 
 Comments and Likes are both join tables in the database joining `user_id`s
@@ -49,6 +55,11 @@ Playing tracks and navigating the site are not locked behind a log in. Uploading
 
 A real-time search dropdown performs an Active Record query for artists or tracks like the search term and links to the appropriate pages. The search reducer runs two actions: one to filter artists and one to filter tracks. These results are kept in separate arrays under the search key in the state.
 
+<img src="http://imgur.com/Qzd3caR.jpg" style="width:300px;height:auto"/>
+
+### Styling
+
+CSS hover effects were used widely to make the site feel interactive. Almost all clickable elements respond to hover in some way, including a pulsing heart for Likes and font color changes for links.
 
 ### Notes from the creator
 
